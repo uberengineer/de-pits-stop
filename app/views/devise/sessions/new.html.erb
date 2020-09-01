@@ -18,3 +18,15 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<span style="font-size: 15px">Temporary note from gonzalo:</span><br>
+<span style="font-size: 15px">in order to create an admin user, you will need to use the console. Follow these commands:</span><br>
+<span style="font-size: 15px"></span><br>
+<span style="font-size: 15px">$ rails c</span><br>
+<span style="font-size: 15px">admin = User.new</span><br>
+<span style="font-size: 15px">admin.first_name = "JohnAdmin"</span><br>
+<span style="font-size: 15px">admin.last_name = "Smith"</span><br>
+<span style="font-size: 15px">admin.email = "adminuser@gmail.com"</span><br>
+<span style="font-size: 15px">admin.password = "admin123"</span><br>
+<span style="font-size: 15px">admin.admin = true</span><br>
+<span style="font-size: 15px">admin.save</span><br>
