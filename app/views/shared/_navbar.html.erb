@@ -1,19 +1,18 @@
 <div id="navbar" class="navbar-gfr">
     <div class="navbar-left">
-        <a href="/">
+        <a href="/dashboard">
             <img src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/cropped-pitslogovert-192x192.png" alt="logo">
         </a>
     </div>
     <div class="navbar-text">
-        Lorem ipsum dolor sit amet
+        Welcome, <%= current_user.first_name %>!
     </div>
     <div class="navbar-right">
-        <!-- <% if current_user == nil%> -->
+        <% if current_user == nil%> -->
         <a class="btn btn-primary" href='/users/sign_in'>Login</a>
         <a class="btn btn-primary" href='/users/sign_up'>New User</a>
-        <!-- <% else %> -->
-       <!--  <a class="btn btn-primary" href=<%=profile_path(current_user.id) %>>Profile</a>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn bt-primary" %>
-        <% end %> -->
+        <% else %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "tbd" %>
+        <% end %>
     </div>
 </div>

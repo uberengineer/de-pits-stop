@@ -1,0 +1,60 @@
+.menu-card {
+  background: white;
+  box-shadow: 0 0 2vw rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 1vw;
+  margin: 1vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .menu-image-container {
+    min-width: 20vh;
+    min-height: 20vh;
+    max-width: 30vh;
+    max-height: 25vh;
+    border-radius: 10px;
+    overflow: hidden;
+    .menu-item-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .menu-text-container {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: flex;
+    min-width: 30%;
+    max-height: 25vh;
+    flex-direction: column;
+
+    .menu-title{
+      max-height: 12.5vh;
+      text-align: left;
+    }
+
+    .menu-item-description{
+      max-height: 12.5vh;
+      text-align: left;
+    }
+  }
+
+  .add-to-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .menu-item-price{
+      justify-content: center;
+      text-align: center;
+    }
+    .add-button {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+

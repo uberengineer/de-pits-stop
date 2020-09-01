@@ -1,0 +1,16 @@
+.admin-grid {
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+  grid-gap: 3vw;
+}
+
+.admin-grid-item {
+  width: 25vw;
+  height: 15vw;
+  background: white;
+  box-shadow: 0 0 2vw rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

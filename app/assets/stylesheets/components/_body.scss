@@ -1,18 +1,22 @@
 .blue-body {
+  padding-top: 64px;
   background-color: $background-blue;
   text-align: center;
   display: flex;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
 .red-body {
+  padding-top: 64px;
   background-color: $background-red;
   text-align: center;
   display: flex;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
