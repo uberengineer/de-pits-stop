@@ -1,14 +1,49 @@
-<%= link_to "New menu item", new_menu_item_path %>
-<%= link_to "My cart", order_path(Order.first_or_create(user: current_user, status: "in progress")) %>
+<div class="blue-body">
+<%= render 'shared/navbar'%>
 
 <% @menu_items.each do |menu_item| %>
   <div class="menu-card">
-    <h1><%= menu_item.name %> </h1>
-    <h1><%= menu_item.id %> </h1>
-    <h1><%= menu_item.price %> </h1>
-    <p><%= menu_item.description %> </p>
+
+      <div class="menu-image-container">
+        <%= image_tag "salad", class: "menu-item-img" %>
+      </div>
+
+
+      <div class="menu-text-container">
+
+          <div class="menu-title">
+            <strong><%= menu_item.name.capitalize %></strong>
+          </div>
+
+        <div class="menu-item-description">
+          <p>Lorem ipsum dolore sit amet<%= menu_item.description %> </p>
+        </div>
+      </div>
+
+
+
+      <div class="add-to-cart">
+          <div class="menu-item-price">
+            12.37 €<%= menu_item.price %>
+          </div>
+          <div class="add-button">
+        <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
+          <%= hidden_field_tag(:item_id, menu_item.id) %>
+          <%= f.button :submit, value: "Add to Cart", style: "margin: 0; color: white;" %>
+          </div>
+        <% end %>
+      </div>
+
+  </div>
+<% end %>
+
+<!-- We don't want quantity in cards. Only in cart. Gonzalo. -->
+
+
+<% @menu_items.each do |menu_item| %>
+  <div class="tbd">
     <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
-    <%= hidden_field_tag(:item_id, menu_item.id) %>
+      <%= hidden_field_tag(:item_id, menu_item.id) %>
       <%= f.input :quantity, label: 'quantity' %>
       <%= f.button :submit, class: 'btn-primary', value: 'add to cart' %>
     <% end %>
@@ -16,3 +51,4 @@
 <% end %>
 
 
+</div>

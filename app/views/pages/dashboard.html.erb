@@ -1,1 +1,23 @@
+<div class="red-body">
+<%= render 'shared/navbar' %>
+    <h3>Choose an action below:</h3>
+    <br>
+    <div class="admin-grid">
 
+      <%= link_to orders_path do %>
+        <div class="admin-grid-item">TODAY'S ORDERS</div>
+      <% end %>
+
+      <%= link_to orders_path do %>
+        <div class="admin-grid-item">VIEW PAST ORDERS</div>
+      <% end %>
+
+      <%= link_to new_menu_item_path do %>
+        <div class="admin-grid-item">ADD MENU ITEMS</div>
+      <% end %>
+
+        <div class="admin-grid-item">DELETE MENU ITEMS</div>
+    </div>
+    <br>
+    <%= link_to "Notice anything wrong? Click here to send us an email.", "mailto: gonzalo@test.com" %>
+</div>
