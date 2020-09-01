@@ -15,12 +15,14 @@ class MenuItemsController < ApplicationController
 
   def create
     @menu_item = MenuItem.create(strong_params)
+    redirect_to menu_items_path
+
   end
 
   private
 
   def strong_params
-    params.require(:menu_item).permit(:name, :description)
+    params.require(:menu_item).permit(:name, :description, :price)
   end
 
 end
