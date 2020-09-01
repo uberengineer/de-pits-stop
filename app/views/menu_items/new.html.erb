@@ -1,0 +1,9 @@
+<div id="new-listing">
+  <%= simple_form_for @menu_item do |f| %>
+    <%= f.input :name, label: 'Your menu item name' %>
+    <%= f.input :description, as: :text, input_html: {rows: 5}, label: 'Description', placeholder: 'Tell us why your boat is awesome!' %>
+    <%= f.input :price, label: 'Price' %>
+    <%= f.button :submit, class: 'btn-primary' %>
+  <% end %>
+</div>
+
