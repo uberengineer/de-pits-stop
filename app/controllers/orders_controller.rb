@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = Order.select do |order|
+      order.status == "not ready"
+    end
   end
 
   def show
@@ -9,6 +11,12 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(params)
+    @order.status = "not ready"
+    @order.save!
   end
+
+  def show_user_orders
+    @orders = current_user.orders
+  end
+
 end
