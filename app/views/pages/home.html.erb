@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="blue-body">
+  <div class="splash-img">
+    <%= image_tag "blue_splash_logo.png", alt: "logo", class: "splash-logo" %>
+  </div>
+  <div>Welcome to De Pits Stop</div>
+  <div>Choose from the below</div>
+  <%= link_to "I am a guest", new_user_session_path %>
+  <%= link_to "I am an admin", new_user_session_path %>
+</div>

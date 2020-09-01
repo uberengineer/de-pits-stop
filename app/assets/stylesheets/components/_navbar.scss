@@ -1,12 +1,49 @@
-.navbar-lewagon {
-  justify-content: space-between;
+#navbar {
+  position: fixed; /* Make it stick/fixed */
+  top: 0; /* Stay on top */
+  width: 100%; /* Full width */
+  transition: top 1s; /* Transition effect when sliding down (and up) */
+  z-index: 1000;
+}
+////////ABOVE/////////
+////GONZALO/NAVBAR////
+///////DYNAMIC////////
+
+.navbar-gfr {
   background: white;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-left {
+  padding: 5px 0 5px 0;
+  width: 150px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-left img {
+  width: 50px;
+}
+
+.navbar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Alata', sans-serif;
+}
+
+.navbar-right {
+  padding: 0 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+}
+
+.btn {
+  white-space: nowrap;
+  margin-right: 5px;
+  background-color: #ee6f57;
+  border: none;
 }
