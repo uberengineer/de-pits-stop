@@ -5,5 +5,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    unless current_user.admin
+      redirect_to menu_items_path
+    end
   end
 end
