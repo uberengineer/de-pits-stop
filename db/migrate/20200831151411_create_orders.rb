@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
   def change
     create_table :orders do |t|
       t.string :comment
-      t.string :status
+      t.string :status, default: "in progress"
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

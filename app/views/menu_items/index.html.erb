@@ -3,11 +3,15 @@
 <% @menu_items.each do |menu_item| %>
   <div class="menu-card">
     <h1><%= menu_item.name %> </h1>
+    <h1><%= menu_item.id %> </h1>
     <h1><%= menu_item.price %> </h1>
     <p><%= menu_item.description %> </p>
+    <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
+    <%= hidden_field_tag(:item_id, menu_item.id) %>
+      <%= f.input :quantity, label: 'quantity' %>
+      <%= f.button :submit, class: 'btn-primary', value: 'add to cart' %>
+    <% end %>
   </div>
-  <!-- TODO: QUANTITY FIELD  -->
-  <!-- TODO: ADD TO CART BUTTON  -->
 <% end %>
 
 
