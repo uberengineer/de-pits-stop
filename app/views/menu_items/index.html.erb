@@ -2,6 +2,7 @@
 <br>
 <h1><%= @cart.order_items.length %> </h1>
 <%= link_to "view cart", checkout_order_path(@cart) %>
+<%= link_to "my orders", show_current_orders_path %>
 <div class="blue-body">
 <%= render 'shared/navbar'%>
 
