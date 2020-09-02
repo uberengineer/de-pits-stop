@@ -21,7 +21,7 @@
             <div class="add-button">
           <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
             <%= hidden_field_tag(:item_id, menu_item.id) %>
-            <%= f.input :quantity, label: "quantity"%>
+            <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer %>
             <%= f.button :button, ' Add to Cart', class: 'btn-icon' %>
             </div>
           <% end %>
