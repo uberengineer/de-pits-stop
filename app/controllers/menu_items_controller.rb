@@ -22,7 +22,7 @@ class MenuItemsController < ApplicationController
   private
 
   def strong_params
-    params.require(:menu_item).permit(:name, :description, :price)
+    params.require(:menu_item).permit(:name, :description, :price, :image)
   end
 
 end

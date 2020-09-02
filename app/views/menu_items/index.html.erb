@@ -9,7 +9,7 @@
   <div class="menu-card">
 
       <div class="menu-image-container">
-        <%= image_tag "salad", class: "menu-item-img" %>
+        <%= cl_image_tag @menu_item.image.key, height: 300, width: 400, crop: :fill %>
       </div>
 
 
