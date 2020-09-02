@@ -2,7 +2,7 @@ daily_specials:
   - name: "Pompoensoep"
     description: "Verse huisgemaakte soep"
     price: 9
-    image: 'db/assets/images/xxx.jpeg'\
+    image: 'db/assets/images/xxx.jpeg'
     category: "daily_specials"
 
   - name: "Broodje Marokkaanse lamsworst"
