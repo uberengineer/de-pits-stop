@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def past_orders
-    @orders = current_user.orders.select do |order|
+    @orders = Order.select do |order|
       order.status == "completed"
     end
   end
