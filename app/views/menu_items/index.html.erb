@@ -4,7 +4,7 @@
   <% @menu_items.each do |menu_item| %>
     <div class="menu-card col-8">
         <div class="menu-image-container">
-          <%= cl_image_tag @menu_item.image.key, height: 300, width: 400, crop: :fit, class: "menu-item-img" %>
+          <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
         </div>
         <div class="menu-text-container">
           <div class="menu-title">
