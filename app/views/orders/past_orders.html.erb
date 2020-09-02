@@ -25,11 +25,5 @@
                 <%= total %>
             </h3>
         </div>
-        <% if order.status == "not ready" %>
-          <%= link_to "Ready for pick-up", order_path(order), method: :patch %>
-        <% elsif order.status == "awaiting pick-up" %>
-          <%= link_to "Complete", order_path(order), method: :patch %>
-        <% end %>
     </div>
     <% end %>
-    This page is semi-coded but the orders are not displaying. <br> I think because there are no order seeds<br>Gonzalo Sept 1
