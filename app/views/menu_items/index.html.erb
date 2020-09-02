@@ -12,10 +12,10 @@
             <strong><%= menu_item.name.capitalize %></strong>
           </div>
           <div class="menu-item-description">
-            <p>Lorem ipsum dolore sit ipsum dolore sit ipsum dolore sit amet<%= menu_item.description %> </p>
+            <p><%= menu_item.description %> </p>
           </div>
           <div class="menu-item-price">
-              12.37 €<%= menu_item.price %>
+              <p>€<%= number_with_precision(menu_item.price, precision: 2) %></p>
             </div>
         </div>
         <div class="add-to-cart">
