@@ -19,4 +19,8 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
+  def checkout
+    @cart = Order.find(user: current_user, status: "in progress")
+  end
+
 end
