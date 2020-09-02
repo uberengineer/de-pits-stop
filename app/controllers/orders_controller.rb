@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.status = "not ready"
     @order.save!
+    redirect_to menu_items_path
   end
 
   def show_user_orders
@@ -20,7 +21,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-    @cart = Order.find(user: current_user, status: "in progress")
+    @cart = Order.first_or_create(user: current_user, status: "in progress")
   end
 
 end
