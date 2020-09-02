@@ -18,7 +18,7 @@
                 <%= menu_item.description %> </p>
             </div>
             <div class="menu-item-price">
-                €<%= menu_item.price %>
+                €<%= number_with_precision(menu_item.price, precision: 2) %>
               </div>
           </div>
           <div class="add-to-cart">
