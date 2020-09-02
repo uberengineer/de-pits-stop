@@ -17,10 +17,12 @@
             <h4>
               <%= order_item.menu_item.name%>
               <%= order_item.menu_item.price%>
+
             </h4>
+            <% total = total +  order_item.menu_item.price * order_item.quantity %>
             <% end %>
             <h3>
-                <%= total %>
+                <%= '%.2f' % total %>
             </h3>
             <h2>
               <%= order.status %>
