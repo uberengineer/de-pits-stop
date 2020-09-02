@@ -16,7 +16,6 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = MenuItem.create(strong_params)
     redirect_to menu_items_path
-
   end
 
   private

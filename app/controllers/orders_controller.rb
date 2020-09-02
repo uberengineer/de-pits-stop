@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
     @orders = Order.select do |order|
       order.status == "not ready"
     end
+
+    @past_orders = Order.select do |order|
+      order.status == "completed"
+    end
   end
 
   def show
