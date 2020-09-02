@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :update, :index] do
     member do
       resources :order_items, only: [:create, :destroy]
-      get "/orders/:id/checkout", to: "orders#checkout", as: "checkout"
+      get "/checkout", to: "orders#checkout", as: "checkout"
     end
   end
 end
