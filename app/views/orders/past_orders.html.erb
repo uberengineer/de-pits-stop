@@ -19,10 +19,11 @@
               <%= order_item.menu_item.name%>
               <%= order_item.menu_item.price%>
             </h4>
-
+            <h2><%= order_item.menu_item.price * order_item.quantity %> </h2>
+            <% total = total + order_item.menu_item.price * order_item.quantity %>
             <% end %>
             <h3>
-                <%= total %>
+               €<%= '%.2f' % total %>
             </h3>
         </div>
     </div>
