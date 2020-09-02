@@ -1,0 +1,30 @@
+<div class="red-body">
+    <%= render 'shared/navbar' %>
+    <% @orders.each do |order| %>
+    <div class="order-card">
+        <h2>#
+            <%= order.id %>
+        </h2>
+        <div class="order-info">
+            <h3>
+              <%= order.user.first_name %>
+              <%= order.user.last_name %>
+            </h3>
+        </div>
+        <div class="order-items">
+            <% total = 0 %>
+            <% order.order_items.each do |order_item|  %>
+            <h4>
+              <%= order_item.menu_item.name%>
+              <%= order_item.menu_item.price%>
+            </h4>
+            <% end %>
+            <h3>
+                <%= total %>
+            </h3>
+            <h2>
+              <%= order.status %>
+            </h2>
+        </div>
+    </div>
+    <% end %>
