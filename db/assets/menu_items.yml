@@ -2,17 +2,17 @@ daily_special:
   - name: "Soup with pumpkin"
     description: "fresh soup with vegetables"
     price: €9
-    image:
+    image: "1.jpeg"
 
   - name: "sandwich with sausage"
     description: "with tomatoes, lettuce and cheese"
     price: €8
-    image:
+    image: "2.jpeg"
 
   - name: "salad with feta cheese"
     description: "with feta tomatoes onions oregano lettuce"
     price: €8
-    image:
+    image: "3.jpeg"
 
 combi_deals:
   - name: "Mexicaanse kipburger"
@@ -21,7 +21,7 @@ Drankje naar keuze
 Nachos & guacamole
 Huisgebakken American cookie met witte én melkchocolade"
     price: €11,50
-    image:
+    image: "4.jpeg"
 
   - name: "XL Zalm bagel"
     description: "XL bagel met huis gerookte zalm en mierikswortel crème
@@ -29,7 +29,7 @@ Drankje naar keuze
 Frisse groene salade
 Huisgebakken American cookie met witte én melkchocolade"
     price: €11,50
-    image:
+    image: "5.jpeg"
 
   - name: "Broodje Surinaamse Kip"
     description: "Ciabatta met kip gegaard in authentieke Surinaamse marinade, verse groenten en yoghurt muntsaus
@@ -37,7 +37,7 @@ Drankje naar keuze
 Frisse groene salade
 Huisgebakken American cookie met witte én melkchocolade"
     price: €11,50
-    image:
+    image: "6.jpeg"
 
   - name: "Rode bieten wrap met hummus"
     description: "Wrap met huisgemaakte hummus, rucola en zongedroogde tomaat
@@ -45,91 +45,91 @@ Drankje naar keuze
 Frisse groene salade
 Huisgebakken American cookie met witte én melkchocolade"
     price: €11,50
-    image:
+    image: "7.jpeg"
 
   - name: "Pasta Kip pesto"
     description: "Pasta Penne met kip, groenten en pesto
 Drankje naar keuze
 Frisse groene salade"
     price: €11,50
-    image:
+    image: "8.jpeg"
 
   - name: " Maaltijdsalade hummus"
     description: "Hummus salade met gegrilde groenten en zongedroogde tomaat
 Vers brood
 Drankje naar keuze"
     price: €11,50
-    image:
+    image: "9.jpeg"
 
   - name: "Maaltijdsalade gemarineerde kip"
     description: "Salade met gemarineerde kip en verse groenten
 Vers brood
 Drankje naar keuze"
     price: €11,50
-    image:
+    image: "10.jpeg"
 
   - name: "Maaltijdsalade huis gerookte zalm"
     description: "Salade met huis gerookte zalmfilet, sperziebonen en krieltjes
 Vers brood
 Drankje naar keuze"
     price: €11,50
-    image:
+    image: "11.jpeg"
 
 losse_items:
   - name: "XL Bagel huis gerookte zalm"
     description: "XL bagel met huis gerookte zalm en mierikswortelcrème"
     price: €6,75
-    image:
+    image: "5.jpeg"
 
   - name: "Mexicaanse kipburger"
     description: "Huisgemaakte kipburger met tomaat, ui en cheddar kaas"
     price: €6,75
-    image:
+    image: "4.jpeg"
 
   - name: "Rode bieten wrap met hummus"
     description: "Wrap met huisgemaakte hummus, rucola en zongedroogde tomaat"
     price: €5,50
-    image:
+    image: "7.jpeg"
 
   - name: "Broodje Surinaamse Kip"
     description: " Ciabatta met kip gegaard in authentieke Surinaamse marinade, verse groenten en yoghurt muntsaus"
     price: €5,95
-    image:
+    image: "6.jpeg"
 
   - name: "Ciabatta Caprese"
     description: "Ciabatta met Mozzarella, tomaat, pesto en rucola"
     price: €7,75
-    image:
+    image: "12.jpeg"
 
   - name: "Tuna melt"
     description: "Geroosterde ciabatta met tonijnsalade, cheddar kaas en ui"
     price: €5,75
-    image:
+    image: "12.jpeg"
 
   - name: "Ciabatta oude kaas"
     description: "Ciabatta met oude kaas, grove mosterd mayonaise, komkommer en tomaat"
     price: €5,75
-    image:
+    image: "12.jpeg"
 
   - name: "Ciabatta gezond"
     description: "Ciabatta met ham, kaas, gekookte ei, groenten en frisse sla"
     price: €6,25
-    image:
+    image: "12.jpeg"
 
   - name: "Huisgemaakte rode linzensoep"
     description: "Huisgemaakte rode linzensoep met vers brood"
     price: €5,00
-    image:
+    image: "12.jpeg"
 
   - name: "Tosti kaas/ham/hamkaas"
     price: €4,50
-    image:
+    image: "13.jpeg"
 
 
 extras:
   - name: "Frites"
     price: €2,25
-    image:
+    image: "14.jpeg"
 
   - name: "Mayonaise"
     price: €0,75
@@ -137,7 +137,7 @@ extras:
 
   - name: "Groene salade"
     price: €3,00
-    image:
+    image: "9.jpeg"
 
   - name: "Guacamole"
     price: €2,00
@@ -145,7 +145,7 @@ extras:
 
   - name: "Nachos' & Guacamole"
     price: €3,75
-    images:
+    images: "15.jpeg"
 
 koude_dranken:
   - name: "Verse jus d’orange"
@@ -154,7 +154,7 @@ koude_dranken:
 
   - name: "Sisi/ Coca Cola/Coca Cola zero"
     price: €2,20
-    image:
+    image: "16.jpeg"
 
   - name: "Appelsap"
     price: €2,50
