@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_150245) do
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.float "price"
+    t.integer "price"
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_150245) do
 
   create_table "orders", force: :cascade do |t|
     t.string "comment"
-    t.string "status"
+    t.string "status", default: "in progress"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
