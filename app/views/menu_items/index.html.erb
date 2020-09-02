@@ -1,7 +1,7 @@
 <br>
 <br>
 <h1><%= @cart.order_items.length %> </h1>
-
+<%= link_to "view cart", checkout_order_path(@cart) %>
 <div class="blue-body">
 <%= render 'shared/navbar'%>
 

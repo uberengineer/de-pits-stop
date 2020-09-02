@@ -1,0 +1,6 @@
+
+<% @cart.order_items.each do |order_item| %>
+  <p><%= order_item.menu_item.name %></p>
+  <p><%= order_item.quantity %></p>
+<% end %>
+<%= link_to "Checkout", order_path(@cart), method: :patch %>
