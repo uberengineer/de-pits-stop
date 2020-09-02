@@ -12,36 +12,43 @@ menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symboliz
 MenuItem.destroy_all
 puts "Creating menu items"
 
-menu[:daily_special].each do |menu_item|
-  f = MenuItem.create(name: menu_item[:name], category: "daily_special")
+menu[:daily_specials].each do |menu_item|
+  f = MenuItem.create(name: menu_item[:name])
   file = menu_item[:image]
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
 
 menu[:combi_deals].each do |menu_item|
-  f = MenuItem.create(name: menu_item[:name], category: "combi_deals")
+  f = MenuItem.create(name: menu_item[:name])
   file = menu_item[:image]
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
 
 menu[:losse_items].each do |menu_item|
-  f = MenuItem.create(name: menu_item[:name], category: "losse_items")
+  f = MenuItem.create(name: menu_item[:name])
   file = menu_item[:image]
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
 
 menu[:extras].each do |menu_item|
-  f = MenuItem.create(name: menu_item[:name], category: "extras")
+  f = MenuItem.create(name: menu_item[:name])
   file = menu_item[:image]
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
 
 menu[:koude_dranken].each do |menu_item|
-  f = MenuItem.create(name: menu_item[:name], category: "koude_dranken")
+  f = MenuItem.create(name: menu_item[:name])
+  file = menu_item[:image]
+  f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
+  puts "Created menu item #{menu_item[:name]}"
+end
+
+menu[:desserts].each do |menu_item|
+  f = MenuItem.create(name: menu_item[:name])
   file = menu_item[:image]
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"

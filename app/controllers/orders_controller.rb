@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
     @past_orders = Order.select do |order|
       order.status == "completed"
     end
+
+    @current_orders = Order.select do |order|
+      order.status == "completed"
+    end
   end
 
   def show
@@ -32,6 +36,12 @@ class OrdersController < ApplicationController
       redirect_to orders_path
     end
     @order.save!
+  end
+
+  def show_current_orders
+    @orders = current_user.orders.select do |order|
+      order.status == "not ready" || order.status == "awaiting pick-up"
+    end
   end
 
   def show_user_orders
