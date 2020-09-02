@@ -1,7 +1,7 @@
 <div class="blue-body">
   <%= render 'shared/navbar'%>
   <%= link_to "View Cart", checkout_order_path(@cart) %>
-
+  <%= link_to "Current orders", show_current_orders_path %>
 <h3 class="medium-title">Daily Specials</h3>
   <% @menu_items.each do |menu_item| %>
     <% if menu_item.category == "daily_special" %>

@@ -16,7 +16,7 @@
             <% order.order_items.each do |order_item|  %>
             <h4>
               <%= order_item.menu_item.name%>
-              <%= order_item.menu_item.price%>
+              € <%= order_item.menu_item.price%>
 
             </h4>
             <% total = total +  order_item.menu_item.price * order_item.quantity %>
