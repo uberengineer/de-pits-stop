@@ -1,7 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
-    @cart = Order.first_or_create(user: current_user, status: "in progress")
+    @cart = Order.where(user_id: current_user.id, status: "in progress").first_or_create
     @order_item = OrderItem.new()
   end
 
@@ -16,7 +16,6 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = MenuItem.create(strong_params)
     redirect_to menu_items_path
-
   end
 
   private

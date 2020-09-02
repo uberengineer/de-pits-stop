@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.select do |order|
-      order.status == "not ready"
+      order.status == "not ready" || order.status == "awaiting pick-up"
+    end
+
+    @past_orders = Order.select do |order|
+      order.status == "completed"
     end
   end
 
@@ -9,11 +13,25 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def past_orders
+    @orders = Order.select do |order|
+      order.status == "completed"
+    end
+  end
+
   def update
     @order = Order.find(params[:id])
-    @order.status = "not ready"
+    if @order.status == "in progress"
+      @order.status = "not ready"
+      redirect_to menu_items_path
+    elsif @order.status == "not ready"
+      @order.status = "awaiting pick-up"
+      redirect_to orders_path
+    elsif @order.status == "awaiting pick-up"
+      @order.status = "completed"
+      redirect_to orders_path
+    end
     @order.save!
-    redirect_to menu_items_path
   end
 
   def show_user_orders
@@ -21,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-    @cart = Order.first_or_create(user: current_user, status: "in progress")
+    @cart = Order.where(user: current_user, status: "in progress").first_or_create
   end
 
 end
