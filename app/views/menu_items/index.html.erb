@@ -1,58 +1,31 @@
-<br>
-<br>
-
-<%= link_to "view cart", checkout_order_path(@cart) %>
 <div class="blue-body">
-<%= render 'shared/navbar'%>
-
-<% @menu_items.each do |menu_item| %>
-  <div class="menu-card">
-
-      <div class="menu-image-container">
-        <%= cl_image_tag @menu_item.image.key, height: 300, width: 400, crop: :fill %>
-      </div>
-
-
-      <div class="menu-text-container">
-
+  <%= render 'shared/navbar'%>
+  <%= link_to "View Cart", checkout_order_path(@cart) %>
+  <% @menu_items.each do |menu_item| %>
+    <div class="menu-card col-8">
+        <div class="menu-image-container">
+          <%= cl_image_tag @menu_item.image.key, height: 300, width: 400, crop: :fit, class: "menu-item-img" %>
+        </div>
+        <div class="menu-text-container">
           <div class="menu-title">
             <strong><%= menu_item.name.capitalize %></strong>
           </div>
-
-        <div class="menu-item-description">
-          <p>Lorem ipsum dolore sit amet<%= menu_item.description %> </p>
-        </div>
-      </div>
-
-
-
-      <div class="add-to-cart">
+          <div class="menu-item-description">
+            <p>Lorem ipsum dolore sit ipsum dolore sit ipsum dolore sit amet<%= menu_item.description %> </p>
+          </div>
           <div class="menu-item-price">
-            12.37 €<%= menu_item.price %>
-          </div>
-          <div class="add-button">
-        <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
-          <%= hidden_field_tag(:item_id, menu_item.id) %>
-          <%= f.button :submit, value: "Add to Cart", style: "margin: 0; color: white;" %>
-          </div>
-        <% end %>
-      </div>
-
-  </div>
-<% end %>
-
-<!-- We don't want quantity in cards. Only in cart. Gonzalo. -->
-
-
-<% @menu_items.each do |menu_item| %>
-  <div class="tbd">
-    <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
-      <%= hidden_field_tag(:item_id, menu_item.id) %>
-      <%= f.input :quantity, label: 'quantity' %>
-      <%= f.button :submit, class: 'btn-primary', value: 'add to cart' %>
-    <% end %>
-  </div>
-<% end %>
-
-
+              12.37 €<%= menu_item.price %>
+            </div>
+        </div>
+        <div class="add-to-cart">
+            <div class="add-button">
+          <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
+            <%= hidden_field_tag(:item_id, menu_item.id) %>
+            <%= f.input :quantity, label: "quantity"%>
+            <%= f.button :button, ' Add to Cart', class: 'btn-icon' %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
 </div>
