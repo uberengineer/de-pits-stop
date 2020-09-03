@@ -1,0 +1,92 @@
+
+.order-card {
+  background: white;
+  box-shadow: 0 0 2vw rgba(0,0,0,0.2);
+  padding: 1vw;
+  margin: 1vh;
+  min-height: 200px;
+  min-width: 80%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.order-id {
+  padding-left: .75vw;
+  padding-right: .75vw;
+}
+
+.customer-details {
+  text-align: left;
+}
+
+.customer-details {
+  text-align: left;
+  padding-left: .75vw;
+  padding-right: .75vw;
+}
+
+
+.order-management {
+  min-width: 50vw;
+  padding-left: .75vw;
+  padding-right: .75vw;
+}
+
+.order-tally {
+}
+
+.order-details-checkout {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+
+.tally-id {
+
+}
+.tally-item {
+  margin-left: 5vw;
+  position: absolute;
+}
+.tally-price {
+  margin-left: auto;
+  color: $green;
+}
+
+
+
+
+.status-toggler {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.end {}
+
+

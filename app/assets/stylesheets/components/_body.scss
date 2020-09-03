@@ -27,3 +27,25 @@
   color: $blue-font;
   background-color: $black-font-background;
 }
+
+.blue-title-md {
+  font-family: $funky-font;
+  color: $blue-font;
+  font-size: 18px;
+}
+
+.blue-title-sm {
+  font-family: $funky-font;
+  color: $blue-font;
+  font-size: 14px;
+}
+
+.black-title-sm {
+  font-family: $funky-font;
+  color: $black;
+  font-size: 14px;
+}
+
+hr{
+  margin: .5rem 0 .5rem 0;
+}
