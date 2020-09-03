@@ -10,6 +10,7 @@ require "open-uri"
 
 menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symbolize_keys
 MenuItem.destroy_all
+Cloudinary::Api.delete_all_resources
 puts "Creating menu items"
 
 menu[:daily_specials].each do |menu_item|
