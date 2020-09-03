@@ -1,36 +1,59 @@
 <div class="red-body">
-    <%= link_to "back to dashboard", dashboard_path, class: "tbd" %>
     <%= render 'shared/navbar' %>
     <% @orders.each do |order| %>
     <div class="order-card">
-        <h2>#
+        <div class="blue-title-md order-id">
+            #
             <%= order.id %>
-        </h2>
-        <div class="order-info">
-            <h3>
-              <%= order.user.first_name %>
-              <%= order.user.last_name %>
-            </h3>
         </div>
-        <div class="order-items">
-            <% total = 0 %>
-            <% order.order_items.each do |order_item|  %>
-            <h4>
-              <%= order_item.menu_item.name%>
-              <%= order_item.menu_item.price%>
-            </h4>
-              <h2><%= order_item.menu_item.price * order_item.quantity %> </h2>
-            <% total = total + order_item.menu_item.price * order_item.quantity %>
-            <% end %>
-            <h3>
-                €<%= '%.2f' % total %>
-            </h3>
+        <div class="customer-details">
+            <div class="cutomer-identity">
+                <div class="blue-title-md customer-title">
+                    <%= order.user.first_name %>
+                    <%= order.user.last_name %>
+                </div>
+                <div class="blue-title-sm">
+                    <%= order.user.email %>
+                </div>
+                <div class="blue-title-sm">Le Wagon</div>
+                <div class="black-title-sm">Order ID:
+                    <%= order.id %>
+                </div>
+            </div>
         </div>
-        <% if order.status == "not ready" %>
-          <%= link_to "Ready for pick-up", order_path(order), method: :patch %>
-        <% elsif order.status == "awaiting pick-up" %>
-          <%= link_to "Complete", order_path(order), method: :patch %>
-        <% end %>
+        <div class="order-management">
+            <div class="order-tally">
+                <div>
+                    <% total_price = 0 %>
+                    <% order.order_items.each do |order_item|  %>
+                    <div class="order-details-checkout">
+                        <div class="tally-id">
+                            <%= order_item.quantity %>x</div>
+                        <div class="tally-item">
+                            <%= order_item.menu_item.name%>
+                        </div>
+                        <div class="tally-price">
+                            <%=order_item.menu_item.price%> €</div>
+                    </div>
+                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                    <% end %>
+                    <hr>
+                    <div class="order-details-checkout">
+                        <div class="tally-id"></div>
+                        <div class="tally-item">Total</div>
+                        <div class="tally-price">
+                            <%= total_price %> €</div>
+                    </div>
+                </div>
+            </div>
+            <div class="status-toggler">
+                <% if order.status == "not ready" %>
+                <%= link_to "Mark as ready for pick-up", order_path(order), method: :patch, class: "btn btn-primary" %>
+                <% elsif order.status == "awaiting pick-up" %>
+                <%= link_to "Mark as complete", order_path(order), method: :patch, class: "btn btn-success" %>
+                <% end %>
+            </div>
+        </div>
     </div>
     <% end %>
-    This page is semi-coded but the orders are not displaying. <br> I think because there are no order seeds<br>Gonzalo Sept 1
+  </div>

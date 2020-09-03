@@ -5,14 +5,18 @@
         </a>
     </div>
     <div class="navbar-text">
-        Welcome, <%= current_user.first_name %>!
+        Welcome,
+        <%= current_user.first_name %>!
     </div>
     <div class="navbar-right">
+        <% if current_user.admin == true%>
+          <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+        <% end %>
         <% if current_user == nil%> -->
-        <a class="btn btn-primary" href='/users/sign_in'>Login</a>
-        <a class="btn btn-primary" href='/users/sign_up'>New User</a>
+          <a class="btn btn-primary" href='/users/sign_in'>Login</a>
+          <a class="btn btn-primary" href='/users/sign_up'>New User</a>
         <% else %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "tbd" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
         <% end %>
     </div>
 </div>
