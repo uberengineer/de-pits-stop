@@ -55,3 +55,20 @@ menu[:desserts].each do |menu_item|
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
+
+50.times do
+  order = Order.new(
+    user: User.sample,
+    status: ["basket", "ordered", "accepted", "cancelled", "awaiting collection", "completed"].sample,
+    comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample
+  )
+  order.save!
+  rand(1..5).times do
+    order_item = OrderItem.new(
+      quantity: rand(1..5),
+      menu_item: MenuItem.sample(5),
+      order: order,
+    )
+    order_item.save!
+  end
+end
