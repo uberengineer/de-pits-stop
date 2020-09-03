@@ -1,12 +1,28 @@
 require "open-uri"
+require 'faker'
 
-menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symbolize_keys
+puts "destroying data"
 MenuItem.destroy_all
+Order.destroy_all
+User.destroy_all
 Cloudinary::Api.delete_all_resources
+puts "starting the seeds"
+
+puts "creating users "
+4.times do |num|
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: "test#{num}@gmail.com",
+    password: "password")
+  end
+puts "#{User.count} user's created"
+
+puts "-----------"
 puts "Creating menu items"
+menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symbolize_keys
 
 menu[:daily_specials].each do |menu_item|
-  # p menu_item
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
@@ -48,7 +64,10 @@ menu[:desserts].each do |menu_item|
   puts "Created menu item #{menu_item[:name]}"
 end
 
-50.times do
+puts "-----------"
+puts "Creating order items"
+
+20.times do
   order = Order.new(
     user: User.sample,
     status: ["basket", "ordered", "accepted", "cancelled", "awaiting collection", "completed"].sample,
@@ -57,10 +76,12 @@ end
   order.save!
   rand(1..5).times do
     order_item = OrderItem.new(
-      quantity: rand(1..5),
-      menu_item: MenuItem.sample(5),
-      order: order,
+      quantity: rand(1..3),
+      menu_item: MenuItem.sample,
+      order: order
     )
     order_item.save!
   end
 end
+
+puts "Orders created"
