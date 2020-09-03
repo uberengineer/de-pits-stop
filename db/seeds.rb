@@ -15,8 +15,9 @@ puts "creating users "
     last_name: Faker::Name.last_name,
     email: "test#{num}@gmail.com",
     password: "password",
-    organization: Faker::Company.name
-    )
+    organization: Faker::Company.name,
+    admin: true
+  )
 end
 puts "#{User.count} user's created"
 
