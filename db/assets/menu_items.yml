@@ -184,27 +184,27 @@ koude_dranken:
   - name: "Verse jus d’orange"
     price: 3.30
     image: 'db/assets/images/xxx.jpeg'
-    category: "cold_drinks"
+    category: "koude_dranken"
 
   - name: "Sisi"
     price: 2.20
     image: 'db/assets/images/xxx.jpeg'
-    category: "cold_drinks"
+    category: "koude_dranken"
 
   - name: "Coca-Cola"
     price: 2.20
     image: 'db/assets/images/xxx.jpeg'
-    category: "cold_drinks"
+    category: "koude_dranken"
 
   - name: "Coca-Cola Zero"
     price: 2.20
     image: 'db/assets/images/xxx.jpeg'
-    category: "cold_drinks"
+    category: "koude_dranken"
 
   - name: "Appelsap"
     price: 2.50
     image: 'db/assets/images/xxx.jpeg'
-    category: "cold_drinks"
+    category: "koude_dranken"
 
 desserts:
   - name: "American cookie"
