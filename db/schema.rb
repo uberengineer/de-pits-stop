@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_122835) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -112,7 +113,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_122835) do
 
   create_table "orders", force: :cascade do |t|
     t.string "comment"
-    t.string "status"
+    t.string "status", default: "in progress"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

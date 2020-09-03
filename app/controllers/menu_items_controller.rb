@@ -1,7 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
-    @cart = Order.first_or_create(user: current_user, status: "in progress")
+    @cart = Order.first_or_create(user_id: current_user.id, status: "in progress")
     @order_item = OrderItem.new()
   end
 
@@ -16,13 +16,12 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = MenuItem.create(strong_params)
     redirect_to menu_items_path
-
   end
 
   private
 
   def strong_params
-    params.require(:menu_item).permit(:name, :description, :price)
+    params.require(:menu_item).permit(:name, :description, :price, :image, :category)
   end
 
 end

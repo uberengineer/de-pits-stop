@@ -1,0 +1,9 @@
+<% total = 0 %>
+<% @cart.order_items.each do |order_item| %>
+  <p><%= order_item.menu_item.name %></p>
+  <p><%= order_item.quantity %></p>
+  <p><%= order_item.menu_item.price * order_item.quantity %> </p>
+  <% total = total +  order_item.menu_item.price * order_item.quantity %>
+<% end %>
+  <h2>€<%= '%.2f' % total %> </h2>
+<%= link_to "Checkout", order_path(@cart), method: :patch %>
