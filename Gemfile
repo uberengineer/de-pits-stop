@@ -24,16 +24,17 @@ gem 'redis', '~> 4.0'
 gem 'faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'blazer'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
-
 gem 'autoprefixer-rails'
 gem 'cloudinary'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'rails_admin'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
