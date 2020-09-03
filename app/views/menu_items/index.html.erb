@@ -4,7 +4,7 @@
 
 <h3 class="medium-title">Daily Specials</h3>
   <% @menu_items.each do |menu_item| %>
-  <% if menu_item.category == "daily_special" %>
+  <% if menu_item.category == "daily_specials" %>
       <div class="menu-card col-8">
           <div class="menu-image-container">
             <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
@@ -14,11 +14,10 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p>A very merry unbirthday to me, To who? Oh, you! A very merry unbirthday to you! Who, me?
-                <%= menu_item.description %> </p>
+              <p><%= menu_item.description %></p>
             </div>
             <div class="menu-item-price">
-                12.37 €<%= menu_item.price %>
+                <%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -46,11 +45,10 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p>A very merry unbirthday to me, To who? Oh, you! A very merry unbirthday to you! Who, me?
-                <%= menu_item.description %> </p>
+              <p><%= menu_item.description %></p>
             </div>
             <div class="menu-item-price">
-                12.37 €<%= menu_item.price %>
+                <%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -68,7 +66,7 @@
 
   <h3 class="medium-title">Cold Drinks</h3>
   <% @menu_items.each do |menu_item| %>
-  <% if menu_item.category == "koude_dranken" %>
+  <% if menu_item.category == "cold_drinks" %>
       <div class="menu-card col-8">
           <div class="menu-image-container">
             <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
@@ -78,11 +76,10 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p>A very merry unbirthday to me, To who? Oh, you! A very merry unbirthday to you! Who, me?
-                <%= menu_item.description %> </p>
+              <p><%= menu_item.description %></p>
             </div>
             <div class="menu-item-price">
-                12.37 €<%= menu_item.price %>
+                <%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -112,11 +109,10 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p>A very merry unbirthday to me, To who? Oh, you! A very merry unbirthday to you! Who, me?
-                <%= menu_item.description %> </p>
+              <p><%= menu_item.description %></p>
             </div>
             <div class="menu-item-price">
-                12.37 €<%= menu_item.price %>
+                <%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -144,11 +140,10 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p>A very merry unbirthday to me, To who? Oh, you! A very merry unbirthday to you! Who, me?
-                <%= menu_item.description %> </p>
+              <p><%= menu_item.description %></p>
             </div>
             <div class="menu-item-price">
-                12.37 €<%= menu_item.price %>
+                <%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -163,7 +158,5 @@
       </div>
     <% end %>
   <% end %>
-
-
 
 </div>

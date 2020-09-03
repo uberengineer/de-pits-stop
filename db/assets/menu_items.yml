@@ -142,7 +142,7 @@ losse_items:
     category: "losse_items"
 
   - name: "Tosti"
-    desciption: "kaas / ham / hamkaas"
+    description: "kaas / ham / hamkaas"
     price: 4.50
     image: 'db/assets/images/xxx.jpeg'
     category: "losse_items"
@@ -184,27 +184,27 @@ koude_dranken:
   - name: "Verse jus d’orange"
     price: 3.30
     image: 'db/assets/images/xxx.jpeg'
-    category: "extras"
+    category: "cold_drinks"
 
   - name: "Sisi"
     price: 2.20
     image: 'db/assets/images/xxx.jpeg'
-    category: "extras"
+    category: "cold_drinks"
 
   - name: "Coca-Cola"
     price: 2.20
     image: 'db/assets/images/xxx.jpeg'
-    category: "extras"
+    category: "cold_drinks"
 
   - name: "Coca-Cola Zero"
     price: 2.20
     image: 'db/assets/images/xxx.jpeg'
-    category: "extras"
+    category: "cold_drinks"
 
   - name: "Appelsap"
     price: 2.50
     image: 'db/assets/images/xxx.jpeg'
-    category: "extras"
+    category: "cold_drinks"
 
 desserts:
   - name: "American cookie"
