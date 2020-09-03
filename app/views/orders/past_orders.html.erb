@@ -19,18 +19,12 @@
               <%= order_item.menu_item.name%>
               <%= order_item.menu_item.price%>
             </h4>
-              <h2><%= order_item.menu_item.price * order_item.quantity %> </h2>
+            <h2><%= order_item.menu_item.price * order_item.quantity %> </h2>
             <% total = total + order_item.menu_item.price * order_item.quantity %>
             <% end %>
             <h3>
-                €<%= '%.2f' % total %>
+               €<%= '%.2f' % total %>
             </h3>
         </div>
-        <% if order.status == "not ready" %>
-          <%= link_to "Ready for pick-up", order_path(order), method: :patch %>
-        <% elsif order.status == "awaiting pick-up" %>
-          <%= link_to "Complete", order_path(order), method: :patch %>
-        <% end %>
     </div>
     <% end %>
-    This page is semi-coded but the orders are not displaying. <br> I think because there are no order seeds<br>Gonzalo Sept 1

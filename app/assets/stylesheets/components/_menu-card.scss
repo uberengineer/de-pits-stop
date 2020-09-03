@@ -1,24 +1,21 @@
 .menu-card {
   background: white;
   box-shadow: 0 0 2vw rgba(0,0,0,0.2);
-  border-radius: 10px;
   padding: 1vw;
   margin: 1vh;
+  height: 200px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 
   .menu-image-container {
-    min-width: 20vh;
-    min-height: 20vh;
-    max-width: 30vh;
-    max-height: 25vh;
-    border-radius: 10px;
+    height: 100%;
+    width: 30%;
     overflow: hidden;
     .menu-item-img {
-      width: 100%;
       height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 
@@ -26,7 +23,7 @@
     margin-left: 1vw;
     margin-right: 1vw;
     display: flex;
-    min-width: 30%;
+    max-width: 40%;
     max-height: 25vh;
     flex-direction: column;
 
@@ -39,6 +36,11 @@
       max-height: 12.5vh;
       text-align: left;
     }
+    .menu-item-price{
+      justify-content: center;
+      text-align: left;
+      color: $green;
+    }
   }
 
   .add-to-cart {
@@ -46,16 +48,52 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .menu-item-price{
-      justify-content: center;
-      text-align: center;
-    }
+    width: 15vw;
+    padding: 1vw;
     .add-button {
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      text-align: center;
+      align-items: center;
     }
   }
 }
+.btn-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+.btn-icon:before {
+  content: "\f217";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+#order_item_quantity {
+  text-align: center;
+}
 
 
-.end {}
+
+/* Gonzalo 2 sept:
+We are using following styles so the arrows
+don't display on the quantity field*/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Internet Explorer */
+// Lol nobody uses internet explorer
+
+/* END OF BROWSER CORRESPONDENCE */
