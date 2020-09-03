@@ -15,6 +15,7 @@ puts "creating users "
     last_name: Faker::Name.last_name,
     email: "test#{num}@gmail.com",
     password: "password",
+    organization: Faker::Company.name,
     admin: true
   )
 end
@@ -33,6 +34,7 @@ end
 
 menu[:combi_deals].each do |menu_item|
   file = menu_item.delete(:image)
+
   f = MenuItem.create(menu_item)
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
@@ -40,6 +42,7 @@ end
 
 menu[:losse_items].each do |menu_item|
   file = menu_item.delete(:image)
+
   f = MenuItem.create(menu_item)
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
@@ -47,6 +50,7 @@ end
 
 menu[:extras].each do |menu_item|
   file = menu_item.delete(:image)
+
   f = MenuItem.create(menu_item)
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
@@ -54,6 +58,7 @@ end
 
 menu[:koude_dranken].each do |menu_item|
   file = menu_item.delete(:image)
+
   f = MenuItem.create(menu_item)
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
@@ -61,6 +66,7 @@ end
 
 menu[:desserts].each do |menu_item|
   file = menu_item.delete(:image)
+
   f = MenuItem.create(menu_item)
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
@@ -71,17 +77,17 @@ puts "Creating order items"
 
 20.times do
   order = Order.new(
-    user: User.sample,
+    user: User.all.sample,
     status: ["basket", "ordered", "accepted", "cancelled", "awaiting collection", "completed"].sample,
     comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample
-  )
+    )
   order.save!
   rand(1..5).times do
     order_item = OrderItem.new(
       quantity: rand(1..3),
-      menu_item: MenuItem.sample,
+      menu_item: MenuItem.all.sample,
       order: order
-    )
+      )
     order_item.save!
   end
 end

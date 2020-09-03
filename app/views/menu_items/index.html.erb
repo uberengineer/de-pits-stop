@@ -4,7 +4,7 @@
 
 <h3 class="medium-title">Daily Specials</h3>
   <% @menu_items.each do |menu_item| %>
-  <% if menu_item.category == "daily_specials" %>
+    <% if menu_item.category == "daily_special" %>
       <div class="menu-card col-8">
           <div class="menu-image-container">
             <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
@@ -14,10 +14,11 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p><%= menu_item.description %></p>
+              <p>
+                <%= menu_item.description %> </p>
             </div>
             <div class="menu-item-price">
-                <%= menu_item.price %>
+                €<%= number_with_precision(menu_item.price, precision: 2) %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -32,7 +33,6 @@
       </div>
     <% end %>
   <% end %>
-
 <h3 class="medium-title">Combi Deals</h3>
   <% @menu_items.each do |menu_item| %>
   <% if menu_item.category == "combi_deals" %>
@@ -45,10 +45,11 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p><%= menu_item.description %></p>
+              <p>
+                <%= menu_item.description %> </p>
             </div>
             <div class="menu-item-price">
-                <%= menu_item.price %>
+                €<%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -76,10 +77,11 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p><%= menu_item.description %></p>
+              <p>
+                <%= menu_item.description %> </p>
             </div>
             <div class="menu-item-price">
-                <%= menu_item.price %>
+                €<%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -109,10 +111,11 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p><%= menu_item.description %></p>
+              <p>
+                <%= menu_item.description %> </p>
             </div>
             <div class="menu-item-price">
-                <%= menu_item.price %>
+                €<%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -140,10 +143,11 @@
               <strong><%= menu_item.name.capitalize %></strong>
             </div>
             <div class="menu-item-description">
-              <p><%= menu_item.description %></p>
+              <p>
+                <%= menu_item.description %> </p>
             </div>
             <div class="menu-item-price">
-                <%= menu_item.price %>
+                €<%= menu_item.price %>
               </div>
           </div>
           <div class="add-to-cart">
@@ -158,5 +162,7 @@
       </div>
     <% end %>
   <% end %>
+
+
 
 </div>
