@@ -3,7 +3,7 @@
     <%= f.input :name, label: 'Your menu item name' %>
     <%= f.input :description, as: :text, input_html: {rows: 5}, label: 'Description', placeholder: 'Describe this dish' %>
     <%= f.input :price, label: 'Price' %>
-    <%= f.input :image as: :file %>
+    <%= f.input :image, as: :file %>
     <%= f.button :submit, class: 'btn-primary' %>
   <% end %>
 </div>
