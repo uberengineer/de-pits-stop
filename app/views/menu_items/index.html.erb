@@ -66,7 +66,7 @@
 
   <h3 class="medium-title">Cold Drinks</h3>
   <% @menu_items.each do |menu_item| %>
-  <% if menu_item.category == "cold_drinks" %>
+  <% if menu_item.category == "koude_dranken" %>
       <div class="menu-card col-8">
           <div class="menu-image-container">
             <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
