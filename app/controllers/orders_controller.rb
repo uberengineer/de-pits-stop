@@ -18,9 +18,15 @@ class OrdersController < ApplicationController
   end
 
   def past_orders
-    @orders = Order.select do |order|
+    orders = Order.select do |order|
       order.status == "completed"
     end
+
+    orders = orders.sort_by do |order|
+      order.created_at
+    end
+
+    @orders = orders.reverse
   end
 
   def update
