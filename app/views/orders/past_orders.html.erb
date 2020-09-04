@@ -15,6 +15,9 @@
                 <div class="blue-title-sm">
                     <%= order.user.email %>
                 </div>
+                <div class="blue-title-sm">
+                    <%= order.user.organization %>
+                </div>
                 <div class="blue-title-sm"><%= order.created_at %> </div>
                 <div class="black-title-sm">Order ID:
                     <%= order.id %>
@@ -42,7 +45,7 @@
                         <div class="tally-id"></div>
                         <div class="tally-item">Total</div>
                         <div class="tally-price">
-                            <%= total_price %> €</div>
+                        <%= total_price %> €</div>
                     </div>
                 </div>
             </div>
