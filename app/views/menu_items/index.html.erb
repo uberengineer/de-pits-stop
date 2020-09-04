@@ -1,3 +1,4 @@
+
 <div class="blue-body">
   <%= render 'shared/navbar'%>
 	  <h3 class="medium-title">Daily Specials</h3>
@@ -147,6 +148,7 @@
 
 	<div class="view-cart">
   	<%= link_to "View Cart", checkout_order_path(@cart), id: "cart-link" %>
+    <%= link_to "My Orders", show_current_orders_path %>
 	</div>
 
 </div>
