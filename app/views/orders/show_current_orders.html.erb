@@ -17,12 +17,12 @@
             <% order.order_items.each do |order_item|  %>
             <h4>
               <%= order_item.menu_item.name%>
-              € <%= order_item.menu_item.price%>
+              € <%= number_with_precision(order_item.menu_item.price, precision: 2)%>
             </h4>
             <% total = total +  order_item.menu_item.price * order_item.quantity %>
             <% end %>
             <h3>
-                <%= total %>
+                <%= number_with_precision(total, precision: 2) %>
             </h3>
             <h2>
               <%= order.status %>

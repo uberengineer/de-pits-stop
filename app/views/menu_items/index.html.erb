@@ -11,7 +11,7 @@
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
-		      <div class="menu-item-price"><%= menu_item.price %></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
 		    </div>
 		    <div class="add-to-cart">
 		      <div class="add-button">
@@ -39,7 +39,7 @@
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
-		      <div class="menu-item-price"><%= menu_item.price %></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
 		    </div>
 		    <div class="add-to-cart">
 		        <div class="add-button">
@@ -67,7 +67,7 @@
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
-		      <div class="menu-item-price"><%= menu_item.price %></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
 		    </div>
 		    <div class="add-to-cart">
 		        <div class="add-button">
@@ -95,7 +95,7 @@
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
-		      <div class="menu-item-price"><%= menu_item.price %></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
 		    </div>
 		    <div class="add-to-cart">
 		        <div class="add-button">
@@ -123,7 +123,7 @@
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
-		      <div class="menu-item-price"><%= menu_item.price %></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
 		    </div>
 		    <div class="add-to-cart">
             <div class="add-button">
@@ -151,7 +151,7 @@
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
-		      <div class="menu-item-price"><%= menu_item.price %></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
 		    </div>
 		    <div class="add-to-cart">
           <div class="add-button">
