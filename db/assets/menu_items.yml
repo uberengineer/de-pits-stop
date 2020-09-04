@@ -1,19 +1,19 @@
 daily_specials:
   - name: "Pompoensoep"
     description: "Verse huisgemaakte soep"
-    price: 9
+    price: 9.00
     image: 'db/assets/images/xxx.jpeg'
     category: "daily_specials"
 
   - name: "Broodje Marokkaanse lamsworst"
     description: "met sla, tomaten en kaas"
-    price: 8
+    price: 8.00
     image: 'db/assets/images/xxx.jpeg'
     category: "daily_specials"
 
   - name: "Griekse salade met feta"
     description: "met feta, tomaten, ui, oregano en sla"
-    price: 8
+    price: 8.00
     image: 'db/assets/images/caprese-salad.jpeg'
     category: "daily_specials"
 
@@ -101,7 +101,7 @@ losse_items:
 
   - name: "Rode bieten wrap met hummus"
     description: "Wrap met huisgemaakte hummus, rucola en zongedroogde tomaat"
-    price: 5.5
+    price: 5.50
     image: 'db/assets/images/11.jpeg'
     category: "losse_items"
 
