@@ -17,3 +17,12 @@ $medium-header: 'Noto Sans JP', sans-serif;
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+$blue-font: #2699FB;
+$black-font-background: #000000;
+
+.strong-title {
+  font-family: $funky-font;
+  color: $blue-font;
+  background-color: $black-font-background;
+}

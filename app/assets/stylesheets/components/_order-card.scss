@@ -9,9 +9,8 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+
 }
-
-
 
 .order-id {
   padding-left: .75vw;
@@ -28,11 +27,11 @@
   padding-right: .75vw;
 }
 
-
 .order-management {
   min-width: 50vw;
   padding-left: .75vw;
   padding-right: .75vw;
+
 }
 
 .order-tally {
@@ -43,8 +42,6 @@
   flex-direction: row;
 
 }
-
-
 
 .tally-id {
 
@@ -58,11 +55,6 @@
   color: $green;
 }
 
-
-
-
-.status-toggler {
-}
 
 
 
