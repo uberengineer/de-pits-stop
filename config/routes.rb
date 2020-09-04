@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     mount Blazer::Engine, at: "blazer"
   end
 
-  root to: 'pages#home'
   get "/order/:id/confirmation", to: "pages#confirmation", as: "confirmation"
   devise_scope :user do
     root to: "devise/sessions#new"
