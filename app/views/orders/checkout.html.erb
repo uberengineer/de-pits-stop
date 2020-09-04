@@ -18,7 +18,6 @@
                   <div class="blue-title-sm">
                       <%= @cart.user.email %>
                   </div>
-                  <div class="blue-title-sm"><%= @cart.created_at %> </div>
                   <div class="black-title-sm">Order ID:
                       <%= @cart.id %>
                   </div>
@@ -45,7 +44,7 @@
                           <div class="tally-id"></div>
                           <div class="tally-item">Total</div>
                           <div class="tally-price">
-                            <%= total_price %> €</div>
+                            <%= '%.2f' % total_price %> €</div>
                       </div>
                   </div>
               </div>
