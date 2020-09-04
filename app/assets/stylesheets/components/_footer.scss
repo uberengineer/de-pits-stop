@@ -5,11 +5,26 @@
     // bottom: 0;
     width: 100%;
     // height: 200px;
-    line-height: 60px;
-    background-color: blue;
+    line-height: 20px;
+    // background-color: blue;
+    background-image: image-url("background.jpg");
+    background-size: cover;
     display: flex;
-    color: white;
+    color: black;
     font-family: sans-serif;
+    font-size:16px;
+}
+
+footer img {
+  width: 171px;
+}
+
+footer {
+    padding-top: 15px;
+
+}
+footer p.text-left {
+  text-align: left;
 }
 
 footer p.text-center {
@@ -20,7 +35,7 @@ footer p.text-center {
 }
 
 footer a {
-  color: white;
+  color: blue;
   text-decoration: underline;
   transition: color 400ms ease;
 }
@@ -33,5 +48,7 @@ footer .footer-icons {
   width: 100%;
   font-size: 30px;
   margin: 20px 0;
+  text-align: left;
+
 }
 

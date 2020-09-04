@@ -9,4 +9,8 @@ class PagesController < ApplicationController
       redirect_to menu_items_path
     end
   end
+
+  def confirmation
+
+  end
 end
