@@ -78,9 +78,21 @@ puts "Creating order items"
 20.times do
   order = Order.new(
     user: User.all.sample,
-    status: ["basket", "ordered", "accepted", "cancelled", "awaiting collection", "completed"].sample,
+    status: ["not ready", "awaiting pick-up", "completed"].sample,
     comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample
     )
+"in progress"
+      @order.status = "not ready"
+      redirect_to menu_items_path
+    elsif @order.status == "not ready"
+      @order.status = "awaiting pick-up"
+      redirect_to orders_path
+    elsif @order.status == "awaiting pick-up"
+      @order.status = "completed"
+
+
+
+
   order.save!
   rand(1..5).times do
     order_item = OrderItem.new(

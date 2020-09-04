@@ -10,6 +10,7 @@
               <%= order.user.first_name %>
               <%= order.user.last_name %>
             </h3>
+            <h2><%= order.created_at %> </h2>
         </div>
         <div class="order-items">
             <% total = 0 %>
@@ -17,12 +18,11 @@
             <h4>
               <%= order_item.menu_item.name%>
               € <%= order_item.menu_item.price%>
-
             </h4>
             <% total = total +  order_item.menu_item.price * order_item.quantity %>
             <% end %>
             <h3>
-                <%= '%.2f' % total %>
+                <%= total %>
             </h3>
             <h2>
               <%= order.status %>
