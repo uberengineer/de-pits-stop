@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config.time_zone = "Hawaii"
+
+Time.now.in_time_zone
+
+DateTime.now.in_time_zone
+
 module DePitsStop
   class Application < Rails::Application
     config.generators do |generate|
