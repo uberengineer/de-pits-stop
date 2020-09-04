@@ -16,7 +16,7 @@
                     <%= order.user.email %>
                 </div>
                 <div class="blue-title-sm"><%= order.user.organization %> </div>
-                <div class="blue-title-sm"><%= order.time_started %> </div>
+                <div class="blue-title-sm"><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </div>
                 <div class="black-title-sm">Order ID:
                     <%= order.id %>
                 </div>

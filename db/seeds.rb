@@ -74,7 +74,7 @@ puts "Creating order items"
   order = Order.new(
     user: User.all.sample,
     status: "not ready",
-    comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample
+    comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample,
     time_started: Time.now
     )
 
