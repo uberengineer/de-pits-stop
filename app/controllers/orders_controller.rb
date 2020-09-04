@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.status == "in progress"
       @order.status = "not ready"
-      @order.time_started = Time.now.getlocal
+      @order.time_started = Time.now
       redirect_to menu_items_path
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
     elsif @order.status == "awaiting pick-up"
       @order.status = "completed"
       redirect_to orders_path
-      @order.time_finished = Time.now.getlocal
+      @order.time_finished = Time.now
     end
     @order.save!
   end
