@@ -1,7 +1,11 @@
 <div class="red-body">
 <%= render 'shared/navbar' %>
 
-  <% if @cart.status == "in progress" %>
+  <% if @cart.order_items.first == nil %>
+  <h5 class="strong-title">Your cart is empty!</h5>
+  <h3 class="mild-title">Are you hungry? That's alright.</h3><br>
+  <%= link_to "See our menu", menu_items_path, class: "btn btn-primary" %>
+    <% else %>
     <h3 class="strong-title">Please confirm your order below:</h3>
       <div class="order-card">
           <div class="blue-title-md order-id"># <%= @cart.id %></div>
@@ -48,7 +52,5 @@
           </div>
       </div>
     <%= link_to "Checkout", order_path(@cart), method: :patch, class: "btn btn-primary" %>
-  <% else %>
-  hello
   <% end %>
 </div>

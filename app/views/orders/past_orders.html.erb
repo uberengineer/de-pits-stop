@@ -2,10 +2,7 @@
     <%= render 'shared/navbar' %>
     <% @orders.each do |order| %>
     <div class="order-card">
-        <div class="blue-title-md order-id">
-            #
-            <%= order.id %>
-        </div>
+        <div class="blue-title-md order-id"># <%= order.id %></div>
         <div class="customer-details">
             <div class="cutomer-identity">
                 <div class="blue-title-md customer-title">
