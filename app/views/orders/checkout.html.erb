@@ -1,55 +1,61 @@
 <div class="red-body">
-<%= render 'shared/navbar' %>
-
-  <% if @cart.status == "in progress" %>
+    <%= render 'shared/navbar' %>
+    <% if @cart.status == "in progress" %>
+    <% if @cart.order_items.first != nil %>
     <h3 class="strong-title">Please confirm your order below:</h3>
-      <div class="order-card">
-          <div class="blue-title-md order-id"># <%= @cart.id %></div>
-          <div class="customer-details">
-              <div class="cutomer-identity">
-                  <div class="blue-title-md customer-title">
-                      <%= @cart.user.first_name %>
-                      <%= @cart.user.last_name %>
-                  </div>
-                  <div class="blue-title-sm">
-                      <%= @cart.user.email %>
-                  </div>
-                  <div class="black-title-sm">Order ID:
-                      <%= @cart.id %>
-                  </div>
-              </div>
-          </div>
-          <div class="order-management">
-              <div class="order-tally">
-                  <div>
-                      <% total_price = 0 %>
-                      <% @cart.order_items.each do |order_item|  %>
-                      <div class="order-details-checkout">
-                          <div class="tally-id">
-                              <%= order_item.quantity %>x</div>
-                          <div class="tally-item">
-                              <%= order_item.menu_item.name%>
-                          </div>
-                          <div class="tally-price">
+    <div class="order-card">
+        <div class="blue-title-md order-id">#
+            <%= @cart.id %>
+        </div>
+        <div class="customer-details">
+            <div class="cutomer-identity">
+                <div class="blue-title-md customer-title">
+                    <%= @cart.user.first_name %>
+                    <%= @cart.user.last_name %>
+                </div>
+                <div class="blue-title-sm">
+                    <%= @cart.user.email %>
+                </div>
+                <div class="black-title-sm">Order ID:
+                    <%= @cart.id %>
+                </div>
+            </div>
+        </div>
+        <div class="order-management">
+            <div class="order-tally">
+                <div>
+                    <% total_price = 0 %>
+                    <% @cart.order_items.each do |order_item|  %>
+                    <div class="order-details-checkout">
+                        <div class="tally-id">
+                            <%= order_item.quantity %>x</div>
+                        <div class="tally-item">
+                            <%= order_item.menu_item.name%>
+                        </div>
+                        <div class="tally-price">
                             <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
-                            <%= link_to "Delete", order_item_path(@cart, order_item), method: :delete %>
-                      </div>
-                      <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                      <% end %>
-                      <hr>
-                      <div class="order-details-checkout">
-                          <div class="tally-id"></div>
-                          <div class="tally-item">Total</div>
-                          <div class="tally-price">
+                        <%= link_to "delete", order_item_path(@cart, order_item), method: :delete %>
+                    </div>
+                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                    <% end %>
+                    <hr>
+                    <div class="order-details-checkout">
+                        <div class="tally-id"></div>
+                        <div class="tally-item">Total</div>
+                        <div class="tally-price">
                             <%= '%.2f' % total_price %> €</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <%= link_to "Checkout", order_path(@cart), method: :patch, class: "btn btn-primary" %>
     <br>
     <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
-  <% else %>
-  <% end %>
+    <% else %>
+    <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
+    <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
+    <% end %>
+    <% else %>
+    <% end %>
 </div>

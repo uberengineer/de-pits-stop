@@ -1,32 +1,49 @@
 <div class="red-body">
     <%= render 'shared/navbar' %>
-    <% @orders.each do |order| %>
+<% @orders.each do |order| %>
+
     <div class="order-card">
-        <h2>#
-            <%= order.id %>
-        </h2>
-        <div class="order-info">
-            <h3>
-              <%= order.user.first_name %>
-              <%= order.user.last_name %>
-            </h3>
-            <h2><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </h2>
-        </div>
-        <div class="order-items">
-            <% total = 0 %>
-            <% order.order_items.each do |order_item|  %>
-            <h4>
-              <%= order_item.menu_item.name%>
-              € <%= number_with_precision(order_item.menu_item.price, precision: 2)%>
-            </h4>
-            <% total = total +  order_item.menu_item.price * order_item.quantity %>
-            <% end %>
-            <h3>
-                <%= number_with_precision(total, precision: 2) %>
-            </h3>
-            <h2>
-              <%= order.status %>
-            </h2>
-        </div>
-    </div>
+          <div class="blue-title-md order-id"># <%= order.id %></div>
+          <div class="customer-details">
+              <div class="cutomer-identity">
+                  <div class="blue-title-md customer-title">
+                      <%= order.user.first_name %>
+                      <%= order.user.last_name %>
+                  </div>
+                  <div class="blue-title-sm">
+                      <%= order.time_started.strftime("%Y/%m/%d %H:%M") %>
+                  </div>
+                  <br>
+                  <br>
+                <div class="btn btn-danger"><%= order.status %></div>
+              </div>
+          </div>
+          <div class="order-management">
+              <div class="order-tally">
+                  <div>
+                      <% total_price = 0 %>
+                      <% order.order_items.each do |order_item|  %>
+                      <div class="order-details-checkout">
+                          <div class="tally-id">
+                              <%= order_item.quantity %>x</div>
+                          <div class="tally-item">
+                              <%= order_item.menu_item.name%>
+                          </div>
+                          <div class="tally-price">
+                            <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
+
+                      </div>
+                      <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                      <% end %>
+                      <hr>
+                      <div class="order-details-checkout">
+                          <div class="tally-id"></div>
+                          <div class="tally-item">Total</div>
+                          <div class="tally-price">
+                            <%= '%.2f' % total_price %> €</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     <% end %>
