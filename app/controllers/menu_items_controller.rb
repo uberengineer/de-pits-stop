@@ -1,7 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
-    @cart = Order.where(user_id: current_user.id, status: "in progress").first_or_create
+    @cart = Order.first_or_create(user_id: current_user.id, status: "in progress")
     @order_item = OrderItem.new()
   end
 

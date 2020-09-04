@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root to: 'pages#home'
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
+
+  get "/order/:id/confirmation", to: "pages#confirmation", as: "confirmation"
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :menu_items , only: [:index, :show, :new, :create]
@@ -13,4 +21,3 @@ Rails.application.routes.draw do
     end
   end
 end
-

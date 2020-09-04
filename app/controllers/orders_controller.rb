@@ -18,16 +18,22 @@ class OrdersController < ApplicationController
   end
 
   def past_orders
-    @orders = Order.select do |order|
+    orders = Order.select do |order|
       order.status == "completed"
     end
+
+    orders = orders.sort_by do |order|
+      order.created_at
+    end
+
+    @orders = orders.reverse
   end
 
   def update
     @order = Order.find(params[:id])
     if @order.status == "in progress"
       @order.status = "not ready"
-      redirect_to menu_items_path
+      redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
       redirect_to orders_path

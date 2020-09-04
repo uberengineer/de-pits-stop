@@ -5,7 +5,7 @@
     <div class="admin-grid">
 
       <%= link_to orders_path do %>
-        <div class="admin-grid-item">TODAY'S ORDERS</div>
+        <div class="admin-grid-item">OPEN ORDERS</div>
       <% end %>
 
       <%= link_to past_orders_path do %>
@@ -16,7 +16,9 @@
         <div class="admin-grid-item">ADD MENU ITEMS</div>
       <% end %>
 
-        <div class="admin-grid-item">DELETE MENU ITEMS</div>
+      <%= link_to rails_admin.index_path(:menu_item) do %>
+        <div class="admin-grid-item">EDIT MENU</div>
+      <% end %>
     </div>
     <br>
     <%= link_to "Notice anything wrong? Click here to send us an email.", "mailto: gonzalo@test.com" %>
