@@ -15,8 +15,13 @@
 		    </div>
 		    <div class="menu-text-container">
 		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
+<<<<<<< HEAD
 		      <div class="menu-item-price"><%= menu_item.price %></div>
 		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+=======
+		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
+>>>>>>> 431ca6f736fe3c539f7bb6ec1e98d617a46b1e19
 		    </div>
 		    <div class="add-to-cart">
 		      <div class="add-button">
@@ -33,6 +38,7 @@
 		    </div>
 		  </div>
 	  <% end %>
+<<<<<<< HEAD
   <% end %>
 
   <h3 class="medium-title">Combi Deals</h3>
@@ -49,6 +55,22 @@
         </div>
         <div class="add-to-cart">
           <div class="add-button">
+=======
+	  <h3 class="medium-title">Combi Deals</h3>
+	  <% @menu_items.each do |menu_item| %>
+	  	<% if menu_item.category == "combi_deals" %>
+		  <div class="menu-card col-8">
+		    <div class="menu-image-container">
+		      <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+		    </div>
+		    <div class="menu-text-container">
+		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
+		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
+		    </div>
+		    <div class="add-to-cart">
+		        <div class="add-button">
+>>>>>>> 431ca6f736fe3c539f7bb6ec1e98d617a46b1e19
             <% if menu_item.available? %>
               <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
               <%= hidden_field_tag(:item_id, menu_item.id) %>
@@ -59,6 +81,7 @@
               <h5>Unavailable</h5>
             <% end %>
           </div>
+<<<<<<< HEAD
         </div>
       </div>
     <% end %>
@@ -78,6 +101,25 @@
         </div>
         <div class="add-to-cart">
           <div class="add-button">
+=======
+		    </div>
+		  </div>
+	  <% end %>
+	  <h3 class="medium-title">Losse Items</h3>
+	  <% @menu_items.each do |menu_item| %>
+	  	<% if menu_item.category == "losse_items" %>
+		  <div class="menu-card col-8">
+		    <div class="menu-image-container">
+		      <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+		    </div>
+		    <div class="menu-text-container">
+		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
+		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
+		    </div>
+		    <div class="add-to-cart">
+		        <div class="add-button">
+>>>>>>> 431ca6f736fe3c539f7bb6ec1e98d617a46b1e19
             <% if menu_item.available? %>
               <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
               <%= hidden_field_tag(:item_id, menu_item.id) %>
@@ -88,6 +130,7 @@
               <h5>Unavailable</h5>
             <% end %>
           </div>
+<<<<<<< HEAD
         </div>
       </div>
     <% end %>
@@ -107,6 +150,25 @@
         </div>
         <div class="add-to-cart">
           <div class="add-button">
+=======
+		    </div>
+		  </div>
+	  <% end %>
+	  <h3 class="medium-title">Cold Drinks</h3>
+	  <% @menu_items.each do |menu_item| %>
+	  	<% if menu_item.category == "koude_dranken" %>
+		  <div class="menu-card col-8">
+		    <div class="menu-image-container">
+		      <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+		    </div>
+		    <div class="menu-text-container">
+		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
+		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
+		    </div>
+		    <div class="add-to-cart">
+		        <div class="add-button">
+>>>>>>> 431ca6f736fe3c539f7bb6ec1e98d617a46b1e19
             <% if menu_item.available? %>
               <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
               <%= hidden_field_tag(:item_id, menu_item.id) %>
@@ -117,6 +179,7 @@
               <h5>Unavailable</h5>
             <% end %>
           </div>
+<<<<<<< HEAD
         </div>
       </div>
     <% end %>
@@ -164,6 +227,52 @@
           <div class="menu-item-description"><%= menu_item.description %></div>
         </div>
         <div class="add-to-cart">
+=======
+		    </div>
+		  </div>
+	  <% end %>
+	  <h3 class="medium-title">Extras</h3>
+	  <% @menu_items.each do |menu_item| %>
+	  	<% if menu_item.category == "extras" %>
+		  <div class="menu-card col-8">
+		    <div class="menu-image-container">
+		      <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+		    </div>
+		    <div class="menu-text-container">
+		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
+		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
+		    </div>
+		    <div class="add-to-cart">
+            <div class="add-button">
+              <% if menu_item.available? %>
+                <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+              <% end %>
+              <% else %>
+                <h5>unavailable</h5>
+              <% end %>
+            </div>
+          <% end %>
+		    </div>
+		  </div>
+	  <% end %>
+	  <h3 class="medium-title">Desserts</h3>
+	  <% @menu_items.each do |menu_item| %>
+	  	<% if menu_item.category == "desserts" %>
+		  <div class="menu-card col-8">
+		    <div class="menu-image-container">
+		      <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+		    </div>
+		    <div class="menu-text-container">
+		      <div class="menu-title"><strong><%= menu_item.name.capitalize %></strong></div>
+		      <div class="menu-item-description"><p><%= menu_item.description %></p></div>
+		      <div class="menu-item-price"><%= number_with_precision(menu_item.price, precision: 2) %></div>
+		    </div>
+		    <div class="add-to-cart">
+>>>>>>> 431ca6f736fe3c539f7bb6ec1e98d617a46b1e19
           <div class="add-button">
             <% if menu_item.available? %>
               <%= simple_form_for @order_item, url: order_items_path(@cart.id) do |f| %>

@@ -12,7 +12,9 @@
                 <div class="blue-title-sm">
                     <%= order.user.email %>
                 </div>
-                <div class="blue-title-sm"><%= order.created_at %> </div>
+                <div class="blue-title-sm"><%= order.user.organization %> </div>
+                <div class="blue-title-sm"><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </div>
+                <div class="blue-title-sm"><%= order.time_finished.strftime("%Y/%m/%d %H:%M") %> </div>
                 <div class="black-title-sm">Order ID:
                     <%= order.id %>
                 </div>
@@ -30,7 +32,7 @@
                             <%= order_item.menu_item.name%>
                         </div>
                         <div class="tally-price">
-                            <%=order_item.menu_item.price%> €</div>
+                            <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
                     </div>
                     <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
                     <% end %>
@@ -39,7 +41,7 @@
                         <div class="tally-id"></div>
                         <div class="tally-item">Total</div>
                         <div class="tally-price">
-                            <%= total_price %> €</div>
+                            <%= number_with_precision(total_price, precision: 2) %> €</div>
                     </div>
                 </div>
             </div>
