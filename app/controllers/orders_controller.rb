@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.status == "in progress"
       @order.status = "not ready"
-      redirect_to menu_items_path
+      redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
       redirect_to orders_path
