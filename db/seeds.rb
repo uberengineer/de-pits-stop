@@ -73,8 +73,9 @@ puts "Creating order items"
 20.times do
   order = Order.new(
     user: User.all.sample,
-    status: ["not ready", "awaiting pick-up", "completed"].sample,
-    comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample
+    status: "not ready",
+    comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample,
+    time_started: Time.now
     )
 
   order.save!
