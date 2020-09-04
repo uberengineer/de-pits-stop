@@ -25,7 +25,6 @@ class OrdersController < ApplicationController
     orders = orders.sort_by do |order|
       order.created_at
     end
-
     @orders = orders.reverse
   end
 
@@ -40,6 +39,7 @@ class OrdersController < ApplicationController
     elsif @order.status == "awaiting pick-up"
       @order.status = "completed"
       redirect_to orders_path
+      @order.time_finished = Time.now
     end
     @order.save!
   end
