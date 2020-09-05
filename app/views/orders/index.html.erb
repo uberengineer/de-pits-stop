@@ -1,5 +1,10 @@
 <div class="red-body">
     <%= render 'shared/navbar' %>
+    <%  if @orders.none? { |odr| odr.status == "not ready" } && @orders.none? { |odr| odr.status == "awaiting pick-up" } %>
+    <h3 class="medium-title">No orders yet!</h3>
+    <% else %>
+    <%  if @orders.none? { |odr| odr.status == "not ready" } %>
+    <% else %>
     <h3 class="medium-title">Not Ready</h3>
     <% @orders.select do |order| order.status == "not ready" end.each do |order| %>
     <div class="order-card">
@@ -58,8 +63,10 @@
         </div>
     </div>
     <% end %>
-
-        <h3 class="medium-title">Awaiting pickup</h3>
+    <% end %>
+    <% if @orders.none? { |odr| odr.status == "awaiting pick-up" } %>
+    <% else %>
+    <h3 class="medium-title">Awaiting pickup</h3>
     <% @orders.select do |order| order.status == "awaiting pick-up" end.each do |order| %>
     <div class="order-card">
         <div class="blue-title-md order-id">
@@ -117,4 +124,6 @@
         </div>
     </div>
     <% end %>
-  </div>
+    <% end %>
+    <% end %>
+</div>
