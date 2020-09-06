@@ -12,3 +12,5 @@ channels.keys().forEach(channels)
 //   view_cart.classList.remove("d-none")
 // });
 
+
+$(window.alert("hello"))
