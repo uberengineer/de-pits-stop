@@ -8,6 +8,16 @@ User.destroy_all
 Cloudinary::Api.delete_all_resources
 puts "starting the seeds"
 
+User.create(
+    first_name: "De Pits",
+    last_name: "Administrator",
+    email: "admin@gmail.com",
+    password: "admin123",
+    organization: "De Pits",
+    admin: true
+    )
+puts "Admin accout created"
+
 puts "creating users "
 4.times do |num|
   User.create(
@@ -16,7 +26,7 @@ puts "creating users "
     email: "test#{num}@gmail.com",
     password: "password",
     organization: Faker::Company.name,
-    admin: true
+    admin: false
   )
 end
 puts "#{User.count} user's created"
