@@ -2,6 +2,7 @@ require "open-uri"
 require 'faker'
 
 puts "destroying data"
+OrderItem.destroy_all
 MenuItem.destroy_all
 Order.destroy_all
 User.destroy_all
