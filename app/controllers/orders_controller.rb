@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.status == "in progress"
       @order.status = "not ready"
+      @order.comment = params[:order][:comment]
       @order.time_started = Time.now
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
