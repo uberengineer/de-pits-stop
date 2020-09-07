@@ -1,15 +1,19 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.select do |order|
-      order.status == "not ready" || order.status == "awaiting pick-up"
-    end
+    if current_user.admin
+      @orders = Order.select do |order|
+        order.status == "not ready" || order.status == "awaiting pick-up"
+      end
 
-    @past_orders = Order.select do |order|
-      order.status == "completed"
-    end
+      @past_orders = Order.select do |order|
+        order.status == "completed"
+      end
 
-    @current_orders = Order.select do |order|
-      order.status == "completed"
+      @current_orders = Order.select do |order|
+        order.status == "completed"
+      end
+    else
+      redirect_to menu_items_path
     end
   end
 
