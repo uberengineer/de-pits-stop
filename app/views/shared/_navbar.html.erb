@@ -7,11 +7,13 @@
     <div class="navbar-text">
         <% if current_user.admin == true%>
         <div>
-            <p class="kitchen-status">Kitchen is open</p>
-            <label class="switch">
-                <input id="kitchen" type="checkbox" unchecked>
-                <span class="slider round"></span>
-            </label>
+            <% if @kitchen.kitchen_status %>
+
+            <%= button_to "Kitchen is now Open", kitchens_update_path, method: :patch, class: "btn btn-success" %>
+            <% else %>
+
+            <%= button_to "Kitchen is now Closed", kitchens_update_path, method: :patch, class: "btn btn-danger" %>
+            <% end %>
         </div>
         <% else %>
         Welcome,

@@ -8,6 +8,9 @@ User.destroy_all
 Cloudinary::Api.delete_all_resources
 puts "starting the seeds"
 
+
+Kitchen.create()
+
 User.create(
     first_name: "De Pits",
     last_name: "Administrator",

@@ -18,4 +18,8 @@ class PagesController < ApplicationController
 
   def instructions
   end
+
+  def closed_kitchen
+  end
+
 end
