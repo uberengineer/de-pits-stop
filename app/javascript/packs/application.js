@@ -29,3 +29,4 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import '../components/navbar';
 import '../components/kitchen';
+import '../components/add_to_cart';
