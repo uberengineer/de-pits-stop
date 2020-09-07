@@ -35,6 +35,8 @@
                         <div class="tally-price">
                             <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
                         <%= link_to "delete", order_item_path(@cart, order_item), method: :delete %>
+
+
                     </div>
                     <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
                     <% end %>
@@ -47,9 +49,12 @@
                     </div>
                 </div>
             </div>
+            <%= simple_form_for @cart do |f| %>
+            <%= f.text_area :comment %>
         </div>
     </div>
-    <%= link_to "Checkout", order_path(@cart), method: :patch, class: "btn btn-primary" %>
+     <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
+     <% end %>
     <br>
     <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
     <% else %>
