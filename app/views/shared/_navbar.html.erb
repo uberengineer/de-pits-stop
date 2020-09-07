@@ -11,6 +11,7 @@
     <div class="navbar-right">
         <% if current_user.admin == true%>
           <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+          <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
         <% end %>
         <% if current_user.admin == false %>
           <% if Order.where(user: current_user, status: "in progress").first_or_create %>
