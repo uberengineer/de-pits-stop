@@ -14,9 +14,9 @@
         <% end %>
         <% if current_user.admin == false %>
           <% if Order.where(user: current_user, status: "in progress").first_or_create %>
-            <%= link_to "My Cart", checkout_order_path(Order.where(user: current_user, status: "in progress").first_or_create), class: "btn btn-dark" %>
+            <%= link_to "My Cart", checkout_order_path(Order.where(user: current_user, status: "in progress").first_or_create), class: "btn btn-primary" %>
           <% end %>
-          <%= link_to "My Orders", show_current_orders_path, class: "btn btn-dark" %>
+          <%= link_to "My Orders", show_current_orders_path, class: "btn btn-success" %>
         <% end %>
         <% if current_user == nil%> -->
           <a class="btn btn-primary" href='/users/sign_in'>Login</a>
