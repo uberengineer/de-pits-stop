@@ -13,4 +13,4 @@ channels.keys().forEach(channels)
 // });
 
 
-$(window.alert("hello"))
+// $(window.alert("hello"))
