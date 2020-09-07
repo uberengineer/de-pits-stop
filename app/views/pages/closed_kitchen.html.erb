@@ -1,0 +1,12 @@
+<div class="blue-body">
+    <%= render 'shared/navbar' %>
+    <h1 class="medium-title">The kitchen is now closed</h1>
+    <h3>Hours of operation:</h3>
+    <h6>Monday - Friday</h6>
+    <h6>9:00h - 16:00h</h6>
+    <% if current_user.admin %>
+    <%= button_to "Open the Kitchen", kitchens_update_path, method: :patch, class: "btn btn-success" %>
+    <%= link_to "back", dashboard_path, class: "btn btn-primary"%>
+    <% else %>
+    <% end %>
+</div>
