@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   end
 
   def confirmation
+    unless current_user.admin
+      redirect_to menu_items_path
+    end
   end
 
   def instructions
