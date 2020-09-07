@@ -1,24 +1,20 @@
 <div class="red-body">
-<%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' %>
     <h3 class="strong-title">Choose an action below:</h3>
     <br>
     <div class="admin-grid">
-
-      <%= link_to orders_path do %>
+        <%= link_to orders_path do %>
         <div class="admin-grid-item">OPEN ORDERS</div>
-      <% end %>
-
-      <%= link_to past_orders_path do %>
+        <% end %>
+        <%= link_to past_orders_path do %>
         <div class="admin-grid-item">VIEW PAST ORDERS</div>
-      <% end %>
-
-      <%= link_to menu_items_path do %>
+        <% end %>
+        <%= link_to menu_items_path do %>
         <div class="admin-grid-item">SEE MENU</div>
-      <% end %>
-
-      <%= link_to rails_admin.index_path(:menu_item) do %>
+        <% end %>
+        <%= link_to rails_admin.index_path(:menu_item) do %>
         <div class="admin-grid-item">EDIT MENU</div>
-      <% end %>
+        <% end %>
     </div>
     <br>
     <%= link_to "Help", instructions_path, class: "btn btn-success"%>
