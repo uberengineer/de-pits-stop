@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # before_action :redirect_root_domain
   before_action :authenticate_user!
   before_action :set_kitchen
 
