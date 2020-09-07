@@ -5,6 +5,7 @@ class OrderItemsController < ApplicationController
     order_item.menu_item = MenuItem.find(params[:item_id])
     order_item.order = Order.where(user: current_user, status: "in progress").first_or_create
     if order_item.save
+      @order_item = order_item
       # flash[:notice] = "Succesfully added to cart"
       # GONZALO NOTE: Create a small javascript popup here.
     else
