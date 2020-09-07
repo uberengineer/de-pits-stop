@@ -9,11 +9,11 @@ Cloudinary::Api.delete_all_resources
 puts "starting the seeds"
 
 User.create(
-    first_name: De Pits,
-    last_name: Administrator,
+    first_name: "De Pits",
+    last_name: "Administrator",
     email: "admin@gmail.com",
     password: "admin123",
-    organization: De Pits,
+    organization: "De Pits",
     admin: true
     )
 puts "Admin accout created"
