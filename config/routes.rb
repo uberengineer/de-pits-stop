@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   get "/order/:id/confirmation", to: "pages#confirmation", as: "confirmation"
+  get "/dashboard/instructions", to: "pages#instructions", as: "instructions"
   devise_scope :user do
     root to: "devise/sessions#new"
   end

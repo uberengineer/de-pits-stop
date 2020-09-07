@@ -11,6 +11,8 @@ class PagesController < ApplicationController
   end
 
   def confirmation
+  end
 
+  def instructions
   end
 end
