@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_110156) do
+ActiveRecord::Schema.define(version: 2020_09_07_154844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_110156) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "time_started"
     t.datetime "time_finished"
+    t.string "pickup_time", default: "As soon as possible"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
