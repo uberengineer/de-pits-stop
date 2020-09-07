@@ -38,6 +38,11 @@ class OrdersController < ApplicationController
       @order.status = "not ready"
       @order.comment = params[:order][:comment]
       @order.time_started = Time.now
+      if params[:order][:pickup_time] == "As soon as possible"
+        @order.pickup_time = params[:order][:pickup_time]
+      else
+        @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
+      end
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
@@ -62,6 +67,15 @@ class OrdersController < ApplicationController
 
   def checkout
     @cart = Order.where(user: current_user, status: "in progress").first_or_create
+    time = Time.now + 45.minutes
+    @times = ["As soon as possible"]
+    while time <= Time.parse("15:00")
+      time += 15.minutes
+      time = Time.at(time.to_i - (time.to_i % 15.minutes))
+      str_time = time.strftime("%H:%M")
+      @times.push(str_time)
+    end
+
   end
 
 end
