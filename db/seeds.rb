@@ -1,12 +1,12 @@
 require "open-uri"
 require 'faker'
 
-puts "destroying data"
-OrderItem.destroy_all
-MenuItem.destroy_all
-Order.destroy_all
-User.destroy_all
-Cloudinary::Api.delete_all_resources
+# puts "destroying data"
+# OrderItem.destroy_all
+# MenuItem.destroy_all
+# Order.destroy_all
+# User.destroy_all
+# Cloudinary::Api.delete_all_resources
 puts "starting the seeds"
 
 User.create(
