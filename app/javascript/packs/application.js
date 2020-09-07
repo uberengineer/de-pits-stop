@@ -24,6 +24,9 @@ require("channels")
 // External imports
 
 import "bootstrap";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
+window.Swal = Swal;
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

@@ -1,3 +1,5 @@
-new Notification('Thanks', {
-  body: <%= @order_item.menu_item.name %>" added ",
-})
+window.Swal.fire(
+  '<%= @order_item.quantity %> x <%= @order_item.menu_item.name %> ',
+  'in your cart!',
+  'success'
+)
