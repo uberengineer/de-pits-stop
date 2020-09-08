@@ -41,6 +41,206 @@
         </div>
         <% end %>
         <% end %>
+        <h3 class="medium-title">Combi Deals</h3>
+        <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == "combi_deals" %>
+        <div class="menu-card" id="menu-item-<%= menu_item.id %>">
+            <div class="menu-text-container">
+              <div>
+                <div class="menu-title"><%= menu_item.name.capitalize %></div>
+              </div>
+                <div class="menu-item-description">
+                    <p><%= menu_item.description %></p>
+                </div>
+            </div>
+                <% if menu_item.available? %>
+                <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                  <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <div class="checkout-elements">
+                   <div class="menu-image-container">
+                    <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+                  </div>
+                  <div class="add-quantity">
+                    <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                  </div>
+                  <div class="add-btn-area">
+                    <div class="menu-price-container">
+                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                    </div>
+                    <div>
+                      <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
+                    </div>
+                </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="checkout-elements">
+                  <h5>Unavailable</h5>
+                </div>
+                <% end %>
+        </div>
+        <% end %>
+        <% end %>
+        <h3 class="medium-title">Losse Items</h3>
+        <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == "losse_items" %>
+        <div class="menu-card" id="menu-item-<%= menu_item.id %>">
+            <div class="menu-text-container">
+              <div>
+                <div class="menu-title"><%= menu_item.name.capitalize %></div>
+              </div>
+                <div class="menu-item-description">
+                    <p><%= menu_item.description %></p>
+                </div>
+            </div>
+                <% if menu_item.available? %>
+                <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                  <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <div class="checkout-elements">
+                   <div class="menu-image-container">
+                    <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+                  </div>
+                  <div class="add-quantity">
+                    <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                  </div>
+                  <div class="add-btn-area">
+                    <div class="menu-price-container">
+                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                    </div>
+                    <div>
+                      <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
+                    </div>
+                </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="checkout-elements">
+                  <h5>Unavailable</h5>
+                </div>
+                <% end %>
+        </div>
+        <% end %>
+        <% end %>
+        <h3 class="medium-title">Cold Drinks</h3>
+        <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == "koude_dranken" %>
+        <div class="menu-card" id="menu-item-<%= menu_item.id %>">
+            <div class="menu-text-container">
+              <div>
+                <div class="menu-title"><%= menu_item.name.capitalize %></div>
+              </div>
+                <div class="menu-item-description">
+                    <p><%= menu_item.description %></p>
+                </div>
+            </div>
+                <% if menu_item.available? %>
+                <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                  <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <div class="checkout-elements">
+                   <div class="menu-image-container">
+                    <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+                  </div>
+                  <div class="add-quantity">
+                    <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                  </div>
+                  <div class="add-btn-area">
+                    <div class="menu-price-container">
+                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                    </div>
+                    <div>
+                      <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
+                    </div>
+                </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="checkout-elements">
+                  <h5>Unavailable</h5>
+                </div>
+                <% end %>
+        </div>
+        <% end %>
+        <% end %>
+        <h3 class="medium-title">Extras</h3>
+        <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == "extras" %>
+        <div class="menu-card" id="menu-item-<%= menu_item.id %>">
+            <div class="menu-text-container">
+              <div>
+                <div class="menu-title"><%= menu_item.name.capitalize %></div>
+              </div>
+                <div class="menu-item-description">
+                    <p><%= menu_item.description %></p>
+                </div>
+            </div>
+                <% if menu_item.available? %>
+                <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                  <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <div class="checkout-elements">
+                   <div class="menu-image-container">
+                    <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+                  </div>
+                  <div class="add-quantity">
+                    <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                  </div>
+                  <div class="add-btn-area">
+                    <div class="menu-price-container">
+                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                    </div>
+                    <div>
+                      <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
+                    </div>
+                </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="checkout-elements">
+                  <h5>Unavailable</h5>
+                </div>
+                <% end %>
+        </div>
+        <% end %>
+        <% end %>
+        <h3 class="medium-title">Desserts</h3>
+        <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == "desserts" %>
+        <div class="menu-card" id="menu-item-<%= menu_item.id %>">
+            <div class="menu-text-container">
+              <div>
+                <div class="menu-title"><%= menu_item.name.capitalize %></div>
+              </div>
+                <div class="menu-item-description">
+                    <p><%= menu_item.description %></p>
+                </div>
+            </div>
+                <% if menu_item.available? %>
+                <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                  <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <div class="checkout-elements">
+                   <div class="menu-image-container">
+                    <%= cl_image_tag menu_item.image.key, height: 300, width: 300, crop: :fit, class: "menu-item-img" %>
+                  </div>
+                  <div class="add-quantity">
+                    <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                  </div>
+                  <div class="add-btn-area">
+                    <div class="menu-price-container">
+                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                    </div>
+                    <div>
+                      <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
+                    </div>
+                </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="checkout-elements">
+                  <h5>Unavailable</h5>
+                </div>
+                <% end %>
+        </div>
+        <% end %>
+        <% end %>
     </div>
     <div class="desktop-screen">
         <h3 class="medium-title">Daily Specials</h3>
