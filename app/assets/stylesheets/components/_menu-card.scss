@@ -1,92 +1,15 @@
 /* For Laptop */
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 540px) {
+
+  .mobile-screen {
+    display: none;
+  }
+
   .menu-card {
     background: yellow;
     box-shadow: 0 0 2vw rgba(0,0,0,0.2);
     padding: 1vw;
-    margin: 1vh;
-    height: 200px;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-
-  .menu-image-container {
-    height: 100%;
-    width: 30%;
-    overflow: hidden;
-    .menu-item-img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .menu-text-container {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    display: flex;
-    max-width: 40%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between;
-
-
-    .menu-title{
-      text-align: left;
-    }
-
-    .menu-item-description{
-      text-align: left;
-      justify-content: center;
-      align-items: center;
-    }
-    .menu-item-price{
-      text-align: left;
-      color: $green;
-    }
-  }
-    .add-to-cart {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 15vw;
-      padding: 1vw;
-      .add-button {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-
-  .btn-icon {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: red;
-  }
-
-  .btn-icon:before {
-    content: "\f217";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-  }
-
-  #order_item_quantity {
-    text-align: center;
-  }
-}
-
-/* For Tablets */
-@media screen and (min-width: 540px) and (max-width: 780px) {
-  .menu-card {
-    background: blue;
-    box-shadow: 0 0 2vw rgba(0,0,0,0.2);
-    padding: 1vw;
-    margin: 1vh;
+    margin: 1vh 10vw 1vh 10vw;
     height: 200px;
     display: flex;
     justify-content: space-between;
@@ -163,33 +86,58 @@
 }
 
 /* For mobile */
+/* For mobile */
+/* For mobile */
+/* For mobile */
 @media screen and (max-width: 540px) {
+
+  .desktop-screen {
+    display: none;
+  }
+
+#navbar {
+  position: fixed; /* Make it stick/fixed */
+  // top: 0; /* Stay on top */
+  width: 100%; /* Full width */
+  // transition: top 1s; /* Transition effect when sliding down (and up) */
+  z-index: 1000;
+}
+
   .menu-card {
-    background: orange;
+    background: rgba(255,255,255,0.6);
     box-shadow: 0 0 2vw rgba(0,0,0,0.2);
     padding: 1vw;
     margin: 1vh;
-    height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     text-align: center;
 
   .menu-image-container {
-    height: 100%;
-    width: 30%;
-    overflow: hidden;
+    max-height: 15vh;
+    max-width: 30vw;
     .menu-item-img {
       height: 100%;
       width: 100%;
       object-fit: cover;
+      }
     }
-  }
+
+  // .menu-image-container {
+  //   height: 100%;
+  //   width: 30%;
+  //   overflow: hidden;
+  //   .menu-item-img {
+  //     height: 100%;
+  //     width: 100%;
+  //     object-fit: cover;
+  //   }
+  // }
 
   .menu-text-container {
     margin-left: 1vw;
     margin-right: 1vw;
     display: flex;
-    max-width: 40%;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
@@ -197,33 +145,60 @@
 
     .menu-title{
       text-align: left;
+      font-weight: bold;
     }
 
     .menu-item-description{
       text-align: left;
-      justify-content: center;
-      align-items: center;
-    }
-    .menu-item-price{
-      text-align: left;
-      color: $green;
     }
   }
-    .add-to-cart {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 15vw;
-      padding: 1vw;
-      .add-button {
+
+
+  .checkout-elements {
+
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding: 1vw;
+    display: flex;
+    flex-direction: row;
+    // .add-button {
+    justify-content: space-between;
+    align-items: top;
+    // }
+    .add-quantity {
+      max-width: 17vw;
+      color: $blue;
+      font-family: $funky-font;
+
+      .form-group.integer.optional.order_item_quantity {
+        height: 100%;
         display: flex;
+        justify-content: space-between;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      }
+
+
+    }
+    .add-btn-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+      .menu-price-container{
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      }
+      .menu-item-price {
+        font-weight: bold;
+        text-align: center;
+        color: $green;
+        font-family: $funky-font;
       }
     }
   }
+}
 
   .btn-icon {
     display: inline-flex;

@@ -1,6 +1,6 @@
 class MenuItemsController < ApplicationController
   def index
-    if @kitchen.kitchen_status
+    if @kitchen.kitchen_status || current_user.admin?
       @menu_items = MenuItem.all
       @cart = Order.find_or_create_by(user_id: current_user.id, status: "in progress")
       @order_item = OrderItem.new()
