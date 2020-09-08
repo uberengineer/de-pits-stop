@@ -20,6 +20,8 @@ class PagesController < ApplicationController
   end
 
   def closed_kitchen
+    if @kitchen.kitchen_status
+      redirect_to menu_items_path
+    end
   end
-
 end

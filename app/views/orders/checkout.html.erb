@@ -3,6 +3,7 @@
     <% if @cart.status == "in progress" %>
     <% if @cart.order_items.first != nil %>
     <h3 class="strong-title">Please confirm your order below:</h3>
+     <%= simple_form_for @cart do |f| %>
     <div class="order-card">
         <div class="blue-title-md order-id">#
             <%= @cart.id %>
@@ -47,13 +48,16 @@
                     </div>
                 </div>
             </div>
-            <%= simple_form_for @cart do |f| %>
+
             <%= f.text_area :comment %>
             <%= f.input :pickup_time,
                 collection: @times, selected: 0%>
+
+
         </div>
+
     </div>
-     <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
+    <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
      <% end %>
     <br>
     <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
