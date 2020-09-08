@@ -35,24 +35,24 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.status == "in progress"
-      @order.status = "not ready"
-      @order.comment = params[:order][:comment]
-      @order.time_started = Time.now
+      @order.update(status: "not ready")
+      @order.update(comment: params[:order][:comment])
+      @order.update(time_started: Time.now)
       if params[:order][:pickup_time] == "As soon as possible"
-        @order.pickup_time = params[:order][:pickup_time]
+         @order.update(pickup_time: params[:order][:pickup_time])
       else
-        @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
+        @order.update(pickup_time: Time.parse(params[:order][:pickup_time]).strftime("%H:%M"))
       end
+      UserMailer.confirmation_email(@order.user).deliver_now
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
-      @order.status = "awaiting pick-up"
+      @order.update(status: "awaiting pick-up")
       redirect_to orders_path
     elsif @order.status == "awaiting pick-up"
-      @order.status = "completed"
+      @order.update(status: "completed")
       redirect_to orders_path
-      @order.time_finished = Time.now
+      @order.update(time_finished: Time.now)
     end
-    @order.save!
   end
 
   def show_current_orders
