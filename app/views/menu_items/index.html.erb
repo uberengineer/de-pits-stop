@@ -15,11 +15,14 @@
 		    <div class="add-to-cart">
 		      <div class="add-button">
             <% if menu_item.available? %>
-              <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
-              <%= hidden_field_tag(:item_id, menu_item.id) %>
-              <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-              <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+            <% if !current_user.admin? %>
+               <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
               <% end %>
+            <% end %>
+
               <% else %>
               <h5>Unavailable</h5>
             <% end %>
@@ -44,11 +47,13 @@
         <div class="add-to-cart">
           <div class="add-button">
             <% if menu_item.available? %>
-              <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
-              <%= hidden_field_tag(:item_id, menu_item.id) %>
-              <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-              <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                <% if !current_user.admin? %>
+               <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
               <% end %>
+            <% end %>
               <% else %>
               <h5>Unavailable</h5>
             <% end %>
@@ -73,11 +78,13 @@
         <div class="add-to-cart">
           <div class="add-button">
             <% if menu_item.available? %>
-              <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
-              <%= hidden_field_tag(:item_id, menu_item.id) %>
-              <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-              <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+            <% if !current_user.admin? %>
+               <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
               <% end %>
+            <% end %>
               <% else %>
               <h5>Unavailable</h5>
             <% end %>
@@ -102,11 +109,13 @@
         <div class="add-to-cart">
           <div class="add-button">
             <% if menu_item.available? %>
-              <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
-              <%= hidden_field_tag(:item_id, menu_item.id) %>
-              <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-              <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+            <% if !current_user.admin? %>
+               <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
               <% end %>
+            <% end %>
               <% else %>
               <h5>Unavailable</h5>
             <% end %>
@@ -131,11 +140,13 @@
         <div class="add-to-cart">
           <div class="add-button">
             <% if menu_item.available? %>
-              <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
-              <%= hidden_field_tag(:item_id, menu_item.id) %>
-              <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-              <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+            <% if !current_user.admin? %>
+               <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
               <% end %>
+            <% end %>
               <% else %>
               <h5>Unavailable</h5>
             <% end %>
@@ -160,11 +171,13 @@
         <div class="add-to-cart">
           <div class="add-button">
             <% if menu_item.available? %>
-              <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
-              <%= hidden_field_tag(:item_id, menu_item.id) %>
-              <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-              <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+            <% if !current_user.admin? %>
+               <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
+                <%= hidden_field_tag(:item_id, menu_item.id) %>
+                <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
+                <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
               <% end %>
+            <% end %>
               <% else %>
               <h5>Unavailable</h5>
             <% end %>
