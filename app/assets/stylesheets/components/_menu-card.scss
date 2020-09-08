@@ -24,20 +24,21 @@
     margin-right: 1vw;
     display: flex;
     max-width: 40%;
-    max-height: 25vh;
+    height: 100%;
     flex-direction: column;
+    justify-content: space-between;
+
 
     .menu-title{
-      max-height: 12.5vh;
       text-align: left;
     }
 
     .menu-item-description{
-      max-height: 12.5vh;
       text-align: left;
+      justify-content: center;
+      align-items: center;
     }
     .menu-item-price{
-      justify-content: center;
       text-align: left;
       color: $green;
     }

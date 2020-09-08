@@ -22,8 +22,9 @@
 
 .login-form {
   box-sizing:border-box;
-  padding-top:20px;
-  padding-bottom:20px;
+  padding: 20px;
+  // padding-top:20px;
+  // padding-bottom:20px;
   margin-top:5% auto;
   text-align:center;
   border:.5px solid rgba(0,0,0,0.05);
@@ -104,7 +105,9 @@
   font-family: $funky-font;
 }
 
-
+.retrieve-pwd {
+  color: grey;
+}
 
 
 

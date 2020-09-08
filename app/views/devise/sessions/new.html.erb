@@ -1,7 +1,9 @@
 <div class="login-body">
-  <div class="login">
-    <div class="login-form">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="login">
+      <img width="100px" style="margin-bottom: 5vh;" src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/lepelh.svg" alt="logo">
+        <div class="login-form">
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <h3 class="signup-text">Sign in</h3>
         <div class="form-inputs">
         <%= f.input :email,
                     required: true,
