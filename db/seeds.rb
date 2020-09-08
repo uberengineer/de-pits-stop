@@ -6,7 +6,7 @@ OrderItem.destroy_all
 MenuItem.destroy_all
 Order.destroy_all
 User.destroy_all
-# Cloudinary::Api.delete_all_resources
+Cloudinary::Api.delete_all_resources
 puts "starting the seeds"
 
 

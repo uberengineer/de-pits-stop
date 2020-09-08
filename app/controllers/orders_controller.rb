@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-    @cart = Order.find_or_create_by(user: current_user, status: "in progress")
+    @cart = Order.where(user: current_user, status: "in progress").first_or_create
     time = Time.now + 45.minutes
     @times = ["As soon as possible"]
     while time <= Time.parse("15:00")
@@ -75,12 +75,7 @@ class OrdersController < ApplicationController
       str_time = time.strftime("%H:%M")
       @times.push(str_time)
     end
-    payment = Mollie::Payment.create(
-      amount:       { value: '10.00', currency: 'EUR' },
-      description:  'My first API payment',
-      redirect_url: 'https://webshop.example.org/order/12345/',
-      webhook_url:  'https://webshop.example.org/mollie-webhook/'
-    )
+
   end
 
 end
