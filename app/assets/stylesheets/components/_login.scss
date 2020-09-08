@@ -101,3 +101,33 @@
 
   }
 }
+
+.flex-login {
+  display: flex;
+  flex-direction: row;
+}
+
+.textbox {
+  margin-top: 6.4%;
+  width: 80%;
+}
+
+
+.form-group.select.required.user_organization {
+display: flex;
+flex-direction: column;
+text-align: center;
+align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.end {}
