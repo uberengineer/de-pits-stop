@@ -35,8 +35,6 @@ gem 'cloudinary'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'rails_admin'
-gem 'money-rails'
-gem 'mollie-api-ruby'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

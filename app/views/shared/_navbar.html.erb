@@ -24,8 +24,8 @@
       <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
     <% end %>
     <% if current_user.admin == false %>
-    <% if Order.find_or_create_by(user: current_user, status: "in progress") %>
-      <%= link_to "My Cart", checkout_order_path(Order.find_or_create_by(user: current_user, status: "in progress")), class: "btn btn-primary" %>
+    <% if Order.where(user: current_user, status: "in progress").first_or_create %>
+      <%= link_to "My Cart", checkout_order_path(Order.where(user: current_user, status: "in progress").first_or_create), class: "btn btn-primary" %>
     <% end %>
       <%= link_to "My Orders", show_current_orders_path, class: "btn btn-success" %>
     <% end %>
