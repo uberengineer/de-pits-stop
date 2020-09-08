@@ -1,26 +1,29 @@
 <div class="login-body">
-    <div class="login">
-        <div class="login-form">
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.error_notification %>
-            <div class="form-inputs">
-                <div class="flex-login">
-                    <div class="login-fields-container">
-                        <%= f.input :first_name, required: false %>
-                        <%= f.input :last_name, required: false %>
-                        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }%>
-                    </div>
-                  <div class="login-fields-container">
-                    <%= f.input :organization, collection: %w[LeWagon Letselschade Other Guest], required: true, input_html: { class: "textbox" } %>
-                    <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
-                    <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
-                </div>
-              </div>
-            </div>
-            <div class="form-actions">
-                <%= f.button :submit, "Sign up" %>
-            </div>
-            <% end %>
-            <%= render "devise/shared/links" %>
+  <div class="login">
+    <img width="100px" style="margin-bottom: 5vh;" src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/lepelh.svg" alt="logo">
+    <div class="login-form">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <h3 class="signup-text">Sign up as a new customer</h3>
+      <div class="form-inputs">
+        <div class="flex-login">
+          <div class="login-fields-container">
+            <%= f.input :first_name, required: true %>
+            <%= f.input :last_name, required: true %>
+            <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+          </div>
+          <div class="login-fields-container">
+            <%= f.input :organization, required: true, input_html: { class: "textboxei" } %>
+            <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
+          </div>
         </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+        <%= render "devise/shared/links" %>
+      <% end %>
     </div>
+  </div>
+</div>
