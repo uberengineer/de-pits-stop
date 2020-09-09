@@ -35,22 +35,22 @@ class OrdersController < ApplicationController
       @order.comment = params[:order][:comment]
       @order.time_started = Time.now
       if params[:order][:pickup_time] == "As soon as possible"
-         @order.update(pickup_time: params[:order][:pickup_time])
+         @order.pickup_time = params[:order][:pickup_time]
       else
-        @order.update(pickup_time: Time.parse(params[:order][:pickup_time]).strftime("%H:%M"))
+        @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
       UserMailer.confirmation_email(@order.user, @order).deliver_now
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
-      @order.update(status: "awaiting pick-up")
+      @order.status = "awaiting pick-up"
       UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
     elsif @order.status == "awaiting pick-up"
-      @order.update(status: "completed")
+      @order.status = "completed"
       redirect_to orders_path
-      @order.update(time_finished: Time.now)
+      @order.time_finished = Time.now
     end
-      @order.save!
+      @order.save
       OrderChannel.broadcast_to(
        "orders",
       render_to_string(partial: "orders/order", locals: { order: @order })
