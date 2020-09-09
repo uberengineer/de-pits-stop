@@ -5,13 +5,7 @@ class OrderItemsController < ApplicationController
     order_item.menu_item = MenuItem.find(params[:item_id])
     order_item.order = Order.find_or_create_by(user: current_user, status: "in progress")
     order_item.save
-
-
-      @order_item = order_item
-
-
-
-    end
+    @order_item = order_item
   end
 
   def destroy

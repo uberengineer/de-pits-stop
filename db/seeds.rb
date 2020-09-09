@@ -42,6 +42,7 @@ menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symboliz
 menu[:daily_specials].each do |menu_item|
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
+  f.price_cents = menu_item[:price] * 100
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
@@ -49,6 +50,7 @@ end
 menu[:combi_deals].each do |menu_item|
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
+  f.price_cents = menu_item[:price] * 100
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
@@ -56,6 +58,7 @@ end
 menu[:losse_items].each do |menu_item|
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
+  f.price_cents = menu_item[:price] * 100
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
@@ -63,6 +66,7 @@ end
 menu[:extras].each do |menu_item|
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
+  f.price_cents = menu_item[:price] * 100
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
@@ -70,6 +74,7 @@ end
 menu[:koude_dranken].each do |menu_item|
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
+  f.price_cents = menu_item[:price] * 100
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end
@@ -77,6 +82,7 @@ end
 menu[:desserts].each do |menu_item|
   file = menu_item.delete(:image)
   f = MenuItem.create(menu_item)
+  f.price_cents = menu_item[:price] * 100
   f.image.attach(io: File.open(file), filename: "#{f.id}.jpeg", content_type: 'image/jpeg')
   puts "Created menu item #{menu_item[:name]}"
 end

@@ -43,6 +43,12 @@ class OrdersController < ApplicationController
       else
         @order.update(pickup_time: Time.parse(params[:order][:pickup_time]).strftime("%H:%M"))
       end
+      payment = Mollie::Payment.create(
+      amount:       { value: '10.00', currency: 'EUR' },
+      description:  'My first API payment',
+      redirect_url: 'https://webshop.example.org/order/12345/',
+      webhook_url:  'https://webshop.example.org/mollie-webhook/'
+    )
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
       @order.update(status: "awaiting pick-up")
@@ -74,12 +80,6 @@ class OrdersController < ApplicationController
       str_time = time.strftime("%H:%M")
       @times.push(str_time)
     end
-    payment = Mollie::Payment.create(
-      amount:       { value: '10.00', currency: 'EUR' },
-      description:  'My first API payment',
-      redirect_url: 'https://webshop.example.org/order/12345/',
-      webhook_url:  'https://webshop.example.org/mollie-webhook/'
-    )
   end
 
 end
