@@ -23,7 +23,9 @@
                 <% else %>
                 <%= button_to "Kitchen is now Closed", kitchens_update_path, method: :patch, class: "btn btn-danger" %>
                 <% end %>
-                <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+                <% unless params[:controller] == "pages" && params[:action] == "dashboard" %>
+                    <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+                <% end %>
                 <% end %>
                 <% if current_user.admin == false %>
                 <% if Order.where(user: current_user, status: "in progress").first_or_create %>
@@ -79,11 +81,11 @@
                 <div class="collapse navbar-collapse show" id="navbar-list-4" style="margin-top: -0.5rem;">
                     <div class="navbar-nav">
                         <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bars" style="font-size: 8vh; padding: 0; margin: 0;"></i>
+                            <i class="fas fa-bars" style="font-size: 4vh; padding: 0; margin-right: 3vw;"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <% if current_user.admin == true%>
-                            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+                            <%= link_to "⚙️ Dashboard", dashboard_path, class: "dropdown-item" %>
                             <% end %>
                             <% if current_user.admin == false %>
                             <% if Order.where(user: current_user, status: "in progress").first_or_create %>
@@ -114,5 +116,4 @@
         </main>
         <% end %>
     </div>
-    <% end %>
-</div>
+    <% end %></div>

@@ -1,135 +1,127 @@
 <div class="blue-body">
     <%= render 'shared/navbar' %>
     <div class="order-mobile">
-    <% if @cart.status == "in progress" %>
-    <% if @cart.order_items.first != nil %>
-    <h3 class="confirm-header">Please confirm<br>your order below:</h3>
-     <%= simple_form_for @cart do |f| %>
-    <div class="order-card">
-        <div class="customer-details">
-            <div class="cutomer-identity">
-                <div class="blue-title-md customer-title">
-                    <%= @cart.user.first_name.downcase.capitalize %>
-                    <%= @cart.user.last_name.downcase.capitalize %>
+        <% if @cart.status == "in progress" %>
+        <% if @cart.order_items.first != nil %>
+        <h3 class="confirm-header">Please confirm<br>your order below:</h3>
+        <%= simple_form_for @cart do |f| %>
+        <div class="order-card">
+            <div class="customer-details">
+                <div class="cutomer-identity">
+                    <div class="blue-title-sm">
+                        <%= @cart.user.email %>
+                    </div>
+                    <div class="black-title-sm">Order ID:
+                        <%= @cart.id %>
+                    </div>
                 </div>
-                <div class="blue-title-sm">
-                    <%= @cart.user.email %>
-                </div>
-                <div class="black-title-sm">Order ID: <%= @cart.id %></div>
             </div>
-        </div>
-        <div class="order-management">
-            <div class="order-tally">
-                <div>
-                    <% total_price = 0 %>
-                    <% @cart.order_items.each do |order_item|  %>
-                    <div class="order-details-checkout">
-                        <div class="tally-id">
-                            <%= order_item.quantity %>x</div>
-                        <div class="tally-item">
-                          <%= truncate order_item.menu_item.name, length: 25, separator: /\w+/ %>
+            <div class="order-management">
+                <div class="order-tally">
+                    <div>
+                        <% total_price = 0 %>
+                        <% @cart.order_items.each do |order_item|  %>
+                        <div class="order-details-checkout">
+                            <div class="tally-id">
+                                <%= order_item.quantity%>x </div>
+                            <div class="tally-item">
+                                <%= truncate order_item.menu_item.name, length: 25, separator: /\w+/ %>
+                            </div>
+                            <div class="tally-price">
+                                <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
+                            <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
                         </div>
-                        <div class="tally-price"><%= humanized_money_with_symbol(order_item.menu_item.price)%></div><%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
+                        <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                        <% end %>
+                        <hr>
+                        <div class="order-details-checkout">
+                            <div class="tally-item">Total <span class="tally-price total-price">
+                                    <%= '%.2f' % total_price%> €</span></div>
+                            <div class="add-more">
+                                <%= link_to "add more items", menu_items_path, class: "" %>
+                            </div>
+                        </div>
+                        <hr class="total-hr">
+                        <hr class="total-hr">
                     </div>
-                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                    <% end %>
-                    <hr>
-                    <div class="order-details-checkout">
-                        <div class="tally-item">Total <%= humanized_money_with_symbol('%.2f' % total_price) %></div>
-                        <div class="tally-price total-price">
-                            <%= humanized_money_with_symbol('%.2f' % total_price) %></div>
-                    </div>
-                    <hr class="total-hr">
-                    <hr class="total-hr">
+                    <%= f.text_area :comment, placeholder: "Any allergies or comments you would like to note?", class: "order-txt-area" %>
+                    <%= f.input :pickup_time, collection: @times, selected: 0, class: "pickup-time" %>
                 </div>
             </div>
-
-            <%= f.text_area :comment %>
-            <%= f.input :pickup_time,
-                collection: @times, selected: 0%>
-
-
+            <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm order" %>
+            <% end %>
+            <% else %>
+            <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
+            <%= link_to "Go to menu", menu_items_path , class: "btn btn-primary" %>
+            <% end %>
+            <% end %>
         </div>
-
-    </div>
-    <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
-     <% end %>
-    <br>
-    <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
-    <% else %>
-    <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
-    <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
-    <% end %>
-    <% else %>
-    <% end %>
     </div>
     <div class="order-desktop">
-    <% if @cart.status == "in progress" %>
-    <% if @cart.order_items.first != nil %>
-    <h3 class="confirm-header">Please confirm your order below:</h3>
-     <%= simple_form_for @cart do |f| %>
-    <div class="order-card">
-        <div class="blue-title-md order-id">#
-            <%= @cart.id %>
-        </div>
-        <div class="customer-details">
-            <div class="cutomer-identity">
-                <div class="blue-title-md customer-title">
-                    <%= @cart.user.first_name %>
-                    <%= @cart.user.last_name %>
-                </div>
-                <div class="blue-title-sm">
-                    <%= @cart.user.email %>
-                </div>
-                <div class="black-title-sm">Order ID:
-                    <%= @cart.id %>
+        <% if @cart.status == "in progress" %>
+        <% if @cart.order_items.first != nil %>
+        <h3 class="confirm-header">Please confirm your order below:</h3>
+        <%= simple_form_for @cart do |f| %>
+        <div class="order-card">
+            <div class="blue-title-md order-id">#
+                <%= @cart.id %>
+            </div>
+            <div class="customer-details">
+                <div class="cutomer-identity">
+                    <div class="blue-title-md customer-title">
+                        <%= @cart.user.first_name %>
+                        <%= @cart.user.last_name %>
+                    </div>
+                    <div class="blue-title-sm">
+                        <%= @cart.user.email %>
+                    </div>
+                    <div class="black-title-sm">Order ID:
+                        <%= @cart.id %>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="order-management">
-            <div class="order-tally">
-                <div>
-                    <% total_price = 0 %>
-                    <% @cart.order_items.each do |order_item|  %>
-                    <div class="order-details-checkout">
-                        <div class="tally-id">
-                            <%= order_item.quantity %>x</div>
-                        <div class="tally-item">
-                            <%= order_item.menu_item.name%>
+            <div class="order-management">
+                <div class="order-tally">
+                    <div>
+                        <% total_price = 0 %>
+                        <% @cart.order_items.each do |order_item|  %>
+                        <div class="order-details-checkout">
+                            <div class="tally-id">
+                                <%= order_item.quantity %>x</div>
+                            <div class="tally-item">
+                                <%= order_item.menu_item.name%>
+                            </div>
+                            <div class="tally-price">
+                                <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
+                            <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
                         </div>
-                        <div class="tally-price">
-                            <%= humanized_money_with_symbol(order_item.menu_item.price) %></div>
-                        <%= link_to "delete", order_item_path(@cart, order_item), method: :delete %>
-                    </div>
-                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                    <% end %>
-                    <hr>
-                    <div class="order-details-checkout">
-                        <div class="tally-id"></div>
-                        <div class="tally-item">Total</div>
-                        <div class="tally-price">
-                            <%= humanized_money_with_symbol('%.2f' % total_price) %></div>
+                        <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                        <% end %>
+                        <hr>
+                        <div class="order-details-total">
+                            <div class="tally-item-total">Total <span class="total-price">
+                                    <%= '%.2f' % total_price%> €</span>
+                            </div>
+                            <div class="add-more">
+                                <%= link_to "add more items", menu_items_path, class: "" %>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <%= f.text_area :comment %>
-            <%= f.input :pickup_time,
+                <%= f.text_area :comment %>
+                <%= f.input :pickup_time,
                 collection: @times, selected: 0%>
-
-
+            </div>
         </div>
-
-    </div>
-    <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
-     <% end %>
-    <br>
-    <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
-    <% else %>
-    <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
-    <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
-    <% end %>
-    <% else %>
-    <% end %>
+        <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
+        <% end %>
+        <br>
+        <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
+        <% else %>
+        <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
+        <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
+        <% end %>
+        <% else %>
+        <% end %>
     </div>
 </div>
