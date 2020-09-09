@@ -5,4 +5,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: @user.email, subject: 'Order Confirmation')
   end
+
+  def pick_up_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Order Confirmation')
+  end
 end

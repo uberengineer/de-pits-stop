@@ -47,6 +47,7 @@ class OrdersController < ApplicationController
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
       @order.update(status: "awaiting pick-up")
+      UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
     elsif @order.status == "awaiting pick-up"
       @order.update(status: "completed")
@@ -75,7 +76,5 @@ class OrdersController < ApplicationController
       str_time = time.strftime("%H:%M")
       @times.push(str_time)
     end
-
   end
-
 end
