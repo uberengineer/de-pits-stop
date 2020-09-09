@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     if @order.status == "in progress"
       @order.status =  "not ready"
       @order.comment = params[:order][:comment]
-      @order.update(time_started: Time.now)
+      @order.time_started = Time.now
       if params[:order][:pickup_time] == "As soon as possible"
          @order.update(pickup_time: params[:order][:pickup_time])
       else
@@ -50,6 +50,7 @@ class OrdersController < ApplicationController
       redirect_to orders_path
       @order.update(time_finished: Time.now)
     end
+      @order.save!
       OrderChannel.broadcast_to(
        "orders",
       render_to_string(partial: "orders/order", locals: { order: @order })
