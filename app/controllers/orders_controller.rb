@@ -1,15 +1,11 @@
 class OrdersController < ApplicationController
   def index
     if current_user.admin
-      @orders = Order.select do |order|
+      @orders = Order.includes(:order_items, :menu_items, :user).select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
       end
 
-      @past_orders = Order.select do |order|
-        order.status == "completed"
-      end
-
-      @current_orders = Order.select do |order|
+      @past_orders = Order.includes(:order_items, :menu_items, :user).select do |order|
         order.status == "completed"
       end
     else
@@ -35,8 +31,8 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.status == "in progress"
-      @order.update(status: "not ready")
-      @order.update(comment: params[:order][:comment])
+      @order.status =  "not ready"
+      @order.comment = params[:order][:comment]
       @order.update(time_started: Time.now)
       if params[:order][:pickup_time] == "As soon as possible"
          @order.update(pickup_time: params[:order][:pickup_time])
@@ -54,6 +50,10 @@ class OrdersController < ApplicationController
       redirect_to orders_path
       @order.update(time_finished: Time.now)
     end
+      OrderChannel.broadcast_to(
+       "orders",
+      render_to_string(partial: "orders/order", locals: { order: @order })
+      )
   end
 
   def show_current_orders
