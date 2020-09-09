@@ -1,5 +1,5 @@
 /* For Laptop */
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 715px) {
 
     .mobile-screen {
         display: none;
@@ -26,13 +26,12 @@
             width: 30%;
             overflow: hidden;
 
-            .menu-item-img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
+          .menu-item-img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+          }
         }
-
 
 
         .menu-text-container {
@@ -47,6 +46,9 @@
 
             .menu-title {
                 text-align: left;
+                font-size: 1.2rem;
+                font-weight: bold;
+
             }
 
             .menu-item-description {
@@ -58,6 +60,8 @@
             .menu-item-price {
                 text-align: left;
                 color: $green;
+                font-weight: bold;
+                font-size: 1.2rem;
             }
         }
 
@@ -98,7 +102,7 @@
 }
 
 /* For mobile */
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 715px) {
 
     .desktop-screen {
         display: none;
