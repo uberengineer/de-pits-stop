@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
       else
         @order.update(pickup_time: Time.parse(params[:order][:pickup_time]).strftime("%H:%M"))
       end
-      UserMailer.confirmation_email(@order.user).deliver_now
+      UserMailer.confirmation_email(@order.user, @order).deliver_now
       redirect_to confirmation_path(@order)
     elsif @order.status == "not ready"
       @order.update(status: "awaiting pick-up")
