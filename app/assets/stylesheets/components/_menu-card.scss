@@ -47,6 +47,8 @@
 
             .menu-title {
                 text-align: left;
+                font-weight: bold;
+                font-size: 1.25rem;
             }
 
             .menu-item-description {
@@ -58,6 +60,8 @@
             .menu-item-price {
                 text-align: left;
                 color: $green;
+                font-weight: bold;
+                font-size: 1.1rem;
             }
         }
 
