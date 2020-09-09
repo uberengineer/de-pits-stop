@@ -1,16 +1,17 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Order.where(payment_status:"paid")
     if current_user.admin
-      @orders = Order.select do |order|
+      @orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
       end
 
-      @past_orders = Order.select do |order|
+      @past_orders = @orders.select do |order|
         order.status == "completed"
       end
 
-      @current_orders = Order.select do |order|
-        order.status == "completed"
+      @current_orders = @orders.select do |order|
+        order.status == "not ready" || order.status == "awaiting pick-up"
       end
     else
       redirect_to menu_items_path
@@ -43,14 +44,17 @@ class OrdersController < ApplicationController
       else
         @order.update(pickup_time: Time.parse(params[:order][:pickup_time]).strftime("%H:%M"))
       end
+
       payment = Mollie::Payment.create(
-      amount:       { value: '10.00', currency: 'EUR' },
-      description:  'My first API payment',
+      amount:       { value: @order.amount_cents.to_s, currency: 'EUR' },
+      description:  @order.id.to_s,
       redirect_url: "http://98bb51ceaff0.ngrok.io" + confirmation_path(@order),
       webhook_url:  "http://98bb51ceaff0.ngrok.io" + webhook_path
     )
+      @order.mollie_id = payment.id
+      @order.save
       redirect_to payment.checkout_url
-      UserMailer.confirmation_email(@order.user, @order).deliver_now
+      # UserMailer.confirmation_email(@order.user, @order).deliver_now
     elsif @order.status == "not ready"
       @order.update(status: "awaiting pick-up")
       UserMailer.pick_up_email(@order.user).deliver_now

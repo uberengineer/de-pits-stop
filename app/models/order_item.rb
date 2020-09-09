@@ -1,5 +1,5 @@
 class OrderItem < ApplicationRecord
-  belongs_to :order
+  belongs_to :order, touch: true
   belongs_to :menu_item
   validates :quantity, presence: true, allow_blank: false
   before_save :check_if_exists_in_order

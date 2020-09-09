@@ -43,7 +43,7 @@
                             <%= order_item.menu_item.name%>
                         </div>
                         <div class="tally-price">
-                            <%= humanized_money_with_symbol(menu_item.price) %></div>
+                            <%= menu_item.price.format %></div>
                     </div>
                     <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
                     <% end %>
@@ -52,7 +52,7 @@
                         <div class="tally-id"></div>
                         <div class="tally-item">Total</div>
                         <div class="tally-price">
-                            <%= humanized_money_with_symbol(menu_item.price) %></div>
+                            <%= menu_item.price.format %></div>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                             <%= order_item.menu_item.name%>
                         </div>
                         <div class="tally-price">
-                            <%= humanized_money_with_symbol(menu_item.price) %></div>
+                            <%= menu_item.price.format %></div>
                     </div>
                     <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
                     <% end %>
@@ -113,7 +113,7 @@
                         <div class="tally-id"></div>
                         <div class="tally-item">Total</div>
                         <div class="tally-price">
-                            <%= humanized_money_with_symbol(menu_item.price) %></div>
+                            <%= menu_item.price.format %></div>
                     </div>
                 </div>
             </div>

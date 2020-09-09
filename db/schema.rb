@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_121647) do
+ActiveRecord::Schema.define(version: 2020_09_09_145202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 2020_09_08_121647) do
     t.string "pickup_time", default: "As soon as possible"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "EUR", null: false
+    t.string "mollie_id"
+    t.string "payment_status"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
