@@ -1,86 +1,156 @@
+/* For Phone */
+@media screen and (max-width: 715px) {
 
-.order-card {
-  background: white;
-  box-shadow: 0 0 2vw rgba(0,0,0,0.2);
-  padding: 1vw;
-  margin: 1vh;
-  min-height: 200px;
-  min-width: 80%;
+.order-desktop {
+  display: none;
+}
+
+.order-mobile {
+  max-width: 100vw;
   display: flex;
-  justify-content: space-between;
-  text-align: center;
+  flex-direction: column;
+  // overflow: hidden;
+}
+    .confirm-header {
+        font-family: $funky-font;
+        color: $blue-font;
+        font-size: 2rem;
+        text-align: left;
+    }
+
+    .order-card {
+        background: white;
+        box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
+        min-height: 200px;
+        margin-top: 5vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+
+    }
+
+    .order-id {
+        padding-left: .75vw;
+        padding-right: .75vw;
+    }
+
+    .customer-details {
+        text-align: left;
+        border: 1px solid red;
+        margin: 1vh 1vh;
+    }
+
+    .order-management {
+        min-width: 50vw;
+        border: 1px solid red;
+        margin: 1vh 1vh
+    }
+
+    .order-tally {}
+
+    .order-details-checkout {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .tally-id {}
+
+    .tally-item {
+        margin-left: 5vw;
+        position: absolute;
+    }
+
+    .tally-price {
+        margin-left: auto;
+        color: $green;
+
+    }
+        .total-price {
+          margin-right: 15vw;
+        }
+
+    .trashcan {
+      margin-left: 1.5vw;
+      margin-right: 1.5vw;
+      color: black;
+    }
+
+.tally-hr {
+  border-top: 2px solid grey;
+}
+
+.total-hr {
+  border-top: 2px solid grey;
+}
+
 
 }
 
-.order-id {
-  padding-left: .75vw;
-  padding-right: .75vw;
+
+
+/* For Laptop */
+@media screen and (min-width: 715px) {
+
+.order-mobile {
+  display: none;
 }
 
-.customer-details {
-  text-align: left;
+    .order-card {
+        background: yellow;
+        box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
+        padding: 1vw;
+        margin: 1vh;
+        min-height: 200px;
+        min-width: 80%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+    }
+
+    .order-id {
+        padding-left: .75vw;
+        padding-right: .75vw;
+    }
+
+    .customer-details {
+        text-align: left;
+    }
+
+    .customer-details {
+        text-align: left;
+        padding-left: .75vw;
+        padding-right: .75vw;
+    }
+
+    .order-management {
+        min-width: 50vw;
+        padding-left: .75vw;
+        padding-right: .75vw;
+
+    }
+
+    .order-tally {}
+
+    .order-details-checkout {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .tally-id {}
+
+    .tally-item {
+        margin-left: 5vw;
+        position: absolute;
+    }
+
+    .tally-price {
+        margin-left: auto;
+        color: $green;
+    }
+
 }
-
-.customer-details {
-  text-align: left;
-  padding-left: .75vw;
-  padding-right: .75vw;
-}
-
-.order-management {
-  min-width: 50vw;
-  padding-left: .75vw;
-  padding-right: .75vw;
-
-}
-
-.order-tally {
-}
-
-.order-details-checkout {
-  display: flex;
-  flex-direction: row;
-
-}
-
-.tally-id {
-
-}
-.tally-item {
-  margin-left: 5vw;
-  position: absolute;
-}
-.tally-price {
-  margin-left: auto;
-  color: $green;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.end {}
-
-

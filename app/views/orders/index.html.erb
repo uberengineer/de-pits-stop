@@ -1,4 +1,4 @@
-<div class="red-body" class = "order-index">
+<div class="blue-body" class = "order-index">
     <%= render 'shared/navbar' %>
     <%  if @orders.none? { |odr| odr.status == "not ready" } && @orders.none? { |odr| odr.status == "awaiting pick-up" } %>
     <h3 class="medium-title">No orders yet!</h3>
@@ -132,4 +132,7 @@
 </div>
 
 <script>
+  setTimeout(function() {
+  location.reload();
+}, 3000);
 </script>

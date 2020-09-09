@@ -1,51 +1,61 @@
+
 <div id="navbar-desktop" class="navbar-gfr">
-    <div class="nav-main">
-        <div class="navbar-left">
-            <a href="/dashboard">
-                <img src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/cropped-pitslogovert-192x192.png" alt="logo">
-            </a>
-        </div>
-        <div class="navbar-center">
-            <div class="center-interior">
-                <% if current_user.admin == true%>
-                <div>
-                    <% if @kitchen.kitchen_status %>
-                    <%= button_to "Kitchen is now Open", kitchens_update_path, method: :patch, class: "btn btn-success" %>
+    <div class="nav-main-container">
+        <div class="nav-main">
+            <div class="navbar-left">
+                <a href="/dashboard">
+                    <img src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/cropped-pitslogovert-192x192.png" alt="logo">
+                </a>
+            </div>
+            <div class="navbar-center">
+                <div class="center-interior">
+                    <% if current_user.admin == true%>
+                    <div>
+                        <% if @kitchen.kitchen_status %>
+                        <%= button_to "Kitchen is now Open", kitchens_update_path, method: :patch, class: "btn btn-success" %>
+                        <% else %>
+                        <%= button_to "Kitchen is now Closed", kitchens_update_path, method: :patch, class: "btn btn-danger" %>
+                        <% end %>
+                    </div>
                     <% else %>
-                    <%= button_to "Kitchen is now Closed", kitchens_update_path, method: :patch, class: "btn btn-danger" %>
+                    <div class="navbar-welcome">
+                        <span class="navbar-welcome">Welcome,
+                            <%= current_user.first_name.downcase.capitalize %>!
+                        </span>
+                        <span class="navbar-welcome">
+                            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout" %>
+                        </span>
+                    </div>
                     <% end %>
                 </div>
-                <% else %>
-                <span class="navbar-welcome">Welcome,
-                    <%= current_user.first_name %>!</span>
+            </div>
+            <div class="navbar-right">
+                <% if current_user.admin == true%>
+                <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+                <% end %>
+                <% if current_user.admin == false %>
+                <% if Order.where(user: current_user, status: "in progress").first_or_create %>
+                <%= link_to "My Cart", checkout_order_path(Order.where(user: current_user, status: "in progress").first_or_create), class: "btn btn-primary" %>
+                <% end %>
+                <%= link_to "My Orders", show_current_orders_path, class: "btn btn-success" %>
+                <% end %>
+                <% if current_user == nil%> -->
+                <a class="btn btn-primary" href='/users/sign_in'>Login</a>
+                <a class="btn btn-primary" href='/users/sign_up'>New User</a>
                 <% end %>
             </div>
-        </div>
-        <div class="navbar-right">
-            <% if current_user.admin == true%>
-            <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
-            <% end %>
-            <% if current_user.admin == false %>
-            <% if Order.where(user: current_user, status: "in progress").first_or_create %>
-            <%= link_to "My Cart", checkout_order_path(Order.where(user: current_user, status: "in progress").first_or_create), class: "btn btn-primary" %>
-            <% end %>
-            <%= link_to "My Orders", show_current_orders_path, class: "btn btn-success" %>
-            <% end %>
-            <% if current_user == nil%> -->
-            <a class="btn btn-primary" href='/users/sign_in'>Login</a>
-            <a class="btn btn-primary" href='/users/sign_up'>New User</a>
-            <% else %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-            <% end %>
         </div>
     </div>
     <% if !current_user.admin %>
     <div class="nav-menu">
-        <div class="item item1"><a class="menu-link btn btn-dark" href="#cat-daily">Specials</a></div>
-        <div class="item item2"><a class="menu-link btn btn-dark" href="#cat-combi">Deals</a></div>
-        <div class="item item3"><a class="menu-link btn btn-dark" href="#cat-losse">Mains</a></div>
-        <div class="item item4"><a class="menu-link btn btn-dark" href="#cat-koude">Drinks</a></div>
-        <div class="item item5"><a class="menu-link btn btn-dark" href="#cat-extras">Extras</a></div>
+        <% if params[:controller] == "menu_items" && params[:action] == "index" %>
+        <div class="item item1"><a class="menu-link btn btn-dark" href="#d-cat-daily">Specials</a></div>
+        <div class="item item2"><a class="menu-link btn btn-dark" href="#d-cat-combi">Deals</a></div>
+        <div class="item item3"><a class="menu-link btn btn-dark" href="#d-cat-losse">Mains</a></div>
+        <div class="item item4"><a class="menu-link btn btn-dark" href="#d-cat-koude">Drinks</a></div>
+        <div class="item item5"><a class="menu-link btn btn-dark" href="#d-cat-desserts">Desserts</a></div>
+        <div class="item item5"><a class="menu-link btn btn-dark" href="#d-cat-extras">Extras</a></div>
+        <% end %>
     </div>
     <% end %>
 </div>
@@ -68,7 +78,7 @@
                 </div>
                 <% else %>
                 <span class="navbar-welcome">Hey there,
-                    <%= current_user.first_name %>!</span>
+                    <%= current_user.first_name.downcase.capitalize %>!</span>
                 <% end %>
             </div>
         </div>
@@ -99,15 +109,18 @@
     </div>
     <% if !current_user.admin %>
     <div class="nav-menu">
+        <% if params[:controller] == "menu_items" && params[:action] == "index" %>
         <main class="grid-item main">
             <div class="items">
-                <div class="item item1"><a class="menu-link btn btn-dark" href="#cat-daily">Specials</a></div>
-                <div class="item item2"><a class="menu-link btn btn-dark" href="#cat-combi">Deals</a></div>
-                <div class="item item3"><a class="menu-link btn btn-dark" href="#cat-losse">Mains</a></div>
-                <div class="item item4"><a class="menu-link btn btn-dark" href="#cat-koude">Drinks</a></div>
-                <div class="item item5"><a class="menu-link btn btn-dark" href="#cat-extras">Extras</a></div>
+                <div class="item item1"><a class="menu-link btn btn-dark" href="#m-cat-daily">Specials</a></div>
+                <div class="item item2"><a class="menu-link btn btn-dark" href="#m-cat-combi">Deals</a></div>
+                <div class="item item3"><a class="menu-link btn btn-dark" href="#m-cat-losse">Mains</a></div>
+                <div class="item item4"><a class="menu-link btn btn-dark" href="#m-cat-koude">Drinks</a></div>
+                <div class="item item5"><a class="menu-link btn btn-dark" href="#m-cat-desserts">Desserts</a></div>
+                <div class="item item5"><a class="menu-link btn btn-dark" href="#m-cat-extras">Extras</a></div>
             </div>
         </main>
+        <% end %>
     </div>
     <% end %>
 </div>

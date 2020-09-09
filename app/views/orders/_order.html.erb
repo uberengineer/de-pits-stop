@@ -1,6 +1,3 @@
-<div class="blue-body">
-    <%= render 'shared/navbar' %>
-    <% @orders.each do |order| %>
     <div class="order-card">
         <div class="blue-title-md order-id">
             #
@@ -17,10 +14,12 @@
                 </div>
                 <div class="blue-title-sm"><%= order.user.organization %> </div>
                 <div class="blue-title-sm"><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </div>
-                <div class="blue-title-sm"><%= order.time_finished.strftime("%Y/%m/%d %H:%M") %> </div>
                 <div class="black-title-sm">Order ID:
                     <%= order.id %>
                 </div>
+                <div> comment: <%= order.comment %>
+                 </div>
+                 <div> ready by: <%= order.pickup_time %></div>
             </div>
         </div>
         <div class="order-management">
@@ -48,7 +47,12 @@
                     </div>
                 </div>
             </div>
+            <div class="status-toggler">
+                <% if order.status == "not ready" %>
+                <%= link_to "Mark as ready for pick-up", order_path(order), method: :patch, class: "btn btn-primary" %>
+                <% elsif order.status == "awaiting pick-up" %>
+                <%= link_to "Mark as complete", order_path(order), method: :patch, class: "btn btn-success" %>
+                <% end %>
+            </div>
         </div>
     </div>
-    <% end %>
-  </div>
