@@ -16,20 +16,22 @@
         color: $blue-font;
         font-size: 2rem;
         text-align: left;
+        padding-left: 10vw;
     }
 
     .order-card {
         background: white;
         box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
-        min-height: 200px;
-        margin-top: 5vh;
-        width: 100vw;
+        margin-top: 3vh;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         text-align: center;
 
     }
+
+
 
     .order-id {
         padding-left: .75vw;
@@ -38,13 +40,11 @@
 
     .customer-details {
         text-align: left;
-        border: 1px solid red;
         margin: 1vh 1vh;
     }
 
     .order-management {
         min-width: 50vw;
-        border: 1px solid red;
         margin: 1vh 1vh
     }
 
@@ -53,24 +53,34 @@
     .order-details-checkout {
         display: flex;
         flex-direction: row;
-
+        justify-content: space-between;
     }
 
-    .tally-id {}
+    .tally-id {
+      margin-right: 3vw;
+    }
 
     .tally-item {
-        margin-left: 5vw;
-        position: absolute;
+
     }
 
     .tally-price {
         margin-left: auto;
         color: $green;
-
     }
-        .total-price {
-          margin-right: 15vw;
-        }
+      .total-price {
+        color: $green;
+      }
+
+      .add-more {
+        text-decoration: underline;
+      }
+
+.white-font {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
     .trashcan {
       margin-left: 1.5vw;
@@ -79,11 +89,22 @@
     }
 
 .tally-hr {
-  border-top: 2px solid grey;
+  border-top: 2px solid transparent;
 }
 
 .total-hr {
-  border-top: 2px solid grey;
+  border-top: 2px solid transparent;
+}
+
+
+.order-txt-area {
+width: 100%;
+}
+
+.form-group.select.optional.order_pickup_time.form-group-valid {
+display: flex;
+flex-direction: row;
+margin-top: 3vh;
 }
 
 
