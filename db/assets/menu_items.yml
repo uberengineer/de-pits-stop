@@ -2,13 +2,13 @@ daily_specials:
   - name: "Pompoensoep"
     description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
     price: 9.00
-    image: 'db/assets/images/xxx.jpeg'
+    image: 'db/assets/images/pompoensoep.jpeg'
     category: "daily_specials"
 
   - name: "Broodje Marokkaanse lamsworst"
     description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
     price: 8.00
-    image: 'db/assets/images/xxx.jpeg'
+    image: 'db/assets/images/16.jpeg'
     category: "daily_specials"
 
   - name: "Griekse salade met feta"
