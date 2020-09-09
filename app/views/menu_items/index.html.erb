@@ -25,7 +25,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -65,7 +65,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -105,7 +105,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -145,7 +145,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -185,7 +185,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -225,7 +225,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -258,8 +258,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -293,8 +293,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -328,8 +328,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -363,8 +363,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -398,8 +398,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -433,8 +433,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
