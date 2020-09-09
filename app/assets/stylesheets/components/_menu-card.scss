@@ -1,109 +1,5 @@
-/* For Laptop */
-@media screen and (min-width: 540px) {
-
-    .mobile-screen {
-        display: none;
-    }
-
-    .medium-title {
-        font-family: $funky-font;
-        color: $blue-font;
-        font-size: 3rem;
-        margin: 8vh 2vh;
-    }
-
-    .menu-card {
-        box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
-        background-color: white;
-        padding: 1vw;
-        margin: 1vh 10vw 1vh 10vw;
-        height: 200px;
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-
-        .menu-image-container {
-            height: 100%;
-            width: 30%;
-            overflow: hidden;
-
-            .menu-item-img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-
-
-
-        .menu-text-container {
-            margin-left: 1vw;
-            margin-right: 1vw;
-            display: flex;
-            max-width: 40%;
-            height: 100%;
-            flex-direction: column;
-            justify-content: space-between;
-
-
-            .menu-title {
-                text-align: left;
-                font-weight: bold;
-                font-size: 1.25rem;
-            }
-
-            .menu-item-description {
-                text-align: left;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .menu-item-price {
-                text-align: left;
-                color: $green;
-                font-weight: bold;
-                font-size: 1.1rem;
-            }
-        }
-
-        .add-to-cart {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 15vw;
-            padding: 1vw;
-
-            .add-button {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-    }
-
-    .btn-icon {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: red;
-    }
-
-    .btn-icon:before {
-        content: "\f217";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-    }
-
-    #order_item_quantity {
-        text-align: center;
-    }
-}
-
 /* For mobile */
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 715px) {
 
     .desktop-screen {
         display: none;
@@ -249,6 +145,111 @@
         text-align: center;
     }
 }
+
+
+/* For Laptop */
+@media screen and (min-width: 715px) {
+
+    .mobile-screen {
+        display: none;
+    }
+
+    .medium-title {
+        font-family: $funky-font;
+        color: $blue-font;
+        font-size: 3rem;
+        margin: 8vh 2vh;
+    }
+
+    .menu-card {
+        box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
+        padding: 1vw;
+        margin: 1vh 10vw 1vh 10vw;
+        height: 200px;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        .menu-image-container {
+            height: 100%;
+            width: 30%;
+            overflow: hidden;
+
+          .menu-item-img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+          }
+        }
+
+
+        .menu-text-container {
+            margin-left: 1vw;
+            margin-right: 1vw;
+            display: flex;
+            max-width: 40%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+            .menu-title {
+                text-align: left;
+                font-size: 1.2rem;
+                font-weight: bold;
+
+            }
+
+            .menu-item-description {
+                text-align: left;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .menu-item-price {
+                text-align: left;
+                color: $green;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
+
+        .add-to-cart {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 15vw;
+            padding: 1vw;
+
+            .add-button {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .btn-icon {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: red;
+    }
+
+    .btn-icon:before {
+        content: "\f217";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+
+    #order_item_quantity {
+        text-align: center;
+    }
+}
+
 
 
 
