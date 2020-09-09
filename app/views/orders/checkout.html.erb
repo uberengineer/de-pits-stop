@@ -93,16 +93,18 @@
                             </div>
                             <div class="tally-price">
                                 <%=number_with_precision(order_item.menu_item.price, precision: 2)%> €</div>
-                            <%= link_to "delete", order_item_path(@cart, order_item), method: :delete %>
+                            <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
                         </div>
                         <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
                         <% end %>
                         <hr>
-                        <div class="order-details-checkout">
-                            <div class="tally-id"></div>
-                            <div class="tally-item">Total</div>
-                            <div class="tally-price">
-                                <%= '%.2f' % total_price %> €</div>
+                        <div class="order-details-total">
+                            <div class="tally-item-total">Total <span class="total-price">
+                                    <%= '%.2f' % total_price%> €</span>
+                            </div>
+                            <div class="add-more">
+                                <%= link_to "add more items", menu_items_path, class: "" %>
+                            </div>
                         </div>
                     </div>
                 </div>

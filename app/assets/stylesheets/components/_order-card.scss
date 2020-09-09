@@ -120,7 +120,7 @@ margin-top: 3vh;
 }
 
     .order-card {
-        background: yellow;
+        background: white;
         box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
         padding: 1vw;
         margin: 1vh;
@@ -159,19 +159,45 @@ margin-top: 3vh;
     .order-details-checkout {
         display: flex;
         flex-direction: row;
-
     }
 
-    .tally-id {}
+      .order-details-total {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid red;
+    }
+     .tally-item-total {
+    margin-left: 5vw;
+    position: absolute;
+    border: 1px solid red;
+    }
+
 
     .tally-item {
         margin-left: 5vw;
         position: absolute;
     }
 
+    .tally-id {}
+
     .tally-price {
         margin-left: auto;
         color: $green;
     }
+
+    .total-price {
+        color: $green;
+      }
+
+    .add-more {
+        text-decoration: underline;
+      }
+
+       .trashcan {
+      margin-left: 1.5vw;
+      margin-right: 1.5vw;
+      color: black;
+    }
+
 
 }

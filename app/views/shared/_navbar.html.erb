@@ -23,7 +23,9 @@
                 <% else %>
                 <%= button_to "Kitchen is now Closed", kitchens_update_path, method: :patch, class: "btn btn-danger" %>
                 <% end %>
-                <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+                <% unless params[:controller] == "pages" && params[:action] == "dashboard" %>
+                    <%= link_to "Dashboard", dashboard_path, class: "btn btn-dark" %>
+                <% end %>
                 <% end %>
                 <% if current_user.admin == false %>
                 <% if Order.where(user: current_user, status: "in progress").first_or_create %>
