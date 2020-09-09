@@ -83,7 +83,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <% if current_user.admin == true%>
-                            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+                            <%= link_to "⚙️ Dashboard", dashboard_path, class: "dropdown-item" %>
                             <% end %>
                             <% if current_user.admin == false %>
                             <% if Order.where(user: current_user, status: "in progress").first_or_create %>
