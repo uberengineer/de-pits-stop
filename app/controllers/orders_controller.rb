@@ -46,10 +46,10 @@ class OrdersController < ApplicationController
       payment = Mollie::Payment.create(
       amount:       { value: '10.00', currency: 'EUR' },
       description:  'My first API payment',
-      redirect_url: 'https://webshop.example.org/order/12345/',
-      webhook_url:  'https://webshop.example.org/mollie-webhook/'
+      redirect_url: "http://98bb51ceaff0.ngrok.io" + confirmation_path(@order),
+      webhook_url:  "http://98bb51ceaff0.ngrok.io" + webhook_path
     )
-      redirect_to confirmation_path(@order)
+      redirect_to payment.checkout_url
     elsif @order.status == "not ready"
       @order.update(status: "awaiting pick-up")
       redirect_to orders_path
