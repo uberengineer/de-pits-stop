@@ -1,3 +1,4 @@
+
 <div id="navbar-desktop" class="navbar-gfr">
     <div class="nav-main-container">
         <div class="nav-main">
@@ -45,6 +46,7 @@
             </div>
         </div>
     </div>
+    <% if !current_user.admin %>
     <div class="nav-menu">
         <% if params[:controller] == "menu_items" && params[:action] == "index" %>
         <div class="item item1"><a class="menu-link btn btn-dark" href="#d-cat-daily">Specials</a></div>
@@ -55,6 +57,7 @@
         <div class="item item5"><a class="menu-link btn btn-dark" href="#d-cat-extras">Extras</a></div>
         <% end %>
     </div>
+    <% end %>
 </div>
 <div id="navbar-mobile" class="navbar-gfr">
     <div class="nav-main">
@@ -104,6 +107,7 @@
             </div>
         </div>
     </div>
+    <% if !current_user.admin %>
     <div class="nav-menu">
         <% if params[:controller] == "menu_items" && params[:action] == "index" %>
         <main class="grid-item main">
@@ -118,4 +122,5 @@
         </main>
         <% end %>
     </div>
+    <% end %>
 </div>
