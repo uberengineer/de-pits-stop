@@ -1,13 +1,13 @@
 <div class="blue-body" class = "order-index">
     <%= render 'shared/navbar' %>
     <%  if @orders.none? { |odr| odr.status == "not ready" } && @orders.none? { |odr| odr.status == "awaiting pick-up" } %>
-    <h3 class="medium-title">No orders yet!</h3>
+    <h3 class="medium-title">No orders!</h3>
     <% else %>
     <%  if @orders.none? { |odr| odr.status == "not ready" } %>
     <% else %>
     <h3 class="medium-title">Not Ready</h3>
     <% @orders.select do |order| order.status == "not ready" end.each do |order| %>
-    <div class="order-card">
+    <div class="order-card" >
         <div class="blue-title-md order-id">
             #
             <%= order.id %>
@@ -67,6 +67,10 @@
     </div>
     <% end %>
     <% end %>
+    <div id = "orders">
+
+    </div>
+
     <% if @orders.none? { |odr| odr.status == "awaiting pick-up" } %>
     <% else %>
     <h3 class="medium-title">Awaiting pickup</h3>
@@ -132,7 +136,4 @@
 </div>
 
 <script>
-  setTimeout(function() {
-  location.reload();
-}, 3000);
 </script>
