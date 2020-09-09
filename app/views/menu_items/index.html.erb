@@ -1,7 +1,7 @@
 <div class="blue-body">
     <%= render 'shared/navbar'%>
     <div class="mobile-screen">
-        <h3 id="cat-daily" class="medium-title">Daily Specials</h3>
+        <h3 id="m-cat-daily" class="medium-title">Daily Specials</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "daily_specials" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -25,7 +25,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -41,7 +41,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-combi" class="medium-title">Combi Deals</h3>
+        <h3 id="m-cat-combi" class="medium-title">Combi Deals</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "combi_deals" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -65,7 +65,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -81,7 +81,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-losse" class="medium-title">Losse Items</h3>
+        <h3 id="m-cat-losse" class="medium-title">Losse Items</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "losse_items" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -105,7 +105,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -121,7 +121,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-koude" class="medium-title">Cold Drinks</h3>
+        <h3 id="m-cat-koude" class="medium-title">Cold Drinks</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "koude_dranken" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -145,7 +145,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -161,7 +161,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-extras" class="medium-title">Extras</h3>
+        <h3 id="m-cat-extras" class="medium-title">Extras</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "extras" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -185,7 +185,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -201,7 +201,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-desserts" class="medium-title">Desserts</h3>
+        <h3 id="m-cat-desserts" class="medium-title">Desserts</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "desserts" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -225,7 +225,7 @@
                   </div>
                   <div class="add-btn-area">
                     <div class="menu-price-container">
-                      <span class="menu-item-price">€ <%= number_with_precision(menu_item.price, precision: 2) %></span>
+                      <span class="menu-item-price"><%= humanized_money_with_symbol(menu_item.price) %></span>
                     </div>
                     <div>
                       <%= f.button :button, 'Add to Cart', class: 'btn btn-primary', id: 'add-to-cart'%>
@@ -243,7 +243,7 @@
         <% end %>
     </div>
     <div class="desktop-screen">
-        <h3 id="cat-daily" class="medium-title">Daily Specials</h3>
+        <h3 id="d-cat-daily" class="medium-title">Daily Specials</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "daily_specials" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -258,8 +258,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -268,7 +268,7 @@
                     <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
                     <%= hidden_field_tag(:item_id, menu_item.id) %>
                     <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-                    <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                    <%= f.button :button, 'Add to Cart', class: 'btn-icon btn btn-primary', id: 'a2c-btn'%>
                     <% end %>
                     <% else %>
                     <h5>Unavailable</h5>
@@ -278,7 +278,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-combi" class="medium-title">Combi Deals</h3>
+        <h3 id="d-cat-combi" class="medium-title">Combi Deals</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "combi_deals" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -293,8 +293,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -303,7 +303,7 @@
                     <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
                     <%= hidden_field_tag(:item_id, menu_item.id) %>
                     <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-                    <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                    <%= f.button :button, 'Add to Cart', class: 'btn-icon btn btn-primary', id: 'a2c-btn'%>
                     <% end %>
                     <% else %>
                     <h5>Unavailable</h5>
@@ -313,7 +313,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-losse" class="medium-title">Losse Items</h3>
+        <h3 id="d-cat-losse" class="medium-title">Losse Items</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "losse_items" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -328,8 +328,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -338,7 +338,7 @@
                     <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
                     <%= hidden_field_tag(:item_id, menu_item.id) %>
                     <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-                    <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                    <%= f.button :button, 'Add to Cart', class: 'btn-icon btn btn-primary', id: 'a2c-btn'%>
                     <% end %>
                     <% else %>
                     <h5>Unavailable</h5>
@@ -348,7 +348,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-koude" class="medium-title">Cold Drinks</h3>
+        <h3 id="d-cat-koude" class="medium-title">Cold Drinks</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "koude_dranken" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -363,8 +363,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -373,7 +373,7 @@
                     <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
                     <%= hidden_field_tag(:item_id, menu_item.id) %>
                     <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-                    <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                    <%= f.button :button, 'Add to Cart', class: 'btn-icon btn btn-primary', id: 'a2c-btn'%>
                     <% end %>
                     <% else %>
                     <h5>Unavailable</h5>
@@ -383,7 +383,7 @@
         </div>
         <% end %>
         <% end %>
-        <h3 id="cat-extras" class="medium-title">Extras</h3>
+        <h3 id="d-cat-extras" class="medium-title">Extras</h3>
         <% @menu_items.each do |menu_item| %>
         <% if menu_item.category == "extras" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
@@ -398,8 +398,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -408,7 +408,7 @@
                     <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
                     <%= hidden_field_tag(:item_id, menu_item.id) %>
                     <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-                    <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                    <%= f.button :button, 'Add to Cart', class: 'btn-icon btn btn-primary', id: 'a2c-btn'%>
                     <% end %>
                     <% else %>
                     <h5>Unavailable</h5>
@@ -433,8 +433,8 @@
                         <%= menu_item.description %>
                     </p>
                 </div>
-                <div class="menu-item-price">€
-                    <%= number_with_precision(menu_item.price, precision: 2) %>
+                <div class="menu-item-price">
+                    <%= humanized_money_with_symbol(menu_item.price) %>
                 </div>
             </div>
             <div class="add-to-cart">
@@ -443,7 +443,7 @@
                     <%= simple_form_for(@order_item, url: order_items_path(@cart.id), remote: true) do |f| %>
                     <%= hidden_field_tag(:item_id, menu_item.id) %>
                     <%= f.input :quantity, label: "Quantity", placeholder: '0', input_html: {value: 1}, as: :integer, required: false %>
-                    <%= f.button :button, ' Add to Cart', class: 'btn-icon', id: 'add-to-cart'%>
+                    <%= f.button :button, 'Add to Cart', class: 'btn-icon btn btn-primary', id: 'a2c-btn'%>
                     <% end %>
                     <% else %>
                     <h5>Unavailable</h5>

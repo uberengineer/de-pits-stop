@@ -1,21 +1,21 @@
-<div class="red-body">
+<div class="blue-body">
     <%= render 'shared/navbar' %>
-    <h3 class="strong-title">Choose an action below:</h3>
+    <h3 class="dash-title">Choose an action below:</h3>
     <br>
     <div class="admin-grid">
         <%= link_to orders_path do %>
-        <div class="admin-grid-item">OPEN ORDERS</div>
+        <div class="admin-grid-item"><h6 class="dash-font">OPEN ORDERS</h6></div>
         <% end %>
         <%= link_to past_orders_path do %>
-        <div class="admin-grid-item">VIEW PAST ORDERS</div>
+        <div class="admin-grid-item"><h6 class="dash-font">VIEW PAST ORDERS</h6></div>
         <% end %>
         <%= link_to menu_items_path do %>
-        <div class="admin-grid-item">SEE MENU</div>
+        <div class="admin-grid-item"><h6 class="dash-font">SEE MENU</h6></div>
         <% end %>
         <%= link_to rails_admin.index_path(:menu_item) do %>
-        <div class="admin-grid-item">EDIT MENU</div>
+        <div class="admin-grid-item"><h6 class="dash-font">EDIT MENU</h6></div>
         <% end %>
     </div>
     <br>
-    <%= link_to "Help", instructions_path, class: "btn btn-success"%>
+    <%= link_to "Help", instructions_path, class: "btn btn-primary white-font"%>
 </div>
