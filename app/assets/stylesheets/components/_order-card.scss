@@ -118,7 +118,14 @@ margin-top: 3vh;
 .order-mobile {
   display: none;
 }
-
+    .confirm-header {
+        font-family: $funky-font;
+        color: $blue-font;
+        font-size: 2rem;
+        text-align: left;
+        padding-left: 10vw;
+        margin-bottom: 6vh;
+    }
     .order-card {
         background: white;
         box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
@@ -161,17 +168,24 @@ margin-top: 3vh;
         flex-direction: row;
     }
 
-      .order-details-total {
-        display: flex;
-        flex-direction: row;
-        border: 1px solid red;
+  .order-details-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+       .tally-item-total {
+      margin-left: 5vw;
+      }
     }
-     .tally-item-total {
-    margin-left: 5vw;
-    position: absolute;
-    border: 1px solid red;
-    }
+      .total-price {
+          color: $green;
+          font-weight: bold;
+          margin-left: 1vw;
+        }
 
+    .order-txt-area {
+  width: 100%;
+  margin-top: 5vh;
+}
 
     .tally-item {
         margin-left: 5vw;
@@ -185,9 +199,24 @@ margin-top: 3vh;
         color: $green;
     }
 
-    .total-price {
-        color: $green;
-      }
+.form-group.select.optional.order_pickup_time.form-group-valid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .select.optional {
+  margin: auto;
+  }
+  .form-control.is-valid.select.optional {
+  width: 60%;
+}
+}
+.white-font {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
 
     .add-more {
         text-decoration: underline;

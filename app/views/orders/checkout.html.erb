@@ -68,10 +68,6 @@
             </div>
             <div class="customer-details">
                 <div class="cutomer-identity">
-                    <div class="blue-title-md customer-title">
-                        <%= @cart.user.first_name %>
-                        <%= @cart.user.last_name %>
-                    </div>
                     <div class="blue-title-sm">
                         <%= @cart.user.email %>
                     </div>
@@ -99,24 +95,17 @@
                         <% end %>
                         <hr>
                         <div class="order-details-total">
-                            <div class="tally-item-total">Total <span class="total-price">
-                                    <%= '%.2f' % total_price%> €</span>
-                            </div>
-                            <div class="add-more">
-                                <%= link_to "add more items", menu_items_path, class: "" %>
-                            </div>
+                            <div class="tally-item-total">Total <span class="total-price"><%= '%.2f' % total_price%> € </span></div>
+                            <div class="add-more"><%= link_to "add more items", menu_items_path, class: "" %></div>
                         </div>
                     </div>
                 </div>
-                <%= f.text_area :comment %>
-                <%= f.input :pickup_time,
-                collection: @times, selected: 0%>
+                <%= f.text_area :comment, placeholder: "Any allergies or comments you would like to note?", class: "order-txt-area" %>
+                <%= f.input :pickup_time, collection: @times, selected: 0%>
             </div>
         </div>
-        <%= f.button :submit,  class: "btn btn-primary", value: "checkout" %>
+        <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm your order" %>
         <% end %>
-        <br>
-        <%= link_to "Add more items",menu_items_path , class: "btn btn-primary" %>
         <% else %>
         <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
         <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
