@@ -132,7 +132,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: red;
     }
 
     .btn-icon:before {
@@ -231,12 +230,15 @@
         }
     }
 
+    #a2c-btn {
+      margin-top: 16%;
+    }
+
     .btn-icon {
         display: inline-flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: red;
     }
 
     .btn-icon:before {
