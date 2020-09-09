@@ -3,14 +3,9 @@ class OrderItemsController < ApplicationController
     order_item = OrderItem.new()
     order_item.quantity = params[:order_item][:quantity]
     order_item.menu_item = MenuItem.find(params[:item_id])
-    order_item.order = Order.where(user: current_user, status: "in progress").first_or_create
-    if order_item.save
-      @order_item = order_item
-      # flash[:notice] = "Succesfully added to cart"
-      # GONZALO NOTE: Create a small javascript popup here.
-    else
-      # redirect menu_items_path
-    end
+    order_item.order = Order.find_or_create_by(user: current_user, status: "in progress")
+    order_item.save
+    @order_item = order_item
   end
 
   def destroy
