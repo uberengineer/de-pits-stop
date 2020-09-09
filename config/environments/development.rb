@@ -3,6 +3,10 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.hosts << "98bb51ceaff0.ngrok.io"
+  # [...]
+  # Add this line next to existing config.action_mailer settings
+  config.action_mailer.delivery_method = :letter_opener
+  # [...]
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

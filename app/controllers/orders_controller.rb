@@ -50,8 +50,10 @@ class OrdersController < ApplicationController
       webhook_url:  "http://98bb51ceaff0.ngrok.io" + webhook_path
     )
       redirect_to payment.checkout_url
+      UserMailer.confirmation_email(@order.user, @order).deliver_now
     elsif @order.status == "not ready"
       @order.update(status: "awaiting pick-up")
+      UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
     elsif @order.status == "awaiting pick-up"
       @order.update(status: "completed")
@@ -71,7 +73,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-    @cart = Order.find_or_create_by(user: current_user, status: "in progress")
+    @cart = Order.where(user: current_user, status: "in progress").first_or_create
     time = Time.now + 45.minutes
     @times = ["As soon as possible"]
     while time <= Time.parse("15:00")
@@ -81,5 +83,4 @@ class OrdersController < ApplicationController
       @times.push(str_time)
     end
   end
-
 end

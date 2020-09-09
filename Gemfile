@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'letter_opener', group: :development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
@@ -34,8 +35,6 @@ gem 'cloudinary'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'rails_admin'
-gem 'money-rails'
-gem 'mollie-api-ruby'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
