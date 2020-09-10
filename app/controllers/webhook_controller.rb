@@ -7,8 +7,6 @@ class WebhookController < ApplicationController
     @order = Order.find_by(mollie_id: @payment.id)
     @order.payment_status = @payment.status
     @order.save
-
-    p @order
   end
 end
 
