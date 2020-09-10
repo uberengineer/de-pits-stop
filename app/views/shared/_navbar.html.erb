@@ -41,7 +41,7 @@
         </div>
     </div>
     <% if !current_user.admin %>
-    <div class="nav-menu">
+    <div class="nav-menu noscroll">
         <% if params[:controller] == "menu_items" && params[:action] == "index" %>
         <div class="item item1"><a class="menu-link btn btn-dark" href="#d-cat-daily">Specials</a></div>
         <div class="item item2"><a class="menu-link btn btn-dark" href="#d-cat-combi">Deals</a></div>
@@ -102,10 +102,10 @@
         </div>
     </div>
     <% if !current_user.admin %>
-    <div class="nav-menu">
+    <div class="nav-menu noscroll">
         <% if params[:controller] == "menu_items" && params[:action] == "index" %>
-        <main class="grid-item main">
-            <div class="items">
+        <main class="grid-item main noscroll">
+            <div class="items noscroll">
                 <div class="item item1"><a class="menu-link btn btn-dark" href="#m-cat-daily">Specials</a></div>
                 <div class="item item2"><a class="menu-link btn btn-dark" href="#m-cat-combi">Deals</a></div>
                 <div class="item item3"><a class="menu-link btn btn-dark" href="#m-cat-losse">Mains</a></div>
