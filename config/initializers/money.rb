@@ -1,6 +1,11 @@
 # encoding : utf-8
 
+# https://github.com/RubyMoney/money#deprecation
+Money.locale_backend = :currency
+
 MoneyRails.configure do |config|
+
+  config.no_cents_if_whole = false
 
   # To set the default currency
   #
@@ -77,11 +82,12 @@ MoneyRails.configure do |config|
   # Default value is nil meaning "ignore this option".
   # Example:
   #
-  # config.default_format = {
-  #   no_cents_if_whole: nil,
+  config.default_format = {
+      no_cents_if_whole: false,
   #   symbol: nil,
   #   sign_before_symbol: nil
-  # }
+      decimal_mark: "."
+  }
 
   # If you would like to use I18n localization (formatting depends on the
   # locale):

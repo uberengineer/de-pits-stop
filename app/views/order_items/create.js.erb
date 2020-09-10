@@ -2,6 +2,8 @@ window.Swal.fire({
   icon: 'success',
   html: 'are in your cart',
   title: '<%= @order_item.quantity %> x <%= @order_item.menu_item.name %>',
+  width: '30%',
+  padding: '0.5em',
   confirmButtonText:'ADD ITEMS',
   footer: '<%= link_to 'go to cart',checkout_order_path(@order_item.order) %>'
 })

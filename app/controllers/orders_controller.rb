@@ -1,13 +1,25 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Order.where(payment_status:"paid")
     if current_user.admin
-      @orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+      @orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
       end
 
-      @past_orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+      @past_orders = @orders.select do |order|
         order.status == "completed"
       end
+
+      @current_orders = @orders.select do |order|
+        order.status == "not ready" || order.status == "awaiting pick-up"
+      end
+      # @orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+      #   order.status == "not ready" || order.status == "awaiting pick-up"
+      # end
+
+      # @past_orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+      #   order.status == "completed"
+      # end
     else
       redirect_to menu_items_path
     end
@@ -39,14 +51,17 @@ class OrdersController < ApplicationController
       else
         @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
+
       payment = Mollie::Payment.create(
-      amount:       { value: '10.00', currency: 'EUR' },
-      description:  'My first API payment',
+      amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
+      description:  @order.id.to_s,
       redirect_url: "http://98bb51ceaff0.ngrok.io" + confirmation_path(@order),
       webhook_url:  "http://98bb51ceaff0.ngrok.io" + webhook_path
     )
+      @order.mollie_id = payment.id
+      @order.save
       redirect_to payment.checkout_url
-      UserMailer.confirmation_email(@order.user, @order).deliver_now
+      # UserMailer.confirmation_email(@order.user, @order).deliver_now
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
       UserMailer.pick_up_email(@order.user).deliver_now
