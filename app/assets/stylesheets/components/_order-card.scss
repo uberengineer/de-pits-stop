@@ -31,8 +31,6 @@
 
     }
 
-
-
     .order-id {
         padding-left: .75vw;
         padding-right: .75vw;
@@ -69,6 +67,7 @@
         color: $green;
     }
       .total-price {
+        font-weight: bold;
         color: $green;
       }
 
@@ -220,6 +219,7 @@ margin-top: 3vh;
 
     .add-more {
         text-decoration: underline;
+        text-align: right;
       }
 
        .trashcan {

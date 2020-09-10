@@ -27,23 +27,23 @@
                             <div class="tally-item">
                                 <%= truncate order_item.menu_item.name, length: 25, separator: /\w+/ %>
                             </div>
-
-                        <div class="tally-price"><%= order_item.menu_item.price.format %></div><%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
-                    </div>
-                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                    <% end %>
-                    <hr>
-                    <div class="order-details-checkout">
-                        <div class="tally-item">Total <%= @cart.amount.format %></div>
-                        <div class="tally-price total-price">
-                            <%= @cart.amount.format %></div>
+                            <div class="tally-price">
+                                <%= order_item.menu_item.price.format %>
+                            </div>
+                            <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
+                        </div>
+                        <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                        <% end %>
+                        <hr>
+                        <div class="order-details-checkout">
+                            <div class="tally-item">Total <span class="tally-price total-price">
+                                    <%= @cart.amount.format %></span></div>
                             <div class="add-more">
                                 <%= link_to "add more items", menu_items_path, class: "" %>
                             </div>
                         </div>
                         <hr class="total-hr">
                         <hr class="total-hr">
-
                     </div>
                     <%= f.text_area :comment, placeholder: "Any allergies or comments you would like to note?", class: "order-txt-area" %>
                     <%= f.input :pickup_time, collection: @times, selected: 0, class: "pickup-time" %>
@@ -89,18 +89,21 @@
                                 <%= order_item.menu_item.name%>
                             </div>
                             <div class="tally-price">
-                            <%= order_item.menu_item.price.format %></div>
-                        <%= link_to "delete", order_item_path(@cart, order_item), method: :delete %>
-                    </div>
-                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                    <% end %>
-                    <hr>
-                    <div class="order-details-checkout">
-                        <div class="tally-id"></div>
-                        <div class="tally-item">Total</div>
-                        <div class="tally-price">
-                            <%= @cart.amount.format %></div>
-                            <div class="add-more"><%= link_to "add more items", menu_items_path, class: "" %></div>
+                                <%= order_item.menu_item.price.format %>
+                            </div>
+                            <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
+                        </div>
+                        <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                        <% end %>
+                        <hr>
+                        <div class="order-details-checkout">
+                            <div class="tally-item">Total</div>
+                            <div class="tally-price">
+                                <%= @cart.amount.format %>
+                            </div>
+                        </div>
+                        <div class="add-more">
+                            <%= link_to "add more items", menu_items_path, class: "add-more" %>
                         </div>
                     </div>
                 </div>
