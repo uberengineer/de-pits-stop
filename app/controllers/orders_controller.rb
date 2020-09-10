@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
       # UserMailer.confirmation_email(@order.user, @order).deliver_now
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
-      UserMailer.pick_up_email(@order.user).deliver_now
+      # UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
     elsif @order.status == "awaiting pick-up"
       @order.status = "completed"
