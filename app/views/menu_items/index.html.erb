@@ -3,10 +3,12 @@
     <div class="mobile-screen">
         <h3 id="m-cat-daily" class="medium-title">Daily Specials</h3>
         <% @menu_items.each do |menu_item| %>
+
         <% if menu_item.category == "daily_specials" %>
         <div class="menu-card" id="menu-item-<%= menu_item.id %>">
             <div class="menu-text-container">
               <div>
+
                 <div class="menu-title"><%= menu_item.name.capitalize %></div>
               </div>
                 <div class="menu-item-description">

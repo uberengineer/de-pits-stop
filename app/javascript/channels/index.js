@@ -11,6 +11,3 @@ channels.keys().forEach(channels)
 //   console.log("licked")
 //   view_cart.classList.remove("d-none")
 // });
-
-
-// $(window.alert("hello"))
