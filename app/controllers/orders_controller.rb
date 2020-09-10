@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.where(payment_status:"paid")
     if current_user.admin
-<<<<<<< HEAD
       @orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
       end
@@ -13,15 +12,14 @@ class OrdersController < ApplicationController
 
       @current_orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
-=======
-      @orders = Order.includes(:order_items, :menu_items, :user).select do |order|
-        order.status == "not ready" || order.status == "awaiting pick-up"
       end
+      # @orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+      #   order.status == "not ready" || order.status == "awaiting pick-up"
+      # end
 
-      @past_orders = Order.includes(:order_items, :menu_items, :user).select do |order|
-        order.status == "completed"
->>>>>>> master
-      end
+      # @past_orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+      #   order.status == "completed"
+      # end
     else
       redirect_to menu_items_path
     end
