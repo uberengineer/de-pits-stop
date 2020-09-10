@@ -1,4 +1,4 @@
-require "open-uri"
+    require "open-uri"
 require 'faker'
 
 puts "destroying data"
