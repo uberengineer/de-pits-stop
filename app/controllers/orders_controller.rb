@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
       else
         @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
-
+        p webhook_url
       payment = Mollie::Payment.create(
       amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
       description:  @order.id.to_s,
