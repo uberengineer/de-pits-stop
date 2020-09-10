@@ -6,130 +6,18 @@
     <%  if @orders.none? { |odr| odr.status == "not ready" } %>
     <% else %>
     <h3 class="medium-title">Not Ready</h3>
-    <% @orders.select do |order| order.status == "not ready" end.each do |order| %>
-    <div class="order-card" >
-        <div class="blue-title-md order-id">
-            #
-            <%= order.id %>
-        </div>
-        <div class="customer-details">
-            <div class="cutomer-identity">
-                <div class="blue-title-md customer-title">
-                    <%= order.user.first_name %>
-                    <%= order.user.last_name %>
-                </div>
-                <div class="blue-title-sm">
-                    <%= order.user.email %>
-                </div>
-                <div class="blue-title-sm"><%= order.user.organization %> </div>
-                <div class="blue-title-sm"><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </div>
-                <div class="black-title-sm">Order ID:
-                    <%= order.id %>
-                </div>
-                <div> comment: <%= order.comment %>
-                 </div>
-                 <div> ready by: <%= order.pickup_time %></div>
-            </div>
-        </div>
-        <div class="order-management">
-            <div class="order-tally">
-                <div>
-                    <% total_price = 0 %>
-                    <% order.order_items.each do |order_item|  %>
-                    <div class="order-details-checkout">
-                        <div class="tally-id">
-                            <%= order_item.quantity %>x</div>
-                        <div class="tally-item">
-                            <%= order_item.menu_item.name%>
-                        </div>
-                        <div class="tally-price">
-                            <%= menu_item.price.format %></div>
-                    </div>
-                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                    <% end %>
-                    <hr>
-                    <div class="order-details-checkout">
-                        <div class="tally-id"></div>
-                        <div class="tally-item">Total</div>
-                        <div class="tally-price">
-                            <%= menu_item.price.format %></div>
-                    </div>
-                </div>
-            </div>
-            <div class="status-toggler">
-                <% if order.status == "not ready" %>
-                <%= link_to "Mark as ready for pick-up", order_path(order), method: :patch, class: "btn btn-primary" %>
-                <% elsif order.status == "awaiting pick-up" %>
-                <%= link_to "Mark as complete", order_path(order), method: :patch, class: "btn btn-success" %>
-                <% end %>
-            </div>
-        </div>
-    </div>
+      <div id="unfinished-orders">
+        <% @orders.select do |order| order.status == "not ready" end.each do |order| %>
+          <%= render 'order', order: order %>
+        <% end %>
+      </div>
     <% end %>
-    <% end %>
-    <div id = "orders">
-
-    </div>
 
     <% if @orders.none? { |odr| odr.status == "awaiting pick-up" } %>
     <% else %>
     <h3 class="medium-title">Awaiting pickup</h3>
     <% @orders.select do |order| order.status == "awaiting pick-up" end.each do |order| %>
-    <div class="order-card">
-        <div class="blue-title-md order-id">
-            #
-            <%= order.id %>
-        </div>
-        <div class="customer-details">
-            <div class="cutomer-identity">
-                <div class="blue-title-md customer-title">
-                    <%= order.user.first_name %>
-                    <%= order.user.last_name %>
-                </div>
-                <div class="blue-title-sm">
-                    <%= order.user.email %>
-                </div>
-                <div class="blue-title-sm"><%= order.user.organization %> </div>
-                <div class="blue-title-sm"><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </div>
-                <div class="black-title-sm">Order ID:
-                    <%= order.id %>
-                </div>
-            </div>
-        </div>
-        <div class="order-management">
-            <div class="order-tally">
-                <div>
-                    <% total_price = 0 %>
-                    <% order.order_items.each do |order_item|  %>
-                    <div class="order-details-checkout">
-                        <div class="tally-id">
-                            <%= order_item.quantity %>x</div>
-                        <div class="tally-item">
-                            <%= order_item.menu_item.name%>
-                        </div>
-                        <div class="tally-price">
-                            <%= menu_item.price.format %></div>
-                    </div>
-                    <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                    <% end %>
-                    <hr>
-                    <div class="order-details-checkout">
-                        <div class="tally-id"></div>
-                        <div class="tally-item">Total</div>
-                        <div class="tally-price">
-                            <%= menu_item.price.format %></div>
-                    </div>
-                </div>
-            </div>
-            <div class="status-toggler">
-                <% if order.status == "not ready" %>
-                <%= link_to "Mark as ready for pick-up", order_path(order), method: :patch, class: "btn btn-primary" %>
-                <% elsif order.status == "awaiting pick-up" %>
-                <%= link_to "Mark as complete", order_path(order), method: :patch, class: "btn btn-success" %>
-                <% end %>
-            </div>
-        </div>
-    </div>
+        <%= render 'order', order: order %>
     <% end %>
     <% end %>
     <% end %>

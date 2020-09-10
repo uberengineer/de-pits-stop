@@ -1,7 +1,7 @@
 import consumer from "./consumer";
 
 const initOrdersCable = () => {
-  const orderContainer = document.getElementById('orders');
+  const orderContainer = document.getElementById('unfinished-orders');
   if (orderContainer) {
     consumer.subscriptions.create({ channel: "OrderChannel"}, {
       connected(){
@@ -10,7 +10,7 @@ const initOrdersCable = () => {
       received(data) {
         console.log("SSSSS");
         console.log(data);
-        orderContainer.insertAdjacentHTML('afterend', data);
+        orderContainer.insertAdjacentHTML('beforeend', data);
       }
     });
   }

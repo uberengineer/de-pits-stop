@@ -34,6 +34,8 @@
     .order-id {
         padding-left: .75vw;
         padding-right: .75vw;
+        display: flex;
+        flex-direction: column;
     }
 
     .customer-details {
@@ -141,6 +143,8 @@ margin-top: 3vh;
     .order-id {
         padding-left: .75vw;
         padding-right: .75vw;
+        display: flex;
+        flex-direction: column;
     }
 
     .customer-details {
