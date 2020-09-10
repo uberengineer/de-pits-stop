@@ -11,7 +11,7 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
-
+    <%= favicon_link_tag %>
 
 
     <%= csrf_meta_tags %>
@@ -20,7 +20,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('https://www.depitskeuken.nl/wp-content/uploads/2018/10/cropped-pitslogovert-192x192.png') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
