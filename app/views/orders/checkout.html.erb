@@ -35,9 +35,9 @@
                     <% end %>
                     <hr>
                     <div class="order-details-checkout">
-                        <div class="tally-item">Total <%= ('%.2f' % total_price).format %></div>
+                        <div class="tally-item">Total <%= @cart.amount.format %></div>
                         <div class="tally-price total-price">
-                            <%= ('%.2f' % total_price).format %></div>
+                            <%= @cart.amount.format %></div>
                     </div>
                     <hr class="total-hr">
                     <hr class="total-hr">
@@ -108,7 +108,7 @@
                         <div class="tally-id"></div>
                         <div class="tally-item">Total</div>
                         <div class="tally-price">
-                            <%= '%.2f' % total_price) %></div>
+                            <%= @cart.amount.format %></div>
                     </div>
                 </div>
             </div>

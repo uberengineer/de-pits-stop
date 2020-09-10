@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
       end
 
       payment = Mollie::Payment.create(
-      amount:       { value: @order.amount_cents.to_s, currency: 'EUR' },
+      amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
       description:  @order.id.to_s,
       redirect_url: "http://98bb51ceaff0.ngrok.io" + confirmation_path(@order),
       webhook_url:  "http://98bb51ceaff0.ngrok.io" + webhook_path
