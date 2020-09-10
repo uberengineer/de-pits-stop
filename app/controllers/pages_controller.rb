@@ -13,8 +13,6 @@ class PagesController < ApplicationController
   def confirmation
     if current_user.admin
       redirect_to menu_items_path
-    else
-      raise
     end
   end
 
