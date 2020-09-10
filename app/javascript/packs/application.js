@@ -14,6 +14,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import {initOrdersCable} from "../channels/order_channel";
 
 
 // ----------------------------------------------------
@@ -32,3 +33,7 @@ window.Swal = Swal;
 // import { initSelect2 } from '../components/init_select2';
 import '../components/navbar';
 import '../components/kitchen';
+
+document.addEventListener('turbolinks:load', () => {
+  initOrdersCable();
+})

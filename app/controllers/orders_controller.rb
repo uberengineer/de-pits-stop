@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.where(payment_status:"paid")
     if current_user.admin
+<<<<<<< HEAD
       @orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
       end
@@ -12,6 +13,14 @@ class OrdersController < ApplicationController
 
       @current_orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
+=======
+      @orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+        order.status == "not ready" || order.status == "awaiting pick-up"
+      end
+
+      @past_orders = Order.includes(:order_items, :menu_items, :user).select do |order|
+        order.status == "completed"
+>>>>>>> master
       end
     else
       redirect_to menu_items_path
@@ -36,13 +45,13 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.status == "in progress"
-      @order.update(status: "not ready")
-      @order.update(comment: params[:order][:comment])
-      @order.update(time_started: Time.now)
+      @order.status =  "not ready"
+      @order.comment = params[:order][:comment]
+      @order.time_started = Time.now
       if params[:order][:pickup_time] == "As soon as possible"
-         @order.update(pickup_time: params[:order][:pickup_time])
+         @order.pickup_time = params[:order][:pickup_time]
       else
-        @order.update(pickup_time: Time.parse(params[:order][:pickup_time]).strftime("%H:%M"))
+        @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
 
       payment = Mollie::Payment.create(
@@ -56,14 +65,19 @@ class OrdersController < ApplicationController
       redirect_to payment.checkout_url
       # UserMailer.confirmation_email(@order.user, @order).deliver_now
     elsif @order.status == "not ready"
-      @order.update(status: "awaiting pick-up")
+      @order.status = "awaiting pick-up"
       UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
     elsif @order.status == "awaiting pick-up"
-      @order.update(status: "completed")
+      @order.status = "completed"
       redirect_to orders_path
-      @order.update(time_finished: Time.now)
+      @order.time_finished = Time.now
     end
+      @order.save
+      OrderChannel.broadcast_to(
+       "orders",
+      render_to_string(partial: "orders/order", locals: { order: @order })
+      )
   end
 
   def show_current_orders
