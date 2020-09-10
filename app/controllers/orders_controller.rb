@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
       amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
       description:  @order.id.to_s,
       redirect_url: confirmation_url(@order),
-      webhook_url:  webhook_url
+      webhook_url:  webhook_url(host: 'https://de-pits-stop.herokuapp.com')
     )
       @order.mollie_id = payment.id
       @order.save
