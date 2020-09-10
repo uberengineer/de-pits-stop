@@ -1,4 +1,11 @@
-<div class="blue-body">
-  <img style="margin-bottom: 10px; border-radius: 10px;" src="https://media1.tenor.com/images/edcc37c4df37ab5f6a797b66c1d6a531/tenor.gif?itemid=12151050" alt="confirmed">
-  <%= link_to "See my orders", show_current_orders_path, class: "btn btn-primary" %>
-</div>
+<% if payment_status == "paid" %>%
+  <div class="blue-body">
+    <img style="margin-bottom: 10px; border-radius: 10px;" src="https://media1.tenor.com/images/edcc37c4df37ab5f6a797b66c1d6a531/tenor.gif?itemid=12151050" alt="confirmed">
+    <%= link_to "See my orders", show_current_orders_path, class: "btn btn-primary" %>
+  </div>
+<% else %>
+  <div class="blue-body">
+    <img style="margin-bottom: 10px; border-radius: 10px;" src="https://media1.tenor.com/images/8b61cc071b00c162a660f401be7b5868/tenor.gif?itemid=4970804" alt="declined">
+    <%= link_to "See my orders", show_current_orders_path, class: "btn btn-danger" %>
+  </div>
+<% end %>
