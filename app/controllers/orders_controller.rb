@@ -72,10 +72,6 @@ class OrdersController < ApplicationController
       @order.time_finished = Time.now
     end
       @order.save
-      OrderChannel.broadcast_to(
-       "orders",
-      render_to_string(partial: "orders/order", locals: { order: @order })
-      )
   end
 
   def show_current_orders

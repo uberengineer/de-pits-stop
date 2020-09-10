@@ -7,6 +7,12 @@ class WebhookController < ApplicationController
     @order = Order.find_by(mollie_id: @payment.id)
     @order.payment_status = @payment.status
     @order.save
+
+    if @order.payment_status == "paid"
+    OrderChannel.broadcast_to(
+       "orders",
+      render_to_string(partial: "orders/order", locals: { order: @order })
+      )
+    end
   end
 end
-

@@ -1,9 +1,17 @@
 <div class="blue-body">
     <%= render 'shared/navbar' %>
 <% @orders.each do |order| %>
-
     <div class="order-card">
-          <div class="blue-title-md order-id"># <%= order.id %></div>
+          <div class="blue-title-md order-id"># <%= order.id %>
+              <% if order.status == "not ready" %>
+                    <div class="btn btn-danger"><%= order.status %></div>
+                  <% elsif order.status == "awaiting pickup" %>
+                    <div class="btn btn-success"><%= order.status %></div>
+                  <% elsif order.status == "completed" %>
+                    <div class="btn btn-primary"><%= order.status %></div>
+                  <% end %>
+          </div>
+
           <div class="customer-details">
               <div class="cutomer-identity">
                   <div class="blue-title-md customer-title">
@@ -14,14 +22,6 @@
                      <%= order.time_started.strftime("%Y/%m/%d - %H:%M") %>
                   </div>
                   <br>
-                  <br>
-                  <% if order.status == "not ready" %>
-                    <div class="btn btn-danger"><%= order.status %></div>
-                  <% elsif order.status == "awaiting pickup" %>
-                    <div class="btn btn-success"><%= order.status %></div>
-                  <% elsif order.status == "completed" %>
-                    <div class="btn btn-primary"><%= order.status %></div>
-                  <% end %>
               </div>
           <div class="order-management">
               <div class="order-tally">
@@ -51,7 +51,8 @@
               </div>
           </div>
       </div>
-    <% end %>
+  </div>
+  <% end %>
     <br>
       <%= link_to "Back to menu", menu_items_path, class: "btn btn-primary" %>
-  </div>
+</div>
