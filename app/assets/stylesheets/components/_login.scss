@@ -1,117 +1,179 @@
-.login-body {
-  background-image:
-  linear-gradient(to right, rgba(245, 246, 252, 01.60), rgba(117, 19, 93, .04)),
-  url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=2131&q=80');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
-  display: flex;
-  height: auto;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+/* For Laptop */
+@media screen and (min-width: 715px) {
 
-.login {
-  margin:0 auto;
-  max-width:500px;
-}
+    .login-body {
+        background-image:
+            linear-gradient(to right, rgba(245, 246, 252, 01.60), rgba(117, 19, 93, .04)),
+            url('https://previews.123rf.com/images/fahroni/fahroni1809/fahroni180900105/109108843-white-and-grey-brick-wall-texture-background-with-space-for-text-white-bricks-wallpaper-home-interio.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        text-align: center;
+        display: flex;
+        height: auto;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 
-.login-form {
-  box-sizing:border-box;
-  padding: 20px;
-  // padding-top:20px;
-  // padding-bottom:20px;
-  margin-top:5% auto;
-  text-align:center;
-  border:.5px solid rgba(0,0,0,0.05);
-  border-radius:10px;
-  box-shadow:rgba(0,0,0,0.6);
-  background: rgba(255,255,255,0.8);
-}
-.login input[type="text"],
-.login input[type="email"],
-.login input[type="password"] {
-  max-width:400px;
-  width: 80%;
-  line-height:3em;
-  font-family: 'Ubuntu', sans-serif;
-  margin:1em 2em;
-  border-radius:5px;
-  border:2px solid #f2f2f2;
-  outline:none;
-  padding-left:10px;
-}
-.login-form input[type="button"] {
-  height:30px;
-  width:100px;
-  background:#fff;
-  border:1px solid #f2f2f2;
-  border-radius:20px;
-  color: slategrey;
-  text-transform:uppercase;
-  font-family: 'Ubuntu', sans-serif;
-  cursor:pointer;
-}
-.sign-up{
-  color:#f2f2f2;
-  margin-left:-70%;
-  cursor:pointer;
-  text-decoration:underline;
-}
-.no-access {
-  color:#E86850;
-  margin:20px 0px 20px -57%;
-  text-decoration:underline;
-  cursor:pointer;
-}
-.try-again {
-  color:#f2f2f2;
-  text-decoration:underline;
-  cursor:pointer;
-}
+    .login {
+        margin: 0 auto;
+        max-width: 500px;
+    }
 
-.login-button {
-    margin-bottom:10px;
-    border:.5px solid #fff;
-    border-radius:10px;
-    box-shadow:0px 0px 5px #000;
-  }
+    .login-form {
+        box-sizing: border-box;
+        padding: 20px;
+        // padding-top:20px;
+        // padding-bottom:20px;
+        margin-top: 5% auto;
+        text-align: center;
+        border: .5px solid rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.6);
+        background: rgba(255, 255, 255, 0.8);
+    }
 
-/*Media Querie*/
-@media only screen and (min-width : 150px) and (max-width : 530px){
-  .login-form h3 {
-    text-align:center;
-    margin:0;
-  }
-  .sign-up, .no-access {
-    margin:10px 0;
-  }
-  .login-button {
-    margin-bottom:10px;
-  }
-}
+    .login input[type="text"],
+    .login input[type="email"],
+    .login input[type="password"] {
+        max-width: 400px;
+        width: 80%;
+        line-height: 3em;
+        font-family: 'Ubuntu', sans-serif;
+        margin: 1em 2em;
+        border-radius: 5px;
+        border: 2px solid #f2f2f2;
+        outline: none;
+        padding-left: 10px;
+    }
 
-.flex-login {
-  display: flex;
-  flex-direction: row;
+    .login-form input[type="button"] {
+        height: 30px;
+        width: 100px;
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        border-radius: 20px;
+        color: slategrey;
+        text-transform: uppercase;
+        font-family: 'Ubuntu', sans-serif;
+        cursor: pointer;
+    }
+
+    .sign-up {
+        color: #f2f2f2;
+        margin-left: -70%;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .no-access {
+        color: #E86850;
+        margin: 20px 0px 20px -57%;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .try-again {
+        color: #f2f2f2;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .login-button {
+        margin-bottom: 10px;
+        border: .5px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px #000;
+    }
 }
 
 
-.signup-text {
-  font-family: $funky-font;
+/* For mobile */
+@media screen and (max-width: 715px) {
+
+    .login-desktop {
+        display: none;
+    }
+
+    .login-body {
+        background-image:
+            linear-gradient(to bottom, rgba(245, 246, 252, 01.60), rgba(117, 19, 93, .04)),
+            url('https://previews.123rf.com/images/fahroni/fahroni1809/fahroni180900105/109108843-white-and-grey-brick-wall-texture-background-with-space-for-text-white-bricks-wallpaper-home-interio.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        text-align: center;
+        display: flex;
+        height: auto;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .login {
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+    .login-form {
+        box-sizing: border-box;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border: .5px solid rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.6);
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .login input[type="text"],
+    .login input[type="email"],
+    .login input[type="password"] {
+        width: 80%;
+        margin: 1em 2em;
+        border-radius: 5px;
+        border: 2px solid #f2f2f2;
+    }
+
+    .login-form input[type="button"] {
+        height: 30px;
+        width: 100px;
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        border-radius: 20px;
+        color: slategrey;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .sign-up {
+        color: #f2f2f2;
+        margin-left: -70%;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .no-access {
+        color: #E86850;
+        margin: 20px 0px 20px -57%;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .try-again {
+        color: #f2f2f2;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .login-button {
+        margin-bottom: 10px;
+        border: .5px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px #000;
+    }
 }
-
-.retrieve-pwd {
-  color: grey;
-}
-
-
-
-
-
-
-.end {}

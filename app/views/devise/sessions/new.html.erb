@@ -1,25 +1,54 @@
-<div class="login-body">
-    <div class="login">
-      <img width="100px" style="margin-bottom: 5vh;" src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/lepelh.svg" alt="logo">
-        <div class="login-form">
-            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <h3 class="signup-text">Sign in</h3>
-        <div class="form-inputs">
-        <%= f.input :email,
+<div class="login-desktop">
+    <div class="login-body">
+        <div class="login">
+            <img width="100px" style="margin-bottom: 5vh;" src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/lepelh.svg" alt="logo">
+            <div class="login-form">
+                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <h3 class="signup-text">Sign in</h3>
+                <div class="form-inputs">
+                    <%= f.input :email,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
-        <%= f.input :password,
+                    <%= f.input :password,
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                </div>
+                <div class="form-actions">
+                    <%= f.button :submit, "Log in", class: "login-button btn" %>
+                </div>
+                <% end %>
+                <br>
+                <%= render "devise/shared/links" %>
+            </div>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Log in", class: "login-button btn" %>
-        </div>
-      <% end %>
-      <br>
-      <%= render "devise/shared/links" %>
     </div>
-  </div>
+</div>
+<div class="login-mobile">
+    <div class="login-body">
+        <div class="login">
+            <img width="100px" style="margin-bottom: 5vh;" src="https://www.depitskeuken.nl/wp-content/uploads/2018/10/lepelh.svg" alt="logo">
+            <div class="login-form">
+                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <h3 class="signup-text">Sign in</h3>
+                <div class="form-inputs">
+                    <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+                    <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                </div>
+                <div class="form-actions">
+                    <%= f.button :submit, "Log in", class: "login-button btn" %>
+                </div>
+                <% end %>
+                <br>
+                <%= render "devise/shared/links" %>
+            </div>
+        </div>
+    </div>
 </div>
