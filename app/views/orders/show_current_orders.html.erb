@@ -8,16 +8,21 @@
               <div class="cutomer-identity">
                   <div class="blue-title-md customer-title">
                       <%= order.user.first_name %>
-                      <%= order.user.last_name %>
+                      <%= order.user.last_name.first %>.
                   </div>
                   <div class="blue-title-sm">
-                      <%= order.time_started.strftime("%Y/%m/%d %H:%M") %>
+                     <%= order.time_started.strftime("%Y/%m/%d - %H:%M") %>
                   </div>
                   <br>
                   <br>
-                <div class="btn btn-danger"><%= order.status %></div>
+                  <% if order.status == "not ready" %>
+                    <div class="btn btn-danger"><%= order.status %></div>
+                  <% elsif order.status == "awaiting pickup" %>
+                    <div class="btn btn-success"><%= order.status %></div>
+                  <% elsif order.status == "completed" %>
+                    <div class="btn btn-primary"><%= order.status %></div>
+                  <% end %>
               </div>
-          </div>
           <div class="order-management">
               <div class="order-tally">
                   <div>
@@ -47,4 +52,6 @@
           </div>
       </div>
     <% end %>
+    <br>
+      <%= link_to "Back to menu", menu_items_path, class: "btn btn-primary" %>
   </div>
