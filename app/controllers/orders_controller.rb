@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.includes(:order_items, :menu_items, :user, payment_status:"paid")
+    @orders = Order.includes(:order_items, :menu_items, :user).where(payment_status:"paid")
     if current_user.admin
       @orders = @orders.select do |order|
         order.status == "not ready" || order.status == "awaiting pick-up"
