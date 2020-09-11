@@ -5,7 +5,7 @@
           <div class="blue-title-md order-id"># <%= order.id %>
               <% if order.status == "not ready" %>
                     <div class="btn btn-danger"><%= order.status %></div>
-                  <% elsif order.status == "awaiting pickup" %>
+                  <% elsif order.status == "awaiting pick-up" %>
                     <div class="btn btn-success"><%= order.status %></div>
                   <% elsif order.status == "completed" %>
                     <div class="btn btn-primary"><%= order.status %></div>
