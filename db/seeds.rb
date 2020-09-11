@@ -93,9 +93,10 @@ puts "Creating order items"
 20.times do
   order = Order.new(
     user: User.all.sample,
-    status: "not ready",
+    status: ["not ready", "in progress", "completed", "awaiting pickup"].sample,
     comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample,
-    time_started: Time.now
+    time_started: Time.now,
+    payment_status: "paid"
     )
 
   order.save!
@@ -104,7 +105,8 @@ puts "Creating order items"
       quantity: rand(1..3),
       menu_item: MenuItem.all.sample,
       order: order
-      )
+    )
+
     order_item.save!
   end
 end
