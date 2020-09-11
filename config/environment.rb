@@ -7,7 +7,7 @@ Rails.application.initialize!
 ActionMailer::Base.smtp_settings = {
   :user_name => 'apikey',
   :password => ENV['SENDGRID_KEY'],
-  :domain => 'localhost:3000',
+  :domain => 'depitskeukenbestellen',
   :address => 'smtp.sendgrid.net',
   :port => 25,
   :authentication => :plain,
