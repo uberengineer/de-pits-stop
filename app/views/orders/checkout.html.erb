@@ -114,8 +114,10 @@
         <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm your order" %>
         <% end %>
         <% else %>
+        <div style="position: absolute; bottom: 50%; left: 25%;">
         <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
         <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
+        </div>
         <% end %>
         <% else %>
         <% end %>
