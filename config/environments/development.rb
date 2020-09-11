@@ -5,7 +5,7 @@ Rails.application.configure do
   config.hosts << "98bb51ceaff0.ngrok.io"
   # [...]
   # Add this line next to existing config.action_mailer settings
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
   # [...]
 
   # In the development environment your application's code is reloaded on
