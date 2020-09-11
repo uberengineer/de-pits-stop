@@ -9,7 +9,7 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    order_item = OrderItem.find(params[:id])
+    order_item = OrderItem.find(params[:format])
     order_item.destroy!
     redirect_to checkout_order_path(Order.where(user: current_user, status: "in progress").first_or_create)
   end
