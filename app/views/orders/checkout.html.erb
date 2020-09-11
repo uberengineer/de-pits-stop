@@ -60,59 +60,59 @@
     </div>
     <div class="order-desktop">
         <% if @cart.status == "in progress" %>
-        <% if @cart.order_items.first != nil %>
-        <h3 class="confirm-header">Please confirm your order below:</h3>
-        <%= simple_form_for @cart do |f| %>
-        <div class="order-card">
-            <div class="blue-title-md order-id">#
-                <%= @cart.id %>
-            </div>
-            <div class="customer-details">
-                <div class="cutomer-identity">
-                    <div class="blue-title-sm">
-                        <%= @cart.user.email %>
-                    </div>
-                    <div class="black-title-sm">Order ID:
-                        <%= @cart.id %>
-                    </div>
-                </div>
-            </div>
-            <div class="order-management">
-                <div class="order-tally">
-                    <div>
-                        <% total_price = 0 %>
-                        <% @cart.order_items.each do |order_item|  %>
-                        <div class="order-details-checkout">
-                            <div class="tally-id">
-                                <%= order_item.quantity %>x</div>
-                            <div class="tally-item">
-                                <%= order_item.menu_item.name%>
-                            </div>
-                            <div class="tally-price">
-                                <%= order_item.menu_item.price.format %>
-                            </div>
-                            <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
-                        </div>
-                        <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-                        <% end %>
-                        <hr>
-                        <div class="order-details-checkout">
-                            <div class="tally-item">Total</div>
-                            <div class="tally-price">
-                                <%= @cart.amount.format %>
-                            </div>
-                        </div>
-                        <div class="add-more">
-                            <%= link_to "add more items", menu_items_path, class: "add-more" %>
-                        </div>
-                    </div>
-                </div>
-                <%= f.text_area :comment, placeholder: "Any allergies or comments you would like to note?", class: "order-txt-area" %>
-                <%= f.input :pickup_time, collection: @times, selected: 0%>
-            </div>
-        </div>
-        <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm your order" %>
-        <% end %>
+          <% if @cart.order_items.first != nil %>
+            <h3 class="confirm-header">Please confirm your order below:</h3>
+            <%= simple_form_for @cart do |f| %>
+              <div class="order-card">
+                  <div class="blue-title-md order-id">#
+                      <%= @cart.id %>
+                  </div>
+                  <div class="customer-details">
+                      <div class="cutomer-identity">
+                          <div class="blue-title-sm">
+                              <%= @cart.user.email %>
+                          </div>
+                          <div class="black-title-sm">Order ID:
+                              <%= @cart.id %>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="order-management">
+                      <div class="order-tally">
+                          <div>
+                              <% total_price = 0 %>
+                              <% @cart.order_items.each do |order_item|  %>
+                                <div class="order-details-checkout">
+                                    <div class="tally-id">
+                                        <%= order_item.quantity %>x</div>
+                                    <div class="tally-item">
+                                        <%= order_item.menu_item.name%>
+                                    </div>
+                                    <div class="tally-price">
+                                        <%= order_item.menu_item.price.format %>
+                                    </div>
+                                    <%= link_to raw('<i class="far fa-trash-alt"></i>'), order_item_path(@cart, order_item), method: :delete, class: "trashcan" %>
+                                </div>
+                                <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
+                              <% end %>
+                              <hr>
+                              <div class="order-details-checkout">
+                                  <div class="tally-item">Total</div>
+                                  <div class="tally-price">
+                                      <%= @cart.amount.format %>
+                                  </div>
+                              </div>
+                              <div class="add-more">
+                                  <%= link_to "add more items", menu_items_path, class: "add-more" %>
+                              </div>
+                          </div>
+                      </div>
+                      <%= f.text_area :comment, placeholder: "Any allergies or comments you would like to note?", class: "order-txt-area" %>
+                      <%= f.input :pickup_time, collection: @times, selected: 0%>
+                  </div>
+              </div>
+            <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm your order" %>
+          <% end %>
         <% else %>
         <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
         <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
