@@ -1,5 +1,5 @@
+<%= render 'shared/navbar' %>
 <div class="blue-body">
-    <%= render 'shared/navbar' %>
     <% @orders.each do |order| %>
     <div class="order-card">
         <div class="blue-title-md order-id">
@@ -15,9 +15,15 @@
                 <div class="blue-title-sm">
                     <%= order.user.email %>
                 </div>
-                <div class="blue-title-sm"><%= order.user.organization %> </div>
-                <div class="blue-title-sm"><%= order.time_started.strftime("%Y/%m/%d %H:%M") %> </div>
-                <div class="blue-title-sm"><%= order.time_finished.strftime("%Y/%m/%d %H:%M") %> </div>
+                <div class="blue-title-sm">
+                    <%= order.user.organization %>
+                </div>
+                <div class="blue-title-sm">
+                    <%= order.time_started.strftime("%Y/%m/%d %H:%M") %>
+                </div>
+                <div class="blue-title-sm">
+                    <%= order.time_finished.strftime("%Y/%m/%d %H:%M") %>
+                </div>
                 <div class="black-title-sm">Order ID:
                     <%= order.id %>
                 </div>
@@ -30,26 +36,28 @@
                     <% order.order_items.each do |order_item|  %>
                     <div class="order-details-checkout">
                         <div class="tally-id">
-                            <%= order_item.quantity %>x</div>
+                            <%= order_item.quantity %>x
+                        </div>
                         <div class="tally-item">
                             <%= order_item.menu_item.name%>
                         </div>
                         <div class="tally-price">
-                            <%= order_item.menu_item.price.format %></div>
+                            <%= order_item.menu_item.price.format %>
+                        </div>
                     </div>
                     <% total_price = total_price + (order_item.quantity * order_item.menu_item.price) %>
-
-                    <hr>
+                    <hr />
                     <div class="order-details-checkout">
                         <div class="tally-id"></div>
                         <div class="tally-item">Total</div>
                         <div class="tally-price">
-                            <%= order_item.menu_item.price.format %></div>
-                            <% end %>
+                            <%= order_item.menu_item.price.format %>
+                        </div>
                     </div>
+                    <% end %>
                 </div>
             </div>
         </div>
     </div>
     <% end %>
-  </div>
+</div>
