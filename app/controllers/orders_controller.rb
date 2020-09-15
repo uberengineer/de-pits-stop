@@ -39,22 +39,16 @@ class OrdersController < ApplicationController
       else
         @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
-          #     p webhook_url
-    #   payment = Mollie::Payment.create(
-    #   amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
-    #   description:  @order.id.to_s,
-    #   redirect_url: confirmation_url(@order, host: root_url),
-    #   webhook_url:  webhook_url(host: root_url)
-    # )
-    #   @order.mollie_id = payment.id
-    #   @order.save
-    #   redirect_to payment.checkout_url
-
-@order.mollie_id = "n/a"
-@order.payment_status = "paid"
-@order.save
-redirect_to confirmation_path
-
+        p webhook_url
+      payment = Mollie::Payment.create(
+      amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
+      description:  @order.id.to_s,
+      redirect_url: confirmation_url(@order, host: root_url),
+      webhook_url:  webhook_url(host: root_url)
+    )
+      @order.mollie_id = payment.id
+      @order.save
+      redirect_to payment.checkout_url
       # UserMailer.confirmation_email(@order.user, @order).deliver_now
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
