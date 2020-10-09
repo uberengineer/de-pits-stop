@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
       description:  @order.id.to_s,
       redirect_url: confirmation_url(@order, host: root_url),
       webhook_url:  webhook_url(host: root_url)
-    )
+      )
       @order.mollie_id = payment.id
       @order.save
       redirect_to payment.checkout_url
