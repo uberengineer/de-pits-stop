@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_145202) do
 
   create_table "orders", force: :cascade do |t|
     t.string "comment"
-    t.string "status"
+    t.string "status", default: "in progress"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

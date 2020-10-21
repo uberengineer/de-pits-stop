@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.status == "in progress"
-      @order.status =  "not ready"
+      @order.status = "not ready"
       @order.comment = params[:order][:comment]
       @order.time_started = Time.now
       if params[:order][:pickup_time] == "As soon as possible"
@@ -39,12 +39,12 @@ class OrdersController < ApplicationController
       else
         @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
-        p webhook_url
-      payment = Mollie::Payment.create(
+
+    payment = Mollie::Payment.create(
       amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
       description:  @order.id.to_s,
       redirect_url: confirmation_url(@order, host: root_url),
-      webhook_url:  webhook_url(host: root_url)
+      webhook_url:  webhook_url(host: "https://76f49e37aaa2.ngrok.io")
       )
       @order.mollie_id = payment.id
       @order.save
