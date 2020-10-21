@@ -52,12 +52,14 @@
             <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm order" %>
             <% end %>
             <% else %>
-            <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
+            <h3>Your cart is currently empty</h3>
             <%= link_to "Go to menu", menu_items_path , class: "btn btn-primary" %>
             <% end %>
             <% end %>
         </div>
     </div>
+
+    
     <div class="order-desktop">
         <% if @cart.status == "in progress" %>
         <% if @cart.order_items.first != nil %>
@@ -110,16 +112,13 @@
                 <%= f.text_area :comment, placeholder: "Any allergies or comments you would like to note?", class: "order-txt-area" %>
                 <%= f.input :pickup_time, collection: @times, selected: 0%>
             </div>
+            <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm your order" %>
+            <% end %>
+            <% else %>
+            <h3>Your cart is currently empty</h3>
+            <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
+            <% end %>
+            <% end %>
         </div>
-        <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm your order" %>
-        <% end %>
-        <% else %>
-        <div style="position: absolute; bottom: 50%; left: 25%;">
-        <h3 class="strong-title">Your cart is empty, and you may be hungry!</h3>
-        <%= link_to "Go to menu",menu_items_path , class: "btn btn-primary" %>
-        </div>
-        <% end %>
-        <% else %>
-        <% end %>
     </div>
 </div>
