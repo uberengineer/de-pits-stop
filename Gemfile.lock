@@ -322,6 +322,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionmailer
   autoprefixer-rails
   blazer
   bootsnap (>= 1.4.2)

@@ -37,6 +37,7 @@ gem 'simple_form'
 gem 'rails_admin'
 gem 'money-rails'
 gem 'mollie-api-ruby'
+gem 'actionmailer'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

@@ -37,7 +37,8 @@
                         <hr>
                         <div class="order-details-checkout">
                             <div class="tally-item">Total <span class="tally-price total-price">
-                                    <%= @cart.amount.format %></span></div>
+                                <%= @cart.amount.format %></span>
+                            </div>
                             <div class="add-more">
                                 <%= link_to "add more items", menu_items_path, class: "" %>
                             </div>
@@ -49,7 +50,7 @@
                     <%= f.input :pickup_time, collection: @times, selected: 0, class: "pickup-time" %>
                 </div>
             </div>
-            <%= f.button :submit,  class: "btn btn-success white-font", value: "Confirm order" %>
+            <%= f.button :submit, class: "btn btn-success white-font", value: "Confirm order" %>
             <% end %>
             <% else %>
             <h3>Your cart is currently empty</h3>
