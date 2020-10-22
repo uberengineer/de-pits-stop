@@ -1,10 +1,9 @@
-<%= render 'shared/navbar' %>
 <div class="blue-body">
+<%= render 'shared/navbar' %>
     <% @orders.each do |order| %>
     <div class="order-card">
-        <div class="blue-title-md order-id">
-            #
-            <%= order.id %>
+        <div class="black-title-md order-id">
+            Order: <%= order.id %>
         </div>
         <div class="customer-details">
             <div class="cutomer-identity">
@@ -20,12 +19,6 @@
                 </div>
                 <div class="blue-title-sm">
                     <%= order.time_started.strftime("%Y/%m/%d %H:%M") %>
-                </div>
-                <div class="blue-title-sm">
-                    <%= order.time_finished.strftime("%Y/%m/%d %H:%M") %>
-                </div>
-                <div class="black-title-sm">Order ID:
-                    <%= order.id %>
                 </div>
             </div>
         </div>

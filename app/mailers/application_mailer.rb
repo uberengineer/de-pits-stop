@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'depitskeukenbestelling@gmail.com'
+  default from: 'admin@depitskeukenbestelling.com'
   layout 'mailer'
 end

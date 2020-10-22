@@ -1,8 +1,9 @@
 <div class="blue-body">
     <%= render 'shared/navbar' %>
-<% @orders.each do |order| %>
+    <% @orders.each do |order| %>
     <div class="order-card">
-          <div class="blue-title-md order-id"># <%= order.id %>
+        <div class="blue-title-md order-id">
+            <%= order.id %>
               <% if order.status == "not ready" %>
                     <div class="btn btn-danger"><%= order.status %></div>
                   <% elsif order.status == "awaiting pick-up" %>

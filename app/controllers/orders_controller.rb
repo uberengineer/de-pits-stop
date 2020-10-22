@@ -46,6 +46,7 @@ class OrdersController < ApplicationController
       redirect_url: confirmation_url(@order, host: root_url),
       webhook_url:  webhook_url(host: "https://76f49e37aaa2.ngrok.io")
       )
+      
       @order.mollie_id = payment.id
       @order.save
       redirect_to payment.checkout_url
@@ -54,7 +55,7 @@ class OrdersController < ApplicationController
       @order.status = "awaiting pick-up"
       UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
-    elsif @order.status == "awaiting pick-up"
+    else @order.status == "awaiting pick-up"
       @order.status = "completed"
       redirect_to orders_path
       @order.time_finished = Time.now

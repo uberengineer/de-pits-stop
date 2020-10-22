@@ -1,6 +1,5 @@
       <div class="order-card">
         <div class="blue-title-md order-id">
-            #
             <%= order.id %>
         </div>
         <div class="customer-details">
@@ -49,9 +48,9 @@
             </div>
             <div class="status-toggler">
                 <% if order.status == "not ready" %>
-                <%= link_to "Mark as ready for pick-up", order_path(order), method: :patch, class: "btn btn-primary" %>
+                <%= link_to "Mark as Ready", order_path(order), method: :patch, class: "btn btn-primary" %>
                 <% elsif order.status == "awaiting pick-up" %>
-                <%= link_to "Mark as complete", order_path(order), method: :patch, class: "btn btn-success" %>
+                <%= link_to "Mark as Collected", order_path(order), method: :patch, class: "btn btn-success" %>
                 <% end %>
             </div>
         </div>
