@@ -4,7 +4,9 @@
     <div class="order-card">
         <div class="blue-title-md order-id">
             <%= order.id %>
-              <% if order.status == "not ready" %>
+                <% if order.payment_status == nil %>
+                    <div class="btn btn-dark">Cancelled</div>
+                  <% elsif order.status == "not ready" %>
                     <div class="btn btn-danger"><%= order.status %></div>
                   <% elsif order.status == "awaiting pick-up" %>
                     <div class="btn btn-success"><%= order.status %></div>
