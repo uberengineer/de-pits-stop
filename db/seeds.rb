@@ -1,5 +1,4 @@
-    require "open-uri"
-require 'faker'
+require "open-uri"
 
 puts "destroying data"
 OrderItem.destroy_all
@@ -20,21 +19,17 @@ User.create(
     organization: "De Pits",
     admin: true
     )
-puts "Admin accout created"
-
-puts "creating users "
-4.times do |num|
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: "test#{num}@gmail.com",
+    puts "Default admin accout created"
+    puts "-----------"
+User.create(
+    first_name: "Test",
+    last_name: "User",
+    email: "user@email.com",
     password: "password",
-    organization: Faker::Company.name,
+    organization: "Test",
     admin: false
-  )
-end
-puts "#{User.count} user's created"
-
+    )
+puts "Test user created"
 puts "-----------"
 puts "Creating menu items"
 menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symbolize_keys
@@ -88,27 +83,4 @@ menu[:desserts].each do |menu_item|
 end
 
 puts "-----------"
-puts "Creating order items"
-
-20.times do
-  order = Order.new(
-    user: User.all.sample,
-    status: ["not ready", "in progress", "completed", "awaiting pickup"].sample,
-    comment: ["allergy", "extra", "hold the sauce", "", "", ""].sample,
-    time_started: Time.now,
-    payment_status: "paid"
-    )
-
-  order.save!
-  rand(1..5).times do
-    order_item = OrderItem.new(
-      quantity: rand(1..3),
-      menu_item: MenuItem.all.sample,
-      order: order
-    )
-
-    order_item.save!
-  end
-end
-
-puts "Orders created"
+puts "import complete"
