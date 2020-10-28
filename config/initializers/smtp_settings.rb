@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {
-  address: "smtp.gmail.com",
+  address: 'srv12243.hostingserver.nl',
   port: 587,
-  domain: 'mail.google.com',
-  user_name: ENV['gmail_username'],
-  password: ENV['gmail_password'],
+  domain: 'depitskeuken.nl',
+  user_name: ENV['MAILER_USERNAME'],
+  password: ENV['MAILER_PASSWORD'],
   authentication: :login,
   enable_starttls_auto: true
 }
