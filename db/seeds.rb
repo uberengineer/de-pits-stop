@@ -14,7 +14,7 @@ Kitchen.create()
 User.create(
     first_name: "De Pits",
     last_name: "Administrator",
-    email: "admin@gmail.com",
+    email: "contact@depitskeuken.nl",
     password: "admin123",
     organization: "De Pits",
     admin: true
