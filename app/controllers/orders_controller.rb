@@ -40,11 +40,12 @@ class OrdersController < ApplicationController
         @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
 
+      raise
     payment = Mollie::Payment.create(
       amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
       description:  @order.id.to_s,
-      redirect_url: confirmation_url(@order, host: root_url),
-      webhook_url:  webhook_url(host: root_url)
+      redirect_url: ENV['APPLICATION_URL'] + '/order/' + @order.id.to_s + '/confirmation',
+      webhook_url:  ENV['APPLICATION_URL'] + '/mollie/webhook',
       )
       
       @order.mollie_id = payment.id
