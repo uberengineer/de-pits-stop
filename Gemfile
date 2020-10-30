@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '2.7.2'
 
 gem 'letter_opener', group: :development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,6 +37,7 @@ gem 'rails_admin'
 gem 'money-rails'
 gem 'mollie-api-ruby'
 gem 'actionmailer'
+gem 'activerecord'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

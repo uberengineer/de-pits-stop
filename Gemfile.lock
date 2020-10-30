@@ -107,8 +107,6 @@ GEM
     errbase (0.2.0)
     erubi (1.9.0)
     execjs (2.7.0)
-    faker (2.13.0)
-      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
@@ -323,6 +321,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionmailer
+  activerecord
   autoprefixer-rails
   blazer
   bootsnap (>= 1.4.2)
@@ -331,7 +330,6 @@ DEPENDENCIES
   cloudinary
   devise
   dotenv-rails
-  faker
   font-awesome-sass
   jbuilder (~> 2.7)
   letter_opener
@@ -357,7 +355,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4
