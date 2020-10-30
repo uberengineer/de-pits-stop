@@ -1,9 +1,9 @@
-  class WebhookController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  skip_before_action :authenticate_user!
+class WebhookController < ApplicationController
+skip_before_action :verify_authenticity_token
+skip_before_action :authenticate_user!
 
   def mollie
-    @payment = Mollie::Payment.get(params[:id])
+    @payment = Mollie::Payment.get(payment.id)
     @order = Order.find_by(mollie_id: @payment.id)
     @order.payment_status = @payment.status
     @order.save

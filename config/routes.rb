@@ -24,5 +24,5 @@ Rails.application.routes.draw do
       get "/checkout", to: "orders#checkout", as: "checkout"
     end
   end
-  post "/mollie-webhook", to: "webhook#mollie", as: "webhook"
+  post "/mollie/webhook", to: "webhook#mollie", as: "webhook"
 end
