@@ -1,5 +1,5 @@
 ActionMailer::Base.smtp_settings = {
-  address: 'depitskeuken.nl',
+  address: 'mail.depitskeuken.nl',
   port: 25,
   domain: 'depitskeuken.nl',
   user_name: ENV['MAILER_ADDRESS'],
