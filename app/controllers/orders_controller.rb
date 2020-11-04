@@ -39,12 +39,19 @@ class OrdersController < ApplicationController
       else
         @order.pickup_time = Time.parse(params[:order][:pickup_time]).strftime("%H:%M")
       end
-    payment = Mollie::Payment.create(
-      amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
-      description:  @order.id.to_s,
-      redirect_url: 'https://de-pits-stop.herokuapp.com/order/:id/confirmation',
-      webhook_url:  'https://de-pits-stop.herokuapp.com/mollie/webhook'
-      )
+      payment = Mollie::Payment.create(
+        amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
+        description:  @order.id.to_s,
+        
+        raise
+
+        redirect_url: confirmation_url(@order, host: root_url),
+        webhook_url:  webhook_url(host: root_url)
+        
+        # # redirect_url: 'https://de-pits-stop.herokuapp.com/order/:id/confirmation',
+        # # webhook_url:  'https://de-pits-stop.herokuapp.com/mollie/webhook/'
+        
+        )
       
       @order.mollie_id = payment.id
       @order.save
