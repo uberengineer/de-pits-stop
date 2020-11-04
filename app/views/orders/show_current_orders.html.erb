@@ -5,7 +5,10 @@
         <div class="blue-title-md order-id">
             <%= order.id %>
                 <% if order.payment_status != "paid" %>
-                    <div class="btn btn-primary"><%= order.payment_status.capitalize %></div>
+                    <div class="btn btn-primary">
+                        <% failed = order.payment_status %>
+                        <%= failed.caplitalize %>
+                    </div>
                   <% elsif order.status == "not ready" %>
                     <div class="btn btn-danger"><%= order.status %></div>
                   <% elsif order.status == "awaiting pick-up" %>
