@@ -8,8 +8,7 @@ class UserMailer < ApplicationMailer
   end
 
   def pick_up_email(user)
-    @user = user
-    mail(to: @user.email, subject: 'Order ready for pickup')
+    mail(to: user, subject: 'Order ready for pickup')
   end
 
 end
