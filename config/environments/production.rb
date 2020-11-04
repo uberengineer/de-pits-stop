@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   # SMTP settings for gmail
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "depitskeuken.nl" }
+  # config.action_mailer.default_url_options = { host: "localhost:3000" }
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.hosts = nil
