@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
       redirect_to payment.checkout_url
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
-      UserMailer.with(user: @order.user).pick_up_email.deliver_now
+      UserMailer.with(user: user).pick_up_email.deliver_now
       # UserMailer.pick_up_email(@order.user).deliver_now
       redirect_to orders_path
     else @order.status == "awaiting pick-up"
