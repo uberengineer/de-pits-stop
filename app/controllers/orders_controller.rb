@@ -63,9 +63,7 @@ class OrdersController < ApplicationController
   end
 
   def show_current_orders
-    @orders = current_user.orders.select do |order|
-      order.status == "not ready" || order.status == "awaiting pick-up"
-    end
+    @orders = current_user.orders
   end
 
   def show_user_orders
