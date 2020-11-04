@@ -63,7 +63,9 @@ class OrdersController < ApplicationController
   end
 
   def show_current_orders
-    @orders = current_user.orders
+    @orders = current_user.orders.select do |order|
+      order.status != "in progress"
+    end
   end
 
   def show_user_orders
