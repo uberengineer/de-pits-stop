@@ -1,6 +1,6 @@
 ActionMailer::Base.smtp_settings = {
-  address: 'srv12243.hostingserver.nl',
-  port: 587,
+  address: 'contact@depitskeuken.nl',
+  port: 25,
   domain: 'depitskeuken.nl',
   user_name: ENV['MAILER_ADDRESS'],
   password: ENV['MAILER_PASSWORD'],
