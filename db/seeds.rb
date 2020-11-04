@@ -19,6 +19,14 @@ User.create(
     organization: "De Pits",
     admin: true
     )
+    User.create(
+    first_name: "De Pits",
+    last_name: "Administrator",
+    email: "admin@gmail.com",
+    password: "admin123",
+    organization: "De Pits",
+    admin: true
+    )
     puts "Default admin accout created"
     puts "-----------"
 User.create(
@@ -29,6 +37,7 @@ User.create(
     organization: "Test",
     admin: false
     )
+    
 puts "Test user created"
 puts "-----------"
 puts "Creating menu items"

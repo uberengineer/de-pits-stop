@@ -18,7 +18,6 @@ class PagesController < ApplicationController
     @payment = Mollie::Payment.get(@order.mollie_id)
     @order.payment_status = @payment.status
     @order.save
-    
   end
 
   def instructions
