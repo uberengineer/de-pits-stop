@@ -42,15 +42,8 @@ class OrdersController < ApplicationController
       payment = Mollie::Payment.create(
         amount:       { value: humanized_money(@order.amount), currency: 'EUR' },
         description:  @order.id.to_s,
-        
-        raise
-
-        redirect_url: confirmation_url(@order, host: root_url),
-        webhook_url:  webhook_url(host: root_url)
-        
-        # # redirect_url: 'https://de-pits-stop.herokuapp.com/order/:id/confirmation',
-        # # webhook_url:  'https://de-pits-stop.herokuapp.com/mollie/webhook/'
-        
+        redirect_url: confirmation_url(@order, host: 'https://de-pits-stop.herokuapp.com'),
+        webhook_url:  webhook_url(host: 'https://de-pits-stop.herokuapp.com')
         )
       
       @order.mollie_id = payment.id
