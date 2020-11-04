@@ -48,11 +48,11 @@ class OrdersController < ApplicationController
       
       @order.mollie_id = payment.id
       @order.save
-      UserMailer.confirmation_email(@order.user, @order).deliver_now
+      UserMailer.confirmation_email(@order.user, @order).deliver_later
       redirect_to payment.checkout_url
     elsif @order.status == "not ready"
       @order.status = "awaiting pick-up"
-      UserMailer.pick_up_email(@order.user).deliver_now
+      UserMailer.pick_up_email(@order.user).deliver_later
       redirect_to orders_path
     else @order.status == "awaiting pick-up"
       @order.status = "completed"
