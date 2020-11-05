@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
     orders = Order.select do |order|
       order.status == "completed"
     end
-
     orders = orders.sort_by do |order|
       order.created_at
     end
@@ -63,11 +62,13 @@ class OrdersController < ApplicationController
   end
 
   def show_current_orders
-    @orders = current_user.orders.select do |order|
+    orders = current_user.orders.select do |order|
       order.status != "in progress"
-      
     end
-    
+    orders = orders.sort_by do |order|
+      order.created_at
+    end
+    @orders = orders.reverse
   end
 
   def show_user_orders
