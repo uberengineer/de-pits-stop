@@ -1,7 +1,7 @@
 ActionMailer::Base.smtp_settings = {
   address: 'mail.depitskeuken.nl',
   port: 587,
-  openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE,
+  enable_starttls_auto: true,
   domain: 'depitskeuken.nl',
   user_name: ENV['MAILER_ADDRESS'],
   password: ENV['MAILER_PASSWORD'],
