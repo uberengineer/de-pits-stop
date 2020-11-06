@@ -12,34 +12,16 @@ puts "starting the seeds"
 Kitchen.create()
 
 User.create(
-    first_name: "De Pits",
+    first_name: "De Pits Keuken",
     last_name: "Administrator",
     email: ENV['MAILER_ADDRESS'],
     password: ENV['MAILER_PASSWORD'],
-    organization: "De Pits",
+    organization: "De Pits Keuken",
     admin: true
     )
-    User.create(
-    first_name: "De Pits",
-    last_name: "Administrator",
-    email: "admin@gmail.com",
-    password: "admin123",
-    organization: "De Pits",
-    admin: true
-    )
-    puts "Default admin accout created"
+    puts "Admin accout created"
     puts "-----------"
-User.create(
-    first_name: "Test",
-    last_name: "User",
-    email: "user@email.com",
-    password: "password",
-    organization: "Test",
-    admin: false
-    )
-    
-puts "Test user created"
-puts "-----------"
+
 puts "Creating menu items"
 menu = YAML.load_file(Rails.root.join("db/assets/menu_items.yml")).deep_symbolize_keys
 
