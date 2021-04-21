@@ -1,0 +1,206 @@
+daily_specials:
+  - name: "Pompoensoep"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 9.00
+    image: 'db/assets/images/pompoensoep.jpeg'
+    category: "daily_specials"
+
+  - name: "Broodje Marokkaanse lamsworst"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 8.00
+    image: 'db/assets/images/16.jpeg'
+    category: "daily_specials"
+
+  - name: "Griekse salade met feta"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 8.00
+    image: 'db/assets/images/caprese-salad.jpeg'
+    category: "daily_specials"
+
+combi_deals:
+  - name: "Mexicaanse kipburger"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/10.jpeg'
+    category: "combi_deals"
+
+  - name: "XL Zalm bagel"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/9.jpeg'
+    category: "combi_deals"
+
+  - name: "Broodje Surinaamse Kip"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/12.jpeg'
+    category: "combi_deals"
+
+  - name: "Rode bieten wrap met hummus"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/11.jpeg'
+    category: "combi_deals"
+
+  - name: "Pasta Kip pesto"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/8.jpeg'
+    category: "combi_deals"
+
+  - name: "Maaltijdsalade hummus"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/7.jpeg'
+    category: "combi_deals"
+
+  - name: "Maaltijdsalade gemarineerde kip"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/nasi-vega-kip.jpeg'
+    category: "combi_deals"
+
+  - name: "Maaltijdsalade huis gerookte zalm"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 11.50
+    image: 'db/assets/images/caprese-salad.jpeg'
+    category: "combi_deals"
+
+losse_items:
+  - name: "XL Bagel huis gerookte zalm"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 6.75
+    image: 'db/assets/images/9.jpeg'
+    category: "losse_items"
+
+  - name: "Mexicaanse kipburger"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 6.75
+    image: 'db/assets/images/10.jpeg'
+    category: "losse_items"
+
+  - name: "Rode bieten wrap met hummus"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 5.50
+    image: 'db/assets/images/11.jpeg'
+    category: "losse_items"
+
+  - name: "Broodje Surinaamse Kip"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 5.95
+    image: 'db/assets/images/12.jpeg'
+    category: "losse_items"
+
+  - name: "Ciabatta Caprese"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 7.75
+    image: 'db/assets/images/13.jpeg'
+    category: "losse_items"
+
+  - name: "Tuna melt"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 5.75
+    image: 'db/assets/images/14.jpeg'
+    category: "losse_items"
+
+  - name: "Ciabatta oude kaas"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 5.75
+    image: 'db/assets/images/xxx.jpeg'
+    category: "losse_items"
+
+  - name: "Ciabatta gezond"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 6.25
+    image: 'db/assets/images/16.jpeg'
+    category: "losse_items"
+
+  - name: "Huisgemaakte rode linzensoep"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 5.00
+    image: 'db/assets/images/17.jpeg'
+    category: "losse_items"
+
+  - name: "Tosti"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 4.50
+    image: 'db/assets/images/xxx.jpeg'
+    category: "losse_items"
+
+  - name: "Uitsmijter"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 4.50
+    image: 'db/assets/images/xxx.jpeg'
+    category: "losse_items"
+
+
+extras:
+  - name: "Frites"
+    price: 2.25
+    image: 'db/assets/images/xxx.jpeg'
+    category: "extras"
+
+  - name: "Mayonaise"
+    price: 0.75
+    image: 'db/assets/images/xxx.jpeg'
+    category: "extras"
+
+  - name: "Groene salade"
+    price: 3.00
+    image: 'db/assets/images/xxx.jpeg'
+    category: "extras"
+
+  - name: "Guacamole"
+    price: 2.00
+    image: 'db/assets/images/xxx.jpeg'
+    category: "extras"
+
+  - name: "Nachos' & Guacamole"
+    price: 3.75
+    image: 'db/assets/images/xxx.jpeg'
+    category: "extras"
+
+koude_dranken:
+  - name: "Verse jus d’orange"
+    price: 3.30
+    image: 'db/assets/images/xxx.jpeg'
+    category: "koude_dranken"
+
+  - name: "Sisi"
+    price: 2.20
+    image: 'db/assets/images/xxx.jpeg'
+    category: "koude_dranken"
+
+  - name: "Coca-Cola"
+    price: 2.20
+    image: 'db/assets/images/xxx.jpeg'
+    category: "koude_dranken"
+
+  - name: "Coca-Cola Zero"
+    price: 2.20
+    image: 'db/assets/images/xxx.jpeg'
+    category: "koude_dranken"
+
+  - name: "Appelsap"
+    price: 2.50
+    image: 'db/assets/images/xxx.jpeg'
+    category: "koude_dranken"
+
+desserts:
+  - name: "American cookie"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 2.25
+    image: 'db/assets/images/cookie.jpeg'
+    category: "desserts"
+
+  - name: "Brownie"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 2.25
+    image: 'db/assets/images/brownie.jpeg'
+    category: "desserts"
+
+  - name: "Havermout koek"
+    description: "Hummus salade met gegrilde groenten en zongedroogde tomaat Vers brood Drankje naar keuze"
+    price: 2.25
+    image: 'db/assets/images/koek.jpeg'
+    category: "desserts"

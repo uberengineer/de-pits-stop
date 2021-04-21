@@ -43,12 +43,15 @@
     <% if !current_user.admin %>
     <div class="nav-menu noscroll">
         <% if params[:controller] == "menu_items" && params[:action] == "index" %>
-        <div class="item item1"><a class="menu-link btn btn-dark" href="#d-cat-daily">Specials</a></div>
-        <div class="item item2"><a class="menu-link btn btn-dark" href="#d-cat-combi">Deals</a></div>
-        <div class="item item3"><a class="menu-link btn btn-dark" href="#d-cat-losse">Mains</a></div>
-        <div class="item item4"><a class="menu-link btn btn-dark" href="#d-cat-koude">Drinks</a></div>
-        <div class="item item5"><a class="menu-link btn btn-dark" href="#d-cat-desserts">Desserts</a></div>
-        <div class="item item5"><a class="menu-link btn btn-dark" href="#d-cat-extras">Extras</a></div>
+            <div class="item item1"><a class="menu-link btn btn-dark" href="#d-cat-warme-gerechten">Warme Gerechten</a></div>
+            <div class="item item2"><a class="menu-link btn btn-dark" href="#d-cat-koude-gerechten">Koude Gerechten</a></div>
+            <div class="item item3"><a class="menu-link btn btn-dark" href="#d-cat-extras">Extras</a></div>
+            <div class="item item4"><a class="menu-link btn btn-dark" href="#d-cat-soupen">Soupen</a></div>
+            <div class="item item5"><a class="menu-link btn btn-dark" href="#d-cat-saladen">Saladen</a></div>
+            <div class="item item6"><a class="menu-link btn btn-dark" href="#d-cat-specials">Specials</a></div>
+            <div class="item item7"><a class="menu-link btn btn-dark" href="#d-cat-koek-en-taart">Koek & Taart</a></div>
+            <div class="item item8"><a class="menu-link btn btn-dark" href="#d-cat-koude-dranken">Koude Dranken</a></div>
+            <div class="item item9"><a class="menu-link btn btn-dark" href="#d-cat-warme-dranken">Warme Dranken</a></div>
         <% end %>
     </div>
     <% end %>
@@ -106,12 +109,16 @@
         <% if params[:controller] == "menu_items" && params[:action] == "index" %>
         <main class="grid-item main noscroll">
             <div class="items noscroll">
-                <div class="item item1"><a class="menu-link btn btn-dark" href="#m-cat-daily">Specials</a></div>
-                <div class="item item2"><a class="menu-link btn btn-dark" href="#m-cat-combi">Deals</a></div>
-                <div class="item item3"><a class="menu-link btn btn-dark" href="#m-cat-losse">Mains</a></div>
-                <div class="item item4"><a class="menu-link btn btn-dark" href="#m-cat-koude">Drinks</a></div>
-                <div class="item item5"><a class="menu-link btn btn-dark" href="#m-cat-desserts">Desserts</a></div>
-                <div class="item item5"><a class="menu-link btn btn-dark" href="#m-cat-extras">Extras</a></div>
+                <div class="item item1"><a class="menu-link btn btn-dark" href="#m-cat-warme-gerechten">Warme Gerechten</a></div>
+                <div class="item item2"><a class="menu-link btn btn-dark" href="#m-cat-koude-gerechten">Koude Gerechten</a></div>
+                <div class="item item3"><a class="menu-link btn btn-dark" href="#m-cat-extras">Extras</a></div>
+                <div class="item item4"><a class="menu-link btn btn-dark" href="#m-cat-soupen">Soupen</a></div>
+                <div class="item item5"><a class="menu-link btn btn-dark" href="#m-cat-saladen">Saladen</a></div>
+                <div class="item item6"><a class="menu-link btn btn-dark" href="#m-cat-specials">Specials</a></div>
+                <div class="item item7"><a class="menu-link btn btn-dark" href="#m-cat-koek-en-taart">Koek & Taart</a></div>
+                <div class="item item8"><a class="menu-link btn btn-dark" href="#m-cat-koude-dranken">Koude Dranken</a></div>
+                <div class="item item9"><a class="menu-link btn btn-dark" href="#m-cat-warme-dranken">Warme Dranken</a></div>
+
             </div>
         </main>
         <% end %>
